@@ -1,0 +1,4 @@
+/build
+.vs/
+/xCoreSDK_CSharp/obj/x64
+/xCoreSDK_CSharp/out/bin/x64

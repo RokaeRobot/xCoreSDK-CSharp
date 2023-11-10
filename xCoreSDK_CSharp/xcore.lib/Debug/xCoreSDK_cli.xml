@@ -1,0 +1,3206 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        robot_cli
+    </assembly>
+    <members>
+        <member name="M:rokae.PCB4Robot.#ctor(std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief Default constructor
+
+@brief 创建PCB4机器人实例并连接
+@param remoteIP 机器人IP地址
+
+</member>
+        <member name="T:rokae.PCB4Robot">
+@class PCB4Robot
+@brief PCB4轴机型
+
+</member>
+        <member name="M:rokae.PCB3Robot.#ctor(std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief Default constructor
+
+@brief 创建PCB3机器人实例并连接
+@param remoteIP 机器人IP地址
+@throw NetworkException 网络连接异常
+
+</member>
+        <member name="T:rokae.PCB3Robot">
+@class PCB3Robot
+@brief PCB3轴机型
+
+</member>
+        <member name="M:rokae.StandardRobot.setRtNetworkTolerance(System.UInt32,std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 设置发送实时运动指令网络延迟阈值。
+请在切换到RtCommand模式前进行设置，否则不生效。
+@param[in] percent 允许的范围0 - 100
+@param[out] ec 错误码
+
+</member>
+        <member name="M:rokae.StandardRobot.getRtMotionController">
+@brief 创建实时运动控制类(RtMotionControlIndustrial)实例，通过此实例指针进行实时模式相关的操作。
+@note 除非重复调用此接口，客户端内部逻辑不会主动析构返回的对象，
+包括但不限于断开和机器人连接disconnectFromRobot()，切换到非实时运动控制模式等，但做上述操作之后再进行实时模式控制会产生异常。
+@return 控制器对象
+@throw RealtimeControlException 创建RtMotionControl实例失败，由于网络问题
+@throw ExecutionException 没有切换到实时运动控制模式
+
+</member>
+        <member name="M:rokae.StandardRobot.disableCollisionDetection(std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 关闭碰撞检测功能
+@param[out] ec 错误码
+
+</member>
+        <member name="M:rokae.StandardRobot.enableCollisionDetection(std.array&lt;System.Double,0x06&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.Double,std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 设置碰撞检测相关参数, 打开碰撞检测功能。工业机型只支持stop1（安全停止）
+@param[in] sensitivity 碰撞检测灵敏度，范围0.01-2.0
+@param[in] fallback 碰撞后回退距离，单位: 米
+@param[out] ec 错误码
+
+</member>
+        <member name="M:rokae.StandardRobot.#ctor(std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 工业6轴机器人
+@param[in] remoteIP 机器人IP地址
+@param[in] localIP 本机地址。实时模式下收发交互数据用，使用实时运动控制模式时需要设置。
+@throw NetworkException 网络连接错误
+@throw ExecutionException 机器人实例与连接机型不符，或未授权SDK
+
+</member>
+        <member name="M:rokae.StandardRobot.#ctor">
+@brief Default constructor
+
+</member>
+        <member name="T:rokae.StandardRobot">
+@class StandardRobot
+@brief 标准工业6轴机型
+
+</member>
+        <member name="M:rokae.xMateErProRobot.#ctor(std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief default constructor
+
+@brief 创建协作7轴机器人示例并连接
+@param remoteIP 机器人IP地址
+@param localIP 本机地址，实时收发数据时需要设置
+@throw NetworkException 网络连接错误
+@throw ExecutionException 机器人实例与连接机型不符，或未授权SDK
+
+</member>
+        <member name="T:rokae.xMateErProRobot">
+@class xMateErProRobot
+@brief 7轴协作机器人, 包括 xMateER3 Pro / xMateER7 Pro
+
+</member>
+        <member name="M:rokae.xMateRobot.getAvoidSingularity(std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 查询是否处于规避奇异点的状态
+@param[out] ec 错误码
+@return true - 已打开
+
+</member>
+        <member name="M:rokae.xMateRobot.setAvoidSingularity(System.Boolean,std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 适用于xMateCR和xMateSR系列机型，打开后，机械臂将在受限的笛卡尔自由度下运动，
+目前是通过锁住机械臂4轴的方式来规避奇异点, 避免出现奇异和尖点问题。
+@param[in] enable true - 打开功能 | false - 关闭。打开之前要确保4轴处于零位。
+@param[out] ec 错误码
+
+</member>
+        <member name="M:rokae.xMateRobot.#ctor(std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief default constructor
+
+@brief 创建机器人示例并连接
+@param remoteIP 机器人IP地址
+@param localIP 本机地址，实时收发数据时需要设置
+@throw NetworkException 网络连接错误
+@throw ExecutionException 机器人实例与连接机型不符，或未授权SDK
+
+</member>
+        <member name="T:rokae.xMateRobot">
+@class xMateRobot
+@brief 6轴协作机器人, 包括 xMateCR7/12, xMateSR3/4, xMateER3/7
+
+</member>
+        <member name="M:rokae.BaseCobot.disableCollisionDetection(std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 关闭碰撞检测功能
+@param[out] ec 错误码
+
+</member>
+        <member name="M:rokae.BaseCobot.useRciClient(System.Boolean,std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 兼容RCI客户端设置的接口。通过SDK设置运动控制模式为实时模式之后，无法再使用原RCI客户端控制机器人。
+若有使用原版的需求，可在切换到非实时模式后，调用此接口。然后再在RobotAssist上打开RCI功能，即可使用RCI客户端。
+@param[in] use true - 切换到使用第一代
+@param[out] ec 错误码
+
+</member>
+        <member name="M:rokae.BaseCobot.setRtNetworkTolerance(System.UInt32,std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 设置发送实时运动指令网络延迟阈值，即RobotAssist - RCI设置界面中的”包丢失阈值“。
+请在切换到RtCommand模式前进行设置，否则不生效。
+@param[in] percent 允许的范围0 - 100
+@param[out] ec 错误码
+
+</member>
+        <member name="M:rokae.BaseCobot.setxPanelVout(rokae.xPanelOpt.Vout,std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 设置xPanel对外供电模式。注：仅部分机型支持xPanel功能，不支持的机型会返回错误码
+@param[in] opt 模式
+@param[out] ec 错误码
+
+</member>
+        <member name="M:rokae.BaseCobot.queryPathLists(std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 查询已保存的所有路径名称
+@param[out] ec 错误码
+@return 名称列表, 若没有路径则返回空列表
+
+</member>
+        <member name="M:rokae.BaseCobot.removePath(std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.Boolean)">
+@brief 删除已保存的路径
+@param[in] name 要删除的路径名称
+@param[out] ec 错误码。若路径不存在，错误码不会被置位
+@param[in] removeAll 是否删除所有路径, 可选参数, 默认为否
+
+</member>
+        <member name="M:rokae.BaseCobot.replayPath(std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.Double,std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 运动指令-路径回放。
+@param[in] name 要回放的路径名称
+@param[in] rate 回放速率, 应小于3.0, 1为路径原始速率。注意当速率大于1时，可能产生驱动器无法跟随错误
+@param[out] ec 错误码
+
+</member>
+        <member name="M:rokae.BaseCobot.saveRecordPath(std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerService">
+@brief 保存录制好的路径
+@param[in] name 路径名称
+@param[out] ec 错误码
+@param[in] saveAs 重命名，可选参数。
+              如果已录制好一条路径但没有保存，则用该名字保存路径。如果没有未保存的路径，则将已保存的名为"name"的路径重命名为"saveAs"
+
+</member>
+        <member name="M:rokae.BaseCobot.cancelRecordPath(std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 取消录制, 缓存的路径数据将被删除
+@param[out] ec 错误码
+
+</member>
+        <member name="M:rokae.BaseCobot.stopRecordPath(std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 停止录制路径, 若录制成功(无错误码)则路径数据保存在缓存中
+@param[out] ec 错误码
+
+</member>
+        <member name="M:rokae.BaseCobot.startRecordPath(System.Int32,std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 开始录制路径
+@param[in] duration 路径的时长，单位:秒，范围1~1800.此时长只做范围检查用，到时后控制器不会停止录制，需要调用stopRecordPath()来停止
+@param[out] ec 错误码
+
+</member>
+        <member name="M:rokae.BaseCobot.disableDrag(std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 关闭拖动
+@param[out] ec 错误码
+
+</member>
+        <member name="M:rokae.BaseCobot.enableDrag(rokae.DragParameter.Space,rokae.DragParameter.Type,std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 打开拖动
+@param[in] space 拖动空间. 轴空间拖动仅支持自由拖拽类型
+@param[in] type 拖动类型
+@param[out] ec 错误码
+
+</member>
+        <member name="T:rokae.BaseCobot">
+@brief 协作机器人通用类
+
+</member>
+        <member name="T:rokae.BaseRobot.Impl">
+@endcond
+</member>
+        <member name="M:rokae.BaseRobot.#ctor(rokae.BaseRobot!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@endcond
+@cond DO_NOT_DOCUMENT
+</member>
+        <member name="M:rokae.BaseRobot.#ctor">
+@cond DO_NOT_DOCUMENT
+</member>
+        <member name="M:rokae.BaseRobot.Dispose">
+@brief 析构Robot对象时会让机器人停止运动
+
+</member>
+        <member name="M:rokae.BaseRobot.wobjsInfo(std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 查询当前加载工程的工件信息
+@param[out] ec 错误码
+@return 工件信息列表, 若未加载任何工程或没有创建工件, 则返回空vector
+
+</member>
+        <member name="M:rokae.BaseRobot.toolsInfo(std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 查询当前加载工程的工具信息
+@param[out] ec 错误码
+@return 工具信息列表, 若未加载任何工程或没有创建工具, 则返回默认工具tool0的信息
+
+</member>
+        <member name="M:rokae.BaseRobot.setProjectRunningOpt(System.Double,System.Boolean,std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 更改工程的运行速度和循环模式
+@param[in] rate 运行速率，范围 0.01 - 1
+@param[in] loop true - 循环执行 | false - 单次执行
+@param[out] ec 错误码
+
+</member>
+        <member name="M:rokae.BaseRobot.pauseProject(std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 暂停运行工程
+@param[out] ec 错误码
+
+</member>
+        <member name="M:rokae.BaseRobot.runProject(std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 开始运行当前加载的工程
+@param[out] ec 错误码
+
+</member>
+        <member name="M:rokae.BaseRobot.ppToMain(std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 程序指针跳转到main。调用后，等待控制器解析完工程后返回，阻塞时间视工程大小而定，超时时间设定为10秒。
+@param[out] ec 错误码。错误码能提供的信息有限，不能反馈如RL语法错误、变量不存在等错误。可通过queryControllerLog()查询错误日志。
+
+</member>
+        <member name="M:rokae.BaseRobot.loadProject(std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.vector&lt;std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;,std.allocator&lt;std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Ru">
+@brief 加载工程
+@param[in] name 工程名称
+@param[in] tasks 要运行的任务。该参数必须指定，不能为空，否则无法执行工程。
+@param[out] ec 错误码
+
+</member>
+        <member name="M:rokae.BaseRobot.projectsInfo(std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 查询工控机中RL工程名称及任务
+@param[out] ec 错误码
+@return 工程信息列表，若没有创建工程则返回空列表
+
+</member>
+        <member name="M:rokae.BaseRobot.updateRobotState(std.chrono.duration&lt;System.Int64,std.ratio&lt;0x01,0x03b9aca00&gt;&gt;)">
+@brief 接收一次机器人状态数据，在每周期读取数据前，需调用此函数。建议按照设定的发送频率来调用，以获取最新的数据
+@param[in] timeout 超时时间
+@return 接收到的数据长度。如果超时前没有收到数据，那么返回0。
+@throw RealtimeControlException 无法收到数据；或收到的数据有错误导致无法解析
+
+</member>
+        <member name="M:rokae.BaseRobot.stopReceiveRobotState">
+@brief 停止接收实时状态数据，同时控制器停止发送。可用于重新设置要接收的状态数据。
+
+</member>
+        <member name="M:rokae.BaseRobot.queryEventInfo(rokae.Event,std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 查询事件信息。与setEventWatcher()回调时的提供的信息相同，区别是这个接口是主动查询的方式
+@param[in] eventType 事件类型
+@param[out] ec 错误码
+@return 事件信息
+
+</member>
+        <member name="M:rokae.BaseRobot.setEventWatcher(rokae.Event,std.function&lt;(std.unordered_map&lt;std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;,std.any,std.hash&lt;std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;&gt;,std.equal_to&lt;std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte">
+@brief 设置接收事件的回调函数
+@param[in] eventType 事件类型
+@param[in] callback 处理事件的回调函数。说明:
+  1) 对于Event::moveExecution, 回调函数在同一个线程执行, 请避免函数中有执行时间较长的操作;
+  2) Event::safety则每次独立线程回调, 没有执行时间的限制
+@param[out] ec 错误码
+
+</member>
+        <member name="M:rokae.BaseRobot.lastErrorCode">
+@brief 获取最新的错误码, 目前为运动指令的执行结果
+@return 错误码,可调用message()获取详细信息
+
+</member>
+        <member name="M:rokae.BaseRobot.startJog(rokae.JogOpt.Space,System.Double,System.Double,System.UInt32,System.Boolean,std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 开始jog机器人，需要切换到手动操作模式。
+@note 调用此接口并且机器人开始运动后，无论机器人是否已经自行停止，都必须调用stop()来结束jog操作，否则机器人会一直处于jog的运行状态。
+@param[in] space jog参考坐标系。工具/工件坐标系使用原则同setToolset()
+@param[in] rate 速率, 范围 0.01 - 1
+@param[in] step 步长。单位: 笛卡尔空间-毫米 | 轴空间-度。步长大于0即可，不设置上限，
+            如果机器人无法继续jog会自行停止运动。
+@param[in] index 笛卡尔空间 - 0~5分别对应XYZABC | 轴空间 - 关节序号，从0开始计数
+@param[in] direction 方向，true - 正向 | false - 负向
+@param[out] ec 错误码
+
+</member>
+        <member name="M:rokae.BaseRobot.adjustSpeedOnline(System.Double,std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 动态调整机器人运动速率，非实时模式时生效。
+@param[in] scale 运动指令的速度的比例，范围 0.01 - 1。当设置scale为1时，机器人将以路径原本速度运动。
+@param[out] ec 错误码
+
+</member>
+        <member name="M:rokae.BaseRobot.setMaxCacheSize(System.Int32,std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 设置最大缓存指令个数，指发送到控制器待规划的路径点个数，允许的范围[1,20]，初始值为10。
+@note 如果轨迹多为短轨迹，可以调大这个数值，避免因指令发送不及时导致机器人停止运动(停止后如果有未执行的指令，可moveStart()继续);
+@param[in] number 个数
+@param[out] ec 错误码
+
+</member>
+        <member name="M:rokae.BaseRobot.setDefaultConfOpt(System.Boolean,std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 设置是否严格遵循笛卡尔点位Conf检查。初始值为false (不严格遵循)
+注：对于xMateCR和xMateSR系列机型，由于构型特殊，当运动指令设置了confData时，默认使用confData进行逆解计算。
+@param[in] forced true - 严格遵循，此时会用运动指令的confData计算笛卡尔点位逆解, 如计算失败则返回错误;
+false - 不严格遵循，逆解时会选取机械臂当前轴角度的最近解
+@param[out] ec 错误码
+
+</member>
+        <member name="M:rokae.BaseRobot.stop(std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 暂停机器人运动; 暂停后可调用moveStart()继续运动。若需要完全停止，不再执行已添加的指令，可调用moveReset()
+@note 目前支持stop2停止类型, 规划停止不断电, 参见StopLevel。
+@param[out] ec 错误码
+
+</member>
+        <member name="M:rokae.BaseRobot.moveStart(std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 开始/继续运动
+@param[out] ec 错误码
+
+</member>
+        <member name="M:rokae.BaseRobot.moveReset(std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 重置运动缓存, 清空已发送的运动指令, 清除执行信息
+@note 每次程序开始运行并第一次执行运动指令之前, 调用该函数来重置运动缓存
+@param[out] ec 错误码
+
+</member>
+        <member name="M:rokae.BaseRobot.setMotionControlMode(&lt;unknown type&gt;,std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 设置运动控制模式
+@note 在调用各运动控制接口之前, 须设置对应的控制模式。
+@param[in] mode 模式
+@param[out] ec 错误码
+
+</member>
+        <member name="M:rokae.BaseRobot.queryControllerLog(System.UInt32,std.set&lt;rokae.LogInfo.Level,std.less&lt;rokae.LogInfo.Level&gt;,std.allocator&lt;rokae.LogInfo.Level&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 查询控制器最新的日志
+@param[in] count 查询个数，上限是10条
+@param[in] level 指定日志等级，空集合代表不指定
+@param[out] ec 错误码
+@return 日志信息
+
+</member>
+        <member name="M:rokae.BaseRobot.sdkVersion">
+@brief 查询xCore-SDK版本
+@return 版本号
+
+</member>
+        <member name="M:rokae.BaseRobot.clearServoAlarm(std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 清除伺服报警
+@param[out] ec 错误码，当有伺服报警且清除失败的情况下错误码置为-1
+
+</member>
+        <member name="M:rokae.BaseRobot.setSimulationMode(System.Boolean,std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 设置输入仿真模式
+@param[in] state true - 打开 | false - 关闭
+@param[out] ec 错误码
+
+</member>
+        <member name="M:rokae.BaseRobot.setAO(System.UInt32,System.UInt32,System.Double,std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 设置模拟量输出信号
+@param[in] board IO板序号
+@param[in] port 信号端口号
+@param[in] value 输出值
+@param[out] ec 错误码
+
+</member>
+        <member name="M:rokae.BaseRobot.getAI(System.UInt32,System.UInt32,std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 读取模拟量输入信号值
+@param[in] board IO板序号
+@param[in] port 信号端口号
+@param[out] ec 错误码
+@return 信号值
+
+</member>
+        <member name="M:rokae.BaseRobot.setDO(System.UInt32,System.UInt32,System.Boolean,std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 设置数字量输出信号值
+@param[in] board IO板序号
+@param[in] port 信号端口号
+@param[in] state true-开 | false-关
+@param[out] ec 错误码
+
+</member>
+        <member name="M:rokae.BaseRobot.getDO(System.UInt32,System.UInt32,std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 查询数字输出量信号值
+@param[in] board IO板序号
+@param[in] port 信号端口号
+@param[out] ec 错误码
+@return true-开 | false-关
+
+</member>
+        <member name="M:rokae.BaseRobot.setDI(System.UInt32,System.UInt32,System.Boolean,std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 设置数字量输入信号，仅当输入仿真模式打开时可以设置(见setSimulationMode())
+@param[in] board IO板序号
+@param[in] port 信号端口号
+@param[in] state true-开 | false-关
+@param[out] ec 错误码
+
+</member>
+        <member name="M:rokae.BaseRobot.getDI(System.UInt32,System.UInt32,std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 查询数字量输入信号值
+@param[in] board IO板序号
+@param[in] port 信号端口号
+@param[out] ec 错误码
+@return true-开 | false-关
+
+</member>
+        <member name="M:rokae.BaseRobot.setToolset(std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.error_code*!System.Runtime.CompilerServices.Is">
+@brief 使用已创建的工具和工件，设置工具工件组信息
+@note 设置前提: 已加载一个RL工程，且创建了工具和工件。否则，只能设置为默认的工具工件，即"tool0"和"wobj0"。
+一组工具工件无法同时为手持或外部；如果有冲突，以工具的位置为准，例如工具工件同时为手持，不会返回错误，但是工件的坐标系变成了外部
+@param[in] toolName 工具名称
+@param[in] wobjName 工件名称
+@param[out] ec 错误码
+@return 设置后的工具工件组信息。当发生错误设置失败时，返回Toolset类型初始化默认值0
+
+</member>
+        <member name="M:rokae.BaseRobot.setToolset(rokae.Toolset!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 设置工具工件组信息
+@note 此工具工件组仅为SDK运动控制使用, 不与RL工程相关.
+      除此接口外, 如果通过RobotAssist更改默认工具工件(右上角的选项), 该工具工件组也会相应更改.
+@param[in] toolset 工具工件组信息
+@param[out] ec 错误码
+
+</member>
+        <member name="M:rokae.BaseRobot.toolset(std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 查询当前工具工件组信息
+@note 此工具工件组仅为SDK运动控制使用, 不与RL工程相关.
+@param[out] ec 错误码
+
+</member>
+        <member name="M:rokae.BaseRobot.baseFrame(std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 读取基坐标系, 相对于世界坐标系
+@param[out] ec 错误码
+@return 数组, 长度: \f$ \mathbb{R}^{6 \times 1} \f$ = \f$ \mathbb{R}^{3 \times 1} \f$
+transformation and \f$ \mathbb{R}^{3 \times 1} \f$ rotation \f$ [x, y, z, rx, ry, rz]^T \f$.
+
+</member>
+        <member name="M:rokae.BaseRobot.flangePos(std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 机器人法兰相对于基坐标系位姿 \f$^{O}T_{F}~[m][rad]\f$.
+@param[out] ec 错误码
+@return double数组, 长度: \f$ \mathbb{R}^{6 \times 1} \f$ = \f$ \mathbb{R}^{3 \times 1} \f$
+transformation and \f$ \mathbb{R}^{3 \times 1} \f$ rotation \f$ [x, y, z, a, b, c]^T \f$.
+
+</member>
+        <member name="M:rokae.BaseRobot.cartPosture(rokae.CoordinateType,std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 获取机器人法兰或末端的当前位姿
+@param[in] ct 坐标系类型
+@param[out] ec 错误码
+@return 当前笛卡尔位置
+
+</member>
+        <member name="M:rokae.BaseRobot.posture(rokae.CoordinateType,std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 获取机器人法兰或末端的当前位姿 \f$^{O}T_{F}~[m][rad]\f$.
+@param[in] ct 坐标系类型
+1) flangeInBase: 法兰相对于基坐标系;
+2) endInRef: 末端相对于外部参考坐标系。例如,当设置了手持工具及外部工件后，该坐标系类型返回的是工具相对于工件坐标系的坐标。
+             再例如，若外部参考坐标系与基坐标系重合，那么返回的结果等同于末端相对于基坐标系的位姿。
+@param[out] ec 错误码
+@return double数组, 长度: \f$ \mathbb{R}^{6 \times 1} \f$ = \f$ \mathbb{R}^{3 \times 1} \f$
+transformation and \f$ \mathbb{R}^{3 \times 1} \f$ rotation \f$ [x, y, z, rx, ry, rz]^T \f$.
+
+</member>
+        <member name="M:rokae.BaseRobot.operationState(std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 查询机器人当前运行状态 (空闲,运动中, 拖动开启等)
+@param[out] ec 错误码
+@return 运行状态枚举类
+
+</member>
+        <member name="M:rokae.BaseRobot.robotInfo(std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 查询机器人基本信息
+@param[out] ec 错误码
+@return 机器人基本信息
+
+</member>
+        <member name="M:rokae.BaseRobot.setOperateMode(rokae.OperateMode,std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 切换手自动模式
+@param[in] mode 手动/自动
+@param[out] ec 错误码
+
+</member>
+        <member name="M:rokae.BaseRobot.operateMode(std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 查询机器人当前操作模式
+@param[out] ec 错误码
+@return 手动 | 自动
+
+</member>
+        <member name="M:rokae.BaseRobot.setPowerState(System.Boolean,std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 机器人上下电。注: 只有无外接使能开关或示教器的机器人才能手动模式上电。
+@param[in] on true-上电 | false-下电
+@param[out] ec 错误码
+
+</member>
+        <member name="M:rokae.BaseRobot.powerState(std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 机器人上下电以及急停状态
+@param[out] ec 错误码
+@return on-上电 | off-下电 | estop-急停 | gstop-安全门打开
+
+</member>
+        <member name="M:rokae.BaseRobot.disconnectFromRobot(std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 断开与机器人连接。断开前会停止机器人运动, 请注意安全
+@param[out] ec 错误码
+
+</member>
+        <member name="T:rokae.BaseRobot">
+@class BaseRobot
+@brief 机器人通用接口
+
+</member>
+        <member name="T:rokae.Info">
+@struct Info
+@brief 机器人基本信息，在与建立机器人连接后加载
+
+</member>
+        <member name="M:rokae.JointMotionGenerator.calculateSynchronizedValues(std.array&lt;System.Double,0x07&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 同步当前轴角度值
+@param[in] q_init 初始轴角度
+
+</member>
+        <member name="M:rokae.JointMotionGenerator.calculateDesiredValues(System.Double,std.array&lt;System.Double,0x07&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 计算时间t时的关节角度增量
+@param[in] t 时间点
+@param[out] delta_q_d 计算结果
+@return false: 运动规划没有结束 | true: 运动规划结束
+
+</member>
+        <member name="M:rokae.JointMotionGenerator.getTime">
+@brief 获得总运动时间
+
+</member>
+        <member name="M:rokae.JointMotionGenerator.setMax(std.array&lt;System.Double,0x07&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.array&lt;System.Double,0x07&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.array&lt;System.Double,0x07&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 设置轴空间运动参数
+@param[in] dq_max 最大速度
+@param[in] ddq_max_start 最大开始加速度
+@param[in] ddq_max_end 最大结束加速度
+
+</member>
+        <member name="M:rokae.JointMotionGenerator.#ctor(System.Double,std.array&lt;System.Double,0x07&gt;)">
+@brief 根据关节目标位置和速度系数生成一条轴空间轨迹，可用来回零或到达指定位置。
+@param[in] speed_factor 速度系数，范围[0, 1]
+@param[in] q_goal 目标关节角度
+
+</member>
+        <member name="T:rokae.JointMotionGenerator">
+@class JointMotionGenerator
+@brief S速度规划的轴空间运动。参考文献:
+Wisama Khalil and Etienne Dombre. 2002. Modeling, Identification and Control of Robots
+(Kogan Page Science Paper edition).
+
+</member>
+        <member name="M:rokae.CartMotionGenerator.calculateSynchronizedValues(System.Double)">
+@brief 同步当前弧长
+@param[in] s_init 初始弧长
+
+</member>
+        <member name="M:rokae.CartMotionGenerator.calculateDesiredValues(System.Double,System.Double*)">
+@brief 计算时间t时的弧长s
+@param[in] t 距开始规划的时间间隔，单位：秒
+@param[out] delta_s_d 计算结果
+@return false: 运动规划没有结束 | true: 运动规划结束
+
+</member>
+        <member name="M:rokae.CartMotionGenerator.getTime">
+@brief 获得总运动时间
+@return 运动时间，单位：秒
+
+</member>
+        <member name="M:rokae.CartMotionGenerator.setMax(System.Double,System.Double,System.Double)">
+@brief 设置笛卡尔空间运动参数
+@param[in] ds_max 最大速度
+@param[in] dds_max_start 最大开始加速度
+@param[in] dds_max_end 最大结束加速度
+
+</member>
+        <member name="M:rokae.CartMotionGenerator.#ctor(System.Double,System.Double)">
+@brief 根据关节目标位置和速度系数生成一条轴空间轨迹，可用来回零或到达指定位置。
+@param[in] speed_factor 速度系数，范围[0, 1].
+@param[in] s_goal 目标关节角度
+
+</member>
+        <member name="T:rokae.CartMotionGenerator">
+@class CartMotionGenerator
+@brief S速度规划的笛卡尔空间运动。
+参考文献: Wisama Khalil and Etienne Dombre. 2002. Modeling, Identification and Control of Robots
+(Kogan Page Science Paper edition).
+
+</member>
+        <member name="D:Eigen.AlignedBox1i">
+\defgroup alignedboxtypedefs Global aligned box typedefs
+  *
+  * \ingroup Geometry_Module
+  *
+  * Eigen defines several typedef shortcuts for most common aligned box types.
+  *
+  * The general patterns are the following:
+  *
+  * \c AlignedBoxSizeType where \c Size can be \c 1, \c 2,\c 3,\c 4 for fixed size boxes or \c X for dynamic size,
+  * and where \c Type can be \c i for integer, \c f for float, \c d for double.
+  *
+  * For example, \c AlignedBox3d is a fixed-size 3x3 aligned box type of doubles, and \c AlignedBoxXf is a dynamic-size aligned box of floats.
+  *
+  * \sa class AlignedBox
+
+</member>
+        <member name="D:Eigen.AlignedScaling3d">
+\deprecated 
+</member>
+        <member name="D:Eigen.AlignedScaling3f">
+\deprecated 
+</member>
+        <member name="D:Eigen.AlignedScaling2d">
+\deprecated 
+</member>
+        <member name="D:Eigen.AlignedScaling2f">
+\deprecated 
+</member>
+        <member name="M:Eigen.Scaling(System.Double)">
+Constructs a uniform scaling from scale factor \a s 
+</member>
+        <member name="M:Eigen.Scaling(System.Single)">
+Constructs a uniform scaling from scale factor \a s 
+</member>
+        <member name="D:Eigen.Translation2f">
+\addtogroup Geometry_Module 
+</member>
+        <member name="D:Eigen.Projective3d">
+\ingroup Geometry_Module 
+</member>
+        <member name="D:Eigen.Projective2d">
+\ingroup Geometry_Module 
+</member>
+        <member name="D:Eigen.Projective3f">
+\ingroup Geometry_Module 
+</member>
+        <member name="D:Eigen.Projective2f">
+\ingroup Geometry_Module 
+</member>
+        <member name="D:Eigen.AffineCompact3d">
+\ingroup Geometry_Module 
+</member>
+        <member name="D:Eigen.AffineCompact2d">
+\ingroup Geometry_Module 
+</member>
+        <member name="D:Eigen.AffineCompact3f">
+\ingroup Geometry_Module 
+</member>
+        <member name="D:Eigen.AffineCompact2f">
+\ingroup Geometry_Module 
+</member>
+        <member name="D:Eigen.Affine3d">
+\ingroup Geometry_Module 
+</member>
+        <member name="D:Eigen.Affine2d">
+\ingroup Geometry_Module 
+</member>
+        <member name="D:Eigen.Affine3f">
+\ingroup Geometry_Module 
+</member>
+        <member name="D:Eigen.Affine2f">
+\ingroup Geometry_Module 
+</member>
+        <member name="D:Eigen.Isometry3d">
+\ingroup Geometry_Module 
+</member>
+        <member name="D:Eigen.Isometry2d">
+\ingroup Geometry_Module 
+</member>
+        <member name="D:Eigen.Isometry3f">
+\ingroup Geometry_Module 
+</member>
+        <member name="D:Eigen.Isometry2f">
+\ingroup Geometry_Module 
+</member>
+        <member name="D:Eigen.AngleAxisd">
+\ingroup Geometry_Module
+  * double precision angle-axis type 
+</member>
+        <member name="D:Eigen.AngleAxisf">
+\ingroup Geometry_Module
+  * single precision angle-axis type 
+</member>
+        <member name="D:Eigen.QuaternionMapAlignedd">
+\ingroup Geometry_Module
+  * Map a 16-byte aligned array of double precision scalars as a quaternion 
+</member>
+        <member name="D:Eigen.QuaternionMapAlignedf">
+\ingroup Geometry_Module
+  * Map a 16-byte aligned array of single precision scalars as a quaternion 
+</member>
+        <member name="D:Eigen.QuaternionMapd">
+\ingroup Geometry_Module
+  * Map an unaligned array of double precision scalars as a quaternion 
+</member>
+        <member name="D:Eigen.QuaternionMapf">
+\ingroup Geometry_Module
+  * Map an unaligned array of single precision scalars as a quaternion 
+</member>
+        <member name="D:Eigen.Quaterniond">
+\ingroup Geometry_Module
+  * double precision quaternion type 
+</member>
+        <member name="D:Eigen.Quaternionf">
+\ingroup Geometry_Module
+  * single precision quaternion type 
+</member>
+        <member name="D:Eigen.Rotation2Dd">
+\ingroup Geometry_Module
+  * double precision 2D rotation type 
+</member>
+        <member name="D:Eigen.Rotation2Df">
+\ingroup Geometry_Module
+  * single precision 2D rotation type 
+</member>
+        <member name="M:Eigen.setNbThreads(System.Int32)">
+Sets the max number of threads reserved for Eigen
+  * \sa nbThreads 
+</member>
+        <member name="M:Eigen.nbThreads">
+\returns the max number of threads reserved for Eigen
+  * \sa setNbThreads 
+</member>
+        <member name="M:Eigen.initParallel">
+Must be call first when calling Eigen from multiple threads 
+</member>
+        <member name="M:Eigen.internal.manage_multi_threading(Eigen.Action,System.Int32*)">
+\internal 
+</member>
+        <member name="M:Eigen.setCpuCacheSizes(System.Int64,System.Int64,System.Int64)">
+Set the cpu L1 and L2 cache sizes (in bytes).
+  * These values are use to adjust the size of the blocks
+  * for the algorithms working per blocks.
+  *
+  * \sa computeProductBlockingSizes 
+</member>
+        <member name="M:Eigen.l3CacheSize">
+\returns the currently set level 3 cpu cache size (in bytes) used to estimate the ideal blocking size paramete
+rs.
+* \sa setCpuCacheSize 
+</member>
+        <member name="M:Eigen.l2CacheSize">
+\returns the currently set level 2 cpu cache size (in bytes) used to estimate the ideal blocking size parameters.
+  * \sa setCpuCacheSize 
+</member>
+        <member name="M:Eigen.l1CacheSize">
+\returns the currently set level 1 cpu cache size (in bytes) used to estimate the ideal blocking size parameters.
+  * \sa setCpuCacheSize 
+</member>
+        <member name="M:Eigen.internal.manage_caching_sizes(Eigen.Action,System.Int64*,System.Int64*,System.Int64*)">
+\internal 
+</member>
+        <member name="T:Eigen.internal.CacheSizes">
+\internal 
+</member>
+        <member name="M:Eigen.IOFormat.#ctor(System.Int32,System.Int32,std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.basic_string&lt;System.SByte!">
+Default constructor, see class IOFormat for the meaning of the parameters 
+</member>
+        <member name="T:Eigen.IOFormat">
+\class IOFormat
+  * \ingroup Core_Module
+  *
+  * \brief Stores a set of parameters controlling the way matrices are printed
+  *
+  * List of available parameters:
+  *  - \b precision number of digits for floating point values, or one of the special constants \c StreamPrecision and \c FullPrecision.
+  *                 The default is the special value \c StreamPrecision which means to use the
+  *                 stream's own precision setting, as set for instance using \c cout.precision(3). The other special value
+  *                 \c FullPrecision means that the number of digits will be computed to match the full precision of each floating-point
+  *                 type.
+  *  - \b flags an OR-ed combination of flags, the default value is 0, the only currently available flag is \c DontAlignCols which
+  *             allows to disable the alignment of columns, resulting in faster code.
+  *  - \b coeffSeparator string printed between two coefficients of the same row
+  *  - \b rowSeparator string printed between two rows
+  *  - \b rowPrefix string printed at the beginning of each row
+  *  - \b rowSuffix string printed at the end of each row
+  *  - \b matPrefix string printed at the beginning of the matrix
+  *  - \b matSuffix string printed at the end of the matrix
+  *  - \b fill character printed to fill the empty space in aligned columns
+  *
+  * Example: \include IOFormat.cpp
+  * Output: \verbinclude IOFormat.out
+  *
+  * \sa DenseBase::format(), class WithFormat
+
+</member>
+        <member name="T:Eigen.internal.scalar_boolean_xor_op">
+\internal
+ * \brief Template functor to compute the xor of two booleans
+ *
+ * \sa class CwiseBinaryOp, ArrayBase::operator^
+
+</member>
+        <member name="T:Eigen.internal.scalar_boolean_or_op">
+\internal
+  * \brief Template functor to compute the or of two booleans
+  *
+  * \sa class CwiseBinaryOp, ArrayBase::operator||
+
+</member>
+        <member name="T:Eigen.internal.default_packet_traits">
+\internal
+  * \file GenericPacketMath.h
+  *
+  * Default implementation for types not supported by the vectorization.
+  * In practice these functions are provided to make easier the writing
+  * of generic vectorized code.
+
+</member>
+        <member name="M:Eigen.numext.log2(System.Int32)">
+Log base 2 for 32 bits positive integers.
+  * Conveniently returns 0 for x==0. 
+</member>
+        <member name="M:Eigen.internal.queryTopLevelCacheSize">
+\internal
+ * \returns the size in Bytes of the L2 or L3 cache if this later is present 
+</member>
+        <member name="M:Eigen.internal.queryL1CacheSize">
+\internal
+ * \returns the size in Bytes of the L1 data cache 
+</member>
+        <member name="M:Eigen.internal.queryCacheSizes(System.Int32*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.Int32*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.Int32*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+\internal
+ * Queries and returns the cache sizes in Bytes of the L1, L2, and L3 data caches respectively 
+</member>
+        <member name="M:Eigen.internal.aligned_realloc(System.Void*,System.UInt64,System.UInt64)">
+\internal
+\brief Reallocates an aligned block of memory.
+\throws std::bad_alloc on allocation failure
+
+</member>
+        <member name="M:Eigen.internal.aligned_free(System.Void*)">
+\internal Frees memory allocated with aligned_malloc. 
+</member>
+        <member name="M:Eigen.internal.aligned_malloc(System.UInt64)">
+\internal Allocates \a size bytes. The returned pointer is guaranteed to have 16 or 32 bytes alignment depending on the requirements.
+  * On allocation error, the returned pointer is null, and std::bad_alloc is thrown.
+
+</member>
+        <member name="M:Eigen.internal.handmade_aligned_realloc(System.Void*,System.UInt64,System.UInt64,System.UInt64)">
+\internal
+  * \brief Reallocates aligned memory.
+  * Since we know that our handmade version is based on std::malloc
+  * we can use std::realloc to implement efficient reallocation.
+
+</member>
+        <member name="M:Eigen.internal.handmade_aligned_free(System.Void*)">
+\internal Frees memory allocated with handmade_aligned_malloc 
+</member>
+        <member name="M:Eigen.internal.handmade_aligned_malloc(System.UInt64,System.UInt64)">
+\internal Like malloc, but the returned pointer is guaranteed to be aligned to `alignment`.
+  * Fast, but wastes `alignment` additional bytes of memory. Does not throw any exception.
+
+</member>
+        <member name="M:Eigen.internal.is_constant_evaluated">
+\internal Provide fallback for std::is_constant_evaluated for pre-C++20.
+</member>
+        <member name="M:Eigen.internal.check_implication(System.Boolean,System.Boolean)">
+\internal Calculate logical IMPLIES at compile time
+</member>
+        <member name="M:Eigen.internal.logical_xor(System.Boolean,System.Boolean)">
+\internal Calculate logical XOR at compile time
+</member>
+        <member name="T:Eigen.internal.noncopyable">
+\internal
+  * A base class do disable default copy ctor and copy assignment operator.
+
+</member>
+        <member name="D:Eigen.internal.IntPtr">
+\internal
+  * \file Meta.h
+  * This file contains generic metaprogramming classes which are not specifically related to Eigen.
+  * \note In case you wonder, yes we're aware that Boost already provides all these features,
+  * we however don't want to add a dependency to Boost.
+
+</member>
+        <member name="D:Eigen.Index">
+\brief The Index type as used for the API.
+\details To change this, \c \#define the preprocessor symbol \c EIGEN_DEFAULT_DENSE_INDEX_TYPE.
+\sa \blank \ref TopicPreprocessorDirectives, StorageIndex.
+
+</member>
+        <member name="T:Eigen.internal.ComparisonName">
+\internal
+ * Constants for comparison functors
+
+</member>
+        <member name="T:Eigen.ArrayXpr">
+The type used to identify an array expression 
+</member>
+        <member name="T:Eigen.MatrixXpr">
+The type used to identify a matrix expression 
+</member>
+        <member name="T:Eigen.TranspositionsStorage">
+The type used to identify a permutation storage. 
+</member>
+        <member name="T:Eigen.PermutationStorage">
+The type used to identify a permutation storage. 
+</member>
+        <member name="T:Eigen.SolverStorage">
+The type used to identify a general solver (factored) storage. 
+</member>
+        <member name="T:Eigen.Sparse">
+The type used to identify a general sparse storage. 
+</member>
+        <member name="T:Eigen.Dense">
+The type used to identify a dense storage. 
+</member>
+        <member name="T:Eigen.Action">
+\internal \ingroup enums
+  * Enum used in experimental parallel implementation. 
+</member>
+        <member name="T:Eigen.ProductImplType">
+\internal \ingroup enums
+  * Enum used as template parameter in Product and product evaluators. 
+</member>
+        <member name="T:Eigen.TransformTraits">
+\ingroup enums
+  * Enum used to specify how a particular transformation is stored in a matrix.
+  * \sa Transform, Hyperplane::transform(). 
+</member>
+        <member name="F:Projective">
+Transformation is a general projective transformation stored as a (Dim+1)^2 matrix. 
+</member>
+        <member name="F:AffineCompact">
+Transformation is an affine transformation stored as a (Dim) x (Dim+1) matrix. 
+</member>
+        <member name="F:Affine">
+Transformation is an affine transformation stored as a (Dim+1)^2 matrix whose last row is 
+    * assumed to be [0 ... 0 1]. 
+</member>
+        <member name="F:Isometry">
+Transformation is an isometry. 
+</member>
+        <member name="T:Eigen.ComputationInfo">
+\ingroup enums
+  * Enum for reporting the status of a computation. 
+</member>
+        <member name="F:InvalidInput">
+The inputs are invalid, or the algorithm has been improperly called.
+    * When assertions are enabled, such errors trigger an assert. 
+</member>
+        <member name="F:NoConvergence">
+Iterative procedure did not converge. 
+</member>
+        <member name="F:NumericalIssue">
+The provided data did not satisfy the prerequisites. 
+</member>
+        <member name="F:Success">
+Computation was successful. 
+</member>
+        <member name="T:Eigen.QRPreconditioners">
+\ingroup enums
+  * Possible values for the \p QRPreconditioner template parameter of JacobiSVD. 
+</member>
+        <member name="F:DisableQRDecomposition">
+Used to disable the QR Preconditioner in BDCSVD. 
+</member>
+        <member name="F:FullPivHouseholderQRPreconditioner">
+Use a QR decomposition with full pivoting as the first step. 
+</member>
+        <member name="F:HouseholderQRPreconditioner">
+Use a QR decomposition without pivoting as the first step. 
+</member>
+        <member name="F:NoQRPreconditioner">
+Do not specify what is to be done if the SVD of a non-square matrix is asked for. 
+</member>
+        <member name="F:ColPivHouseholderQRPreconditioner">
+Use a QR decomposition with column pivoting as the first step. 
+</member>
+        <member name="T:Eigen.DecompositionOptions">
+\ingroup enums
+  * Enum with options to give to various decompositions. 
+</member>
+        <member name="F:GenEigMask">
+\internal 
+</member>
+        <member name="F:BAx_lx">
+Used in GeneralizedSelfAdjointEigenSolver to indicate that it should
+    * solve the generalized eigenproblem \f$ BAx = \lambda x \f$. 
+</member>
+        <member name="F:ABx_lx">
+Used in GeneralizedSelfAdjointEigenSolver to indicate that it should
+    * solve the generalized eigenproblem \f$ ABx = \lambda x \f$. 
+</member>
+        <member name="F:Ax_lBx">
+Used in GeneralizedSelfAdjointEigenSolver to indicate that it should
+    * solve the generalized eigenproblem \f$ Ax = \lambda B x \f$. 
+</member>
+        <member name="F:EigVecMask">
+\internal 
+</member>
+        <member name="F:ComputeEigenvectors">
+Used in SelfAdjointEigenSolver and GeneralizedSelfAdjointEigenSolver to specify
+    * that both the eigenvalues and the eigenvectors are to be computed. 
+</member>
+        <member name="F:EigenvaluesOnly">
+Used in SelfAdjointEigenSolver and GeneralizedSelfAdjointEigenSolver to specify
+    * that only the eigenvalues are to be computed and not the eigenvectors. 
+</member>
+        <member name="F:ComputeThinV">
+Used in JacobiSVD to indicate that the thin matrix V is to be computed. 
+</member>
+        <member name="F:ComputeFullV">
+Used in JacobiSVD to indicate that the square matrix V is to be computed. 
+</member>
+        <member name="F:ComputeThinU">
+Used in JacobiSVD to indicate that the thin matrix U is to be computed. 
+</member>
+        <member name="F:ComputeFullU">
+Used in JacobiSVD to indicate that the square matrix U is to be computed. 
+</member>
+        <member name="F:NoPivoting">
+\internal Not used (meant for LDLT?). 
+</member>
+        <member name="F:Pivoting">
+\internal Not used (meant for LDLT?). 
+</member>
+        <member name="T:Eigen.AccessorLevels">
+\ingroup enums
+  * Used as template parameter in DenseCoeffBase and MapBase to indicate 
+  * which accessors should be provided. 
+</member>
+        <member name="F:DirectWriteAccessors">
+Direct read/write access to the coefficients. 
+</member>
+        <member name="F:DirectAccessors">
+Direct read-only access to the coefficients. 
+</member>
+        <member name="F:WriteAccessors">
+Read/write access via member functions. 
+</member>
+        <member name="F:ReadOnlyAccessors">
+Read-only access via a member function. 
+</member>
+        <member name="T:Eigen.AmbiVectorMode">
+\internal \ingroup enums
+  * Used in AmbiVector. 
+</member>
+        <member name="T:Eigen.NaNPropagationOptions">
+\ingroup enums
+ * Enum for specifying NaN-propagation behavior, e.g. for coeff-wise min/max. 
+</member>
+        <member name="F:PropagateNumbers">
+Always propagate not-NaNs. 
+</member>
+        <member name="F:PropagateNaN">
+Always propagate NaNs. 
+</member>
+        <member name="F:PropagateFast">
+Implementation defined behavior if NaNs are present. 
+</member>
+        <member name="T:Eigen.SideType">
+\ingroup enums
+  * Enum for specifying whether to apply or solve on the left or right. 
+</member>
+        <member name="F:OnTheRight">
+Apply transformation on the right. 
+</member>
+        <member name="F:OnTheLeft">
+Apply transformation on the left. 
+</member>
+        <member name="T:Eigen.StorageOptions">
+\ingroup enums
+  * Enum containing possible values for the \p Options_ template parameter of
+  * Matrix, Array and BandMatrix. 
+</member>
+        <member name="F:DontAlign">
+Don't require alignment for the matrix itself (the array of coefficients, if dynamically allocated, may still be requested to be aligned) 
+</member>
+        <member name="F:AutoAlign">
+Align the matrix itself if it is vectorizable fixed-size 
+</member>
+        <member name="F:RowMajor">
+Storage order is row major (see \ref TopicStorageOrders). 
+</member>
+        <member name="F:ColMajor">
+Storage order is column major (see \ref TopicStorageOrders). 
+</member>
+        <member name="T:Eigen.SpecializedType">
+\internal \ingroup enums
+  * Enum to specify whether to use the default (built-in) implementation or the specialization. 
+</member>
+        <member name="T:Eigen.UnrollingType">
+\internal \ingroup enums
+  * Enum to specify whether to unroll loops when traversing over the entries of a matrix. 
+</member>
+        <member name="F:CompleteUnrolling">
+\internal Unroll both the inner and the outer loop. If there is only one loop, 
+    * because linear traversal is used, then unroll that loop. 
+</member>
+        <member name="F:InnerUnrolling">
+\internal Unroll only the inner loop, but not the outer loop. 
+</member>
+        <member name="F:NoUnrolling">
+\internal Do not unroll loops. 
+</member>
+        <member name="T:Eigen.TraversalType">
+\internal \ingroup enums
+  * Enum to specify how to traverse the entries of a matrix. 
+</member>
+        <member name="F:AllAtOnceTraversal">
+\internal Evaluate all entries at once 
+</member>
+        <member name="F:InvalidTraversal">
+\internal Special case to properly handle incompatible scalar types or other defecting cases
+</member>
+        <member name="F:SliceVectorizedTraversal">
+\internal Generic vectorization path using one vectorized loop per row/column with some
+    * scalar loops to handle the unaligned boundaries 
+</member>
+        <member name="F:LinearVectorizedTraversal">
+\internal Vectorization path using a single loop plus scalar loops for the
+    * unaligned boundaries 
+</member>
+        <member name="F:InnerVectorizedTraversal">
+\internal Equivalent to a slice vectorization for fixed-size matrices having good alignment
+    * and good size 
+</member>
+        <member name="F:LinearTraversal">
+\internal No vectorization, use index-based access to have only one for loop instead of 2 nested loops 
+</member>
+        <member name="F:DefaultTraversal">
+\internal Default traversal, no vectorization, no index-based access 
+</member>
+        <member name="T:Eigen.DirectionType">
+\ingroup enums
+  * Enum containing possible values for the \p Direction parameter of
+  * Reverse, PartialReduxExpr and VectorwiseOp. 
+</member>
+        <member name="F:BothDirections">
+For Reverse, both rows and columns are reversed; 
+    * not used for PartialReduxExpr and VectorwiseOp. 
+</member>
+        <member name="F:Horizontal">
+For Reverse, all rows are reversed; 
+    * for PartialReduxExpr and VectorwiseOp, act on rows. 
+</member>
+        <member name="F:Vertical">
+For Reverse, all columns are reversed; 
+    * for PartialReduxExpr and VectorwiseOp, act on columns. 
+</member>
+        <member name="T:Eigen.AlignmentType">
+\ingroup enums
+  * Enum for indicating whether a buffer is aligned or not. 
+</member>
+        <member name="T:Eigen.UpLoType">
+\defgroup enums Enumerations
+  * \ingroup Core_Module
+  *
+  * Various enumerations used in %Eigen. Many of these are used as template parameters.
+
+\ingroup enums
+  * Enum containing possible values for the \c Mode or \c UpLo parameter of
+  * MatrixBase::selfadjointView() and MatrixBase::triangularView(), and selfadjoint solvers. 
+</member>
+        <member name="F:Symmetric">
+Used to support symmetric, non-selfadjoint, complex matrices. 
+</member>
+        <member name="F:SelfAdjoint">
+Used in BandMatrix and SelfAdjointView to indicate that the matrix is self-adjoint. 
+</member>
+        <member name="F:StrictlyUpper">
+View matrix as an upper triangular matrix with zeros on the diagonal. 
+</member>
+        <member name="F:StrictlyLower">
+View matrix as a lower triangular matrix with zeros on the diagonal. 
+</member>
+        <member name="F:UnitUpper">
+View matrix as an upper triangular matrix with ones on the diagonal. 
+</member>
+        <member name="F:UnitLower">
+View matrix as a lower triangular matrix with ones on the diagonal. 
+</member>
+        <member name="F:ZeroDiag">
+%Matrix has zeros on the diagonal; to be used in combination with #Lower or #Upper. 
+</member>
+        <member name="F:UnitDiag">
+%Matrix has ones on the diagonal; to be used in combination with #Lower or #Upper. 
+</member>
+        <member name="F:Upper">
+View matrix as an upper triangular matrix. 
+</member>
+        <member name="F:Lower">
+View matrix as a lower triangular matrix. 
+</member>
+        <member name="M:rokae.BaseMotionControl.#ctor(std.shared_ptr&lt;rokae.XService&gt;)">
+@cond DO_NOT_DOCUMENT
+</member>
+        <member name="T:rokae.BaseMotionControl">
+@class BaseMotionControl
+@brief 运动控制通用类
+
+</member>
+        <member name="M:rokae.RealtimeParameterException.#ctor(std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief constructor
+@param en English ver.
+@param cn Chinese ver.
+
+</member>
+        <member name="T:rokae.RealtimeParameterException">
+@class RealtimeParameterException
+@brief 实时模式参数错误
+
+</member>
+        <member name="M:rokae.RealtimeStateException.#ctor(std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief constructor
+@param en English ver.
+@param cn Chinese ver.
+
+</member>
+        <member name="T:rokae.RealtimeStateException">
+@class RealtimeStateException
+@brief 实时模式状态错误
+
+</member>
+        <member name="M:rokae.RealtimeMotionException.#ctor(std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief constructor
+@param en English ver.
+@param cn Chinese ver.
+
+</member>
+        <member name="T:rokae.RealtimeMotionException">
+@class RealtimeMotionException
+@brief 实时模式运动错误
+
+</member>
+        <member name="M:rokae.RealtimeControlException.#ctor(std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief constructor
+@param en English ver.
+@param cn Chinese ver.
+
+</member>
+        <member name="T:rokae.RealtimeControlException">
+@class RealtimeControlException
+@brief 实时模式错误
+
+</member>
+        <member name="M:rokae.InvalidOperationException.#ctor(std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief constructor
+@param en English ver.
+@param cn Chinese ver.
+
+</member>
+        <member name="T:rokae.InvalidOperationException">
+@class InvalidOperationException
+@brief 操作被控制器拒绝
+
+</member>
+        <member name="M:rokae.ProtocolException.#ctor(std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief constructor
+@param en English ver.
+@param cn Chinese ver.
+
+</member>
+        <member name="T:rokae.ProtocolException">
+@class ProtocolException
+@brief 解析控制器消息失败异常, 可能由于SDK版本与控制器版本不匹配
+
+</member>
+        <member name="M:rokae.ExecutionException.#ctor(std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief constructor
+@param en English ver.
+@param cn Chinese ver.
+
+</member>
+        <member name="T:rokae.ExecutionException">
+@class ExecutionException
+@brief 操作执行失败异常
+
+</member>
+        <member name="M:rokae.ArgumentException.#ctor(std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief constructor
+@param en English ver.
+@param cn Chinese ver.
+
+</member>
+        <member name="T:rokae.ArgumentException">
+@class ArgumentException
+@brief 参数错误异常
+
+</member>
+        <member name="M:rokae.NetworkException.#ctor(std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief constructor
+@param en English ver.
+@param cn Chinese ver.
+
+</member>
+        <member name="T:rokae.NetworkException">
+@class NetworkException
+@brief 网络异常
+
+</member>
+        <member name="M:rokae.Exception.what">
+@brief 异常信息
+
+</member>
+        <member name="M:rokae.Exception.#ctor(std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief constructor
+@param detailEN English ver.
+@param detailCN Chinese ver.
+
+</member>
+        <member name="T:rokae.Exception">
+@class Exception
+@brief 运行中异常基类
+
+</member>
+        <member name="T:rokae.TorqueType">
+@enum TorqueType
+@brief 力矩类型
+
+</member>
+        <member name="T:rokae.SegmentFrame">
+@enum SegmentFrame
+@brief 连杆标号
+
+</member>
+        <member name="M:rokae.BaseModel.setToolset(std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.error_code*!System.Runtime.CompilerServices.Is">
+@brief 使用已创建的工具和工件，设置工具工件组信息
+@note 设置前提: 已加载一个RL工程，且创建了工具和工件。否则，只能设置为默认的工具工件，即"tool0"和"wobj0"。
+一组工具工件无法同时为手持或外部；如果有冲突，以工具的位置为准，例如工具工件同时为手持，不会返回错误，但是工件的坐标系变成了外部
+@param[in] toolName 工具名称
+@param[in] wobjName 工件名称
+@param[out] ec 错误码
+@return 设置后的工具工件组信息。当发生错误设置失败时，返回Toolset类型初始化默认值0
+
+</member>
+        <member name="M:rokae.BaseModel.setToolset(rokae.Toolset!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 设置工具工件组信息
+@note 此工具工件组仅为SDK运动控制使用, 不与RL工程相关.
+      除此接口外, 如果通过RobotAssist更改默认工具工件(右上角的选项), 该工具工件组也会相应更改.
+@param[in] toolset 工具工件组信息
+@param[out] ec 错误码
+
+</member>
+        <member name="M:rokae.BaseModel.toolset(std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 查询当前工具工件组信息
+@note 此工具工件组仅为SDK运动控制使用, 不与RL工程相关.
+@param[out] ec 错误码
+
+</member>
+        <member name="M:rokae.BaseModel.baseFrame(std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@endcond
+@brief 用户定义的基坐标系, 相对于世界坐标系
+@param[out] ec 错误码
+@return 数组, 长度: \f$ \mathbb{R}^{6 \times 1} \f$ = \f$ \mathbb{R}^{3 \times 1} \f$
+transformation and \f$ \mathbb{R}^{3 \times 1} \f$ rotation \f$ [x, y, z, a, b, c]^T \f$.
+
+</member>
+        <member name="M:rokae.BaseModel.#ctor(std.shared_ptr&lt;rokae.XService&gt;)">
+@cond DO_NOT_DOCUMENT
+</member>
+        <member name="T:rokae.BaseModel">
+@class BaseModel
+@brief 模型通用类
+
+</member>
+        <member name="M:rokae.LogInfo.#ctor(System.Int32,std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;,std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;,std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspeci">
+@brief constructor
+@param id 日志ID号
+@param ts 日期时间
+@param ct 内容
+@param r 修复办法
+
+</member>
+        <member name="T:rokae.LogInfo.Level">
+@brief 日志等级
+
+</member>
+        <member name="T:rokae.LogInfo">
+@class LogInfo
+@brief 控制器日志信息
+
+</member>
+        <member name="M:rokae.MoveSPCommand.#ctor(rokae.CartesianPosition!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.Double,System.Double,System.Double,System.Boolean,System.Int32)">
+@param target 终点姿态
+@param r0 初始半径 [m]
+@param rStep 每旋转单位角度，半径的变化 [m/rad]
+@param angle 合计旋转角度 [rad]
+@param dir 旋转方向, true - clockwise | false - anticlockwise
+@param speed 运行速度
+
+</member>
+        <member name="T:rokae.MoveSPCommand">
+@brief 运动指令 - 螺旋线轨迹MoveSP
+
+</member>
+        <member name="M:rokae.MoveCFCommand.#ctor(rokae.CartesianPosition!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,rokae.CartesianPosition!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.Double,System.Int32,System.Int32)">
+@param target 目标点
+@param aux 辅助点
+@param speed 运行速度
+@param zone 转弯区
+@param angle 执行角度
+
+</member>
+        <member name="T:rokae.MoveCFCommand">
+@brief 运动指令 - 全圆轨迹MoveCF
+
+</member>
+        <member name="M:rokae.MoveCCommand.#ctor(rokae.CartesianPosition,rokae.CartesianPosition,System.Int32,System.Int32)">
+@param target 目标点
+@param aux 辅助点
+@param speed 运行速度
+@param zone 转弯区
+
+</member>
+        <member name="T:rokae.MoveCCommand">
+@class MoveCCommand
+@brief 运动指令 - 圆弧轨迹MoveC
+
+</member>
+        <member name="M:rokae.MoveLCommand.#ctor(rokae.CartesianPosition,System.Int32,System.Int32)">
+@param target 目标笛卡尔点位
+@param speed 速率
+@param zone 转弯区
+
+</member>
+        <member name="T:rokae.MoveLCommand">
+@class MoveLCommand
+@brief 运动指令 - 末端直线轨迹MoveL
+
+</member>
+        <member name="M:rokae.MoveJCommand.#ctor(rokae.CartesianPosition,System.Int32,System.Int32)">
+@param target 目标笛卡尔点位
+@param speed 运行速度
+@param zone 转弯区
+
+</member>
+        <member name="T:rokae.MoveJCommand">
+@class MoveJCommand
+@brief 运动指令 - 轴运动MoveJ
+
+</member>
+        <member name="M:rokae.MoveAbsJCommand.#ctor(rokae.JointPosition,System.Int32,System.Int32)">
+@param target 目标轴角度
+@param speed 运行速度
+@param zone 转弯区
+
+</member>
+        <member name="T:rokae.MoveAbsJCommand">
+@class MoveAbsJCommand
+@brief 运动指令 - 轴运动MoveAbsJ
+
+</member>
+        <member name="M:rokae.NrtCommand.#ctor(System.Int32,System.Int32)">
+@brief constructor
+@param speed 本条指令的速度
+@param zone 本条指令的转弯区
+
+</member>
+        <member name="T:rokae.NrtCommand">
+@class NrtCommand
+@brief 非实时运动指令
+
+</member>
+        <member name="M:rokae.WorkToolInfo.#ctor(std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;,System.Boolean,rokae.Frame!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,rokae.Load!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief constructor
+@param name 名称
+@param isHeld 是否机器人手持
+@param posture 位姿
+@param load 负载
+
+</member>
+        <member name="T:rokae.WorkToolInfo">
+@class WorkToolInfo
+@brief 工具/工件信息。工件的坐标系已相对其用户坐标系变换
+
+</member>
+        <member name="M:rokae.RLProjectInfo.#ctor(std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;)">
+@brief constructor
+@param name RL工程名
+
+</member>
+        <member name="T:rokae.RLProjectInfo">
+@class RLProjectInfo
+@brief RL工程信息
+
+</member>
+        <member name="T:rokae.FrameCalibrationResult">
+@class FrameCalibrationResult
+@brief 坐标系标定结果
+
+</member>
+        <member name="M:rokae.Toolset.#ctor(rokae.Load!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,rokae.Frame!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,rokae.Frame!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@param load 负载信息
+@param end 末端坐标系
+@param ref 参考坐标系
+
+</member>
+        <member name="T:rokae.Toolset">
+@class Toolset
+@brief 工具工件组信息, 根据一对工具工件的坐标、负载、机器人手持设置计算得出
+@note 并不显式区分手持/外部. 该类可这样理解: 如手持工具, 则负载和机器人末端坐标系是工具的, 参考坐标系则是工件的；
+      反之, 如果手持工件, 则负载和末端坐标系来自工件, 参考坐标系来自工具
+
+</member>
+        <member name="M:rokae.Load.#ctor(System.Double,std.array&lt;System.Double,0x03&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.array&lt;System.Double,0x03&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@param m 质量
+@param cog 质心
+@param inertia 惯量
+
+</member>
+        <member name="T:rokae.Load">
+@class Load
+@brief 负载信息
+
+</member>
+        <member name="M:rokae.Torque.#ctor(System.UInt64,System.Double)">
+@brief 初始化tau
+@param n 长度, 应和机型轴数匹配
+@param v 初始值
+
+</member>
+        <member name="M:rokae.Torque.#ctor(std.initializer_list&lt;System.Double&gt;)">
+@brief constructor
+@param tau 力矩指令值
+
+</member>
+        <member name="M:rokae.Torque.#ctor(std.vector&lt;System.Double,std.allocator&lt;System.Double&gt;&gt;)">
+@brief constructor
+@param tau 力矩指令值
+
+</member>
+        <member name="T:rokae.Torque">
+@class Torque
+@brief 关节扭矩，不包含重力和摩擦力
+
+</member>
+        <member name="M:rokae.JointPosition.#ctor(System.UInt64,System.Double)">
+@brief 初始化joints
+@param n 长度, 应和机型轴数匹配
+@param v 初始值
+
+</member>
+        <member name="M:rokae.JointPosition.#ctor(std.vector&lt;System.Double,std.allocator&lt;System.Double&gt;&gt;)">
+@brief constructor
+@param joints 轴角度
+
+</member>
+        <member name="M:rokae.JointPosition.#ctor(std.initializer_list&lt;System.Double&gt;)">
+@brief default constructor
+
+@param joints 长度应与机器人轴数一致. 外部关节可缺省
+
+</member>
+        <member name="T:rokae.JointPosition">
+@class JointPosition
+@brief 关节点位
+
+</member>
+        <member name="M:rokae.CartesianPosition.Offset.#ctor(rokae.CartesianPosition.Offset.Type,rokae.Frame!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief default constructor
+
+@brief constructor
+
+</member>
+        <member name="T:rokae.CartesianPosition.Offset.Type">
+@brief 偏移类型
+
+</member>
+        <member name="T:rokae.CartesianPosition.Offset">
+@brief 偏移
+
+</member>
+        <member name="T:rokae.CartesianPosition">
+@class CartesianPosition
+@brief 笛卡尔点位
+
+</member>
+        <member name="M:rokae.Finishable.setFinished">
+@brief 标识运动循环已结束
+
+</member>
+        <member name="M:rokae.Finishable.isFinished">
+@brief 是否已设置运动循环结束
+
+</member>
+        <member name="T:rokae.Finishable">
+@class Finishable
+@brief 一次运动循环是否结束
+
+</member>
+        <member name="M:rokae.Frame.#ctor(std.array&lt;System.Double,0x010&gt;!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+@brief 初始化pos
+@param matrix 4*4变换矩阵
+
+</member>
+        <member name="T:rokae.Frame">
+@class Frame
+@brief 坐标系
+
+</member>
+        <member name="T:rokae.Event">
+@brief 事件类型
+
+</member>
+        <member name="D:rokae.EventCallback">
+@brief 事件回调函数类型
+
+</member>
+        <member name="D:rokae.EventInfo">
+@brief 事件信息 - map类型
+
+</member>
+        <member name="T:rokae.xPanelOpt.Vout">
+@brief 供电模式
+
+</member>
+        <member name="T:rokae.xPanelOpt">
+@struct xPanelOpt
+@brief xPanel配置: 对外供电模式
+
+</member>
+        <member name="T:rokae.JogOpt.Space">
+@brief Jog坐标系
+
+</member>
+        <member name="T:rokae.JogOpt">
+@struct JogOpt
+@brief Jog选项: 坐标系
+
+</member>
+        <member name="T:rokae.FrameType">
+@enum FrameType
+@brief 坐标系类型
+
+</member>
+        <member name="T:rokae.DragParameter.Type">
+@brief 拖动类型
+
+</member>
+        <member name="T:rokae.DragParameter.Space">
+@brief 拖动空间
+
+</member>
+        <member name="T:rokae.DragParameter">
+@struct DragParameter
+@brief 机器人拖动模式参数, 包括拖动类型和空间
+
+</member>
+        <member name="T:rokae.StopLevel">
+@enum StopLevel
+@brief 机器人停止运动等级
+
+</member>
+        <member name="T:rokae.RtControllerMode">
+@enum RtControllerMode
+@brief 控制器实时控制模式
+
+</member>
+        <member name="T:rokae.MotionControlMode">
+@enum MotionControlMode
+@brief SDK运动控制模式
+
+</member>
+        <member name="T:rokae.CoordinateType">
+@brief 位姿坐标系类型
+
+</member>
+        <member name="T:rokae.PowerState">
+@enum PowerState
+@brief 机器人上下电及急停状态
+
+</member>
+        <member name="T:rokae.OperateMode">
+@enum OperateMode
+@brief 机器人操作模式
+
+</member>
+        <member name="T:rokae.WorkType">
+@enum WorkType
+@brief 机型类别
+
+</member>
+        <member name="T:rokae.OperationState">
+@endcond
+@enum OperationState
+@brief 机器人工作状态
+
+</member>
+        <member name="M:__std_swap_ranges_trivially_swappable_noalias(System.Void*,System.Void*,System.Void*)">
+@endcond
+@file model.h
+@brief xMateModel模型库
+@copyright Copyright (C) 2023 ROKAE (Beijing) Technology Co., LTD. All Rights Reserved.
+Information in this file is the intellectual property of Rokae Technology Co., Ltd,
+And may contains trade secrets that must be stored and viewed confidentially.
+
+@file data_types.h
+@brief 定义数据结构和枚举类
+@copyright Copyright (C) 2023 ROKAE (Beijing) Technology Co., LTD. All Rights Reserved.
+Information in this file is the intellectual property of Rokae Technology Co., Ltd,
+And may contains trade secrets that must be stored and viewed confidentially.
+
+</member>
+        <member name="M:rokae.clr.xMateErProRobot.setSoftLimit(System.Boolean,System.Double[0:,0:],rokae.clr.ErrorCode@)">
+            <summary>
+设置软限位。软限位设定要求：
+<list type="bullet"><item>打开软限位时，机械臂应下电且处于手动模式</item><item>软限位不能超过机械硬限位</item><item>机械臂当前各轴角度应在设定的限位范围内</item></list></summary>
+            <param name="enable">true - 打开 | false - 关闭</param>
+            <param name="limits">各轴[下限, 上限]，单位：弧度。
+<list><item>当limits为默认值时，视为仅打开软限位不修改数值; 不为默认值时，先修改软限位再打开</item><item>关闭软限位时不会修改限位数值</item></list></param>
+            <param name="ec">错误码</param>
+        </member>
+        <member name="M:rokae.clr.xMateErProRobot.getSoftLimit(System.Double[0:,0:]@,rokae.clr.ErrorCode@)">
+            <summary>
+获取当前软限位数值
+</summary>
+            <param name="limits">各轴软限位 [下限, 上限]，单位: 弧度</param>
+            <param name="ec">错误码</param>
+        </member>
+        <member name="M:rokae.clr.xMateErProRobot.getEndTorque(rokae.clr.FrameType,System.Double[]@,System.Double[]@,System.Double[]@,System.Double[]@,rokae.clr.ErrorCode@)">
+            <summary>
+获取当前力矩信息
+</summary>
+            <param name="ref_type">力矩相对的参考系
+<list type="bullet"><item><term>FrameType::world</term><description>末端相对世界坐标系的力矩信息</description></item><item><term>FrameType::flange</term><description>末端相对于法兰盘的力矩信息</description></item><item><term>FrameType::tool</term><description>末端相对于TCP点的力矩信息</description></item></list></param>
+            <param name="joint_torque_measured">各轴测量力</param>
+            <param name="external_torque_measured">各轴外部力</param>
+            <param name="cart_torque">笛卡尔空间力矩 [X, Y, Z], 单位Nm</param>
+            <param name="cart_force">笛卡尔空间力 [X, Y, Z], 单位N</param>
+            <param name="ec">错误码</param>
+        </member>
+        <member name="M:rokae.clr.xMateErProRobot.enableCollisionDetection(System.Double[],rokae.clr.StopLevel,System.Double,rokae.clr.ErrorCode@)">
+            <summary>
+设置碰撞检测相关参数, 打开碰撞检测功能。
+</summary>
+            <param name="sensitivity">碰撞检测灵敏度，范围0.01-2.0</param>
+            <param name="behaviour">碰撞后机器人行为, 支持stop1(安全停止, stop0和stop1处理方式相同), stop2(触发暂停）, suppleStop(柔顺停止)</param>
+            <param name="fallback_compliance">根据碰撞后机器人行为，参数含义分别是
+<list type="bullet"><item><term>安全停止,触发暂停</term><description>碰撞后回退距离，单位: 米</description></item><item><term>柔顺停止</term><description>柔顺度，范围 [0.0, 1.0]</description></item></list></param>
+            <param name="ec">错误码</param>
+        </member>
+        <member name="M:rokae.clr.xMateErProRobot.calibrateFrame(rokae.clr.FrameType,System.Collections.Generic.List`1{System.Double[]},System.Boolean,System.Double[],rokae.clr.ErrorCode@)">
+            <summary>
+坐标系标定 (N点标定).
+<list type="bullet"><listheader><term><description>各坐标系类型支持的标定方法及注意事项x</description></term></listheader><item><term>工具坐标系</term><description>三点 / 四点 / 六点标定法</description></item><item><term>工件坐标系</term><description>三点标定。标定结果不会相对用户坐标系做变换，即，若为外部工件，返回的结果是相对于基坐标系的。</description></item><item><term>基坐标系</term><description>六点标定。标定前请确保动力学约束和前馈已关闭。</description></item></list>
+若标定成功(无错误码)，控制器会自动保存标定结果，重启控制器后生效。
+</summary>
+            <param name="type">坐标系类型，支持工具(FrameType::tool), 工件(FrameType::wobj), 基坐标系(FrameType::base)</param>
+            <param name="points">轴角度列表，列表长度为N。例如，使用三点法标定工具坐标系，应传入3组轴角度。轴角度的单位是弧度。</param>
+            <param name="is_held">true - 机器人手持 | false - 外部。仅影响工具/工件的标定</param>
+            <param name="base_aux">基坐标系标定时用到的辅助点, 单位[米]</param>
+            <param name="ec">错误码</param>
+            <returns>标定结果，当错误码没有被置位时，标定结果有效。</returns>
+        </member>
+        <member name="M:rokae.clr.xMateErProRobot.calcFk(System.Double[],rokae.clr.ErrorCode@)">
+            <summary>
+根据轴角度计算正解
+</summary>
+            <param name="joints">轴角度, 单位: 弧度</param>
+            <param name="ec">错误码</param>
+            <returns>机器人末端位姿，相对于外部参考坐标系</returns>
+        </member>
+        <member name="M:rokae.clr.xMateErProRobot.calcIk(rokae.clr.CartesianPosition,rokae.clr.ErrorCode@)">
+            <summary>
+根据位姿计算逆解
+</summary>
+            <param name="posture">机器人末端位姿，相对于外部参考坐标系</param>
+            <param name="ec">错误码</param>
+            <returns>关节角度, 单位:弧度</returns>
+        </member>
+        <member name="M:rokae.clr.xMateErProRobot.jointTorque(rokae.clr.ErrorCode@)">
+            <summary>
+关节力传感器数值 [Nm]
+</summary>
+            <param name="ec">错误码</param>
+            <returns>关节力矩</returns>
+        </member>
+        <member name="M:rokae.clr.xMateErProRobot.jointVel(rokae.clr.ErrorCode@)">
+            <summary>
+机器人当前关节速度 [rad/s]
+</summary>
+            <param name="ec">错误码</param>
+            <returns>关节速度</returns>
+        </member>
+        <member name="M:rokae.clr.xMateErProRobot.jointPos(rokae.clr.ErrorCode@)">
+            <summary>
+机器人当前轴角度 [rad]
+</summary>
+            <param name="ec">错误码</param>
+            <returns>关节弧度</returns>
+        </member>
+        <member name="M:rokae.clr.xMateErProRobot.connectToRobot(System.String)">
+            <summary>
+初始化xMateErProRobot，建立与机器人的连接。
+</summary>
+            <param name="remoteIP">机器人IP地址</param>
+            <exception cref="T:rokae.clr.ApiException">网络连接异常;控制器版本不兼容;机型不匹配等</exception>
+        </member>
+        <member name="M:rokae.clr.xMateErProRobot.connectToRobot(rokae.clr.ErrorCode@)">
+            <summary>
+连接到机器人。机器人地址为创建PCB3Robot实例时传入的
+</summary>
+            <param name="ec">错误码</param>
+        </member>
+        <member name="M:rokae.clr.xMateErProRobot.Dispose">
+            <summary>
+decosntructor
+</summary>
+        </member>
+        <member name="M:rokae.clr.xMateErProRobot.#ctor(System.String)">
+            <summary>
+创建机器人实例并建立连接
+</summary>
+            <param name="remoteIP">机器人IP地址</param>
+            <exception cref="T:rokae.clr.ApiException">网络连接异常;控制器版本不兼容;机型不匹配等</exception>
+        </member>
+        <member name="M:rokae.clr.xMateErProRobot.#ctor">
+            <summary>
+默认构造，需调用connectToRobot(remoteIP)初始化
+</summary>
+        </member>
+        <member name="T:rokae.clr.xMateErProRobot">
+            <summary>
+协作七轴机器人, 包括 xMateER3 Pro / xMateER7 Pro
+</summary>
+        </member>
+        <member name="M:rokae.clr.PCB4Robot.setSoftLimit(System.Boolean,System.Double[0:,0:],rokae.clr.ErrorCode@)">
+            <summary>
+设置软限位。软限位设定要求：
+<list type="bullet"><item>打开软限位时，机械臂应下电且处于手动模式</item><item>软限位不能超过机械硬限位</item><item>机械臂当前各轴角度应在设定的限位范围内</item></list></summary>
+            <param name="enable">true - 打开 | false - 关闭</param>
+            <param name="limits">各轴[下限, 上限]，单位：弧度。
+<list><item>当limits为默认值时，视为仅打开软限位不修改数值; 不为默认值时，先修改软限位再打开</item><item>关闭软限位时不会修改限位数值</item></list></param>
+            <param name="ec">错误码</param>
+        </member>
+        <member name="M:rokae.clr.PCB4Robot.getSoftLimit(System.Double[0:,0:]@,rokae.clr.ErrorCode@)">
+            <summary>
+获取当前软限位数值
+</summary>
+            <param name="limits">各轴软限位 [下限, 上限]，单位: 弧度</param>
+            <param name="ec">错误码</param>
+            <returns>true - 已打开 | false - 已关闭</returns>
+        </member>
+        <member name="M:rokae.clr.PCB4Robot.calibrateFrame(rokae.clr.FrameType,System.Collections.Generic.List`1{System.Double[]},System.Boolean,System.Double[],rokae.clr.ErrorCode@)">
+            <summary>
+坐标系标定 (N点标定).
+<list type="bullet"><listheader><term><description>各坐标系类型支持的标定方法及注意事项x</description></term></listheader><item><term>工具坐标系</term><description>三点 / 四点 / 六点标定法</description></item><item><term>工件坐标系</term><description>三点标定。标定结果不会相对用户坐标系做变换，即，若为外部工件，返回的结果是相对于基坐标系的。</description></item><item><term>基坐标系</term><description>六点标定。标定前请确保动力学约束和前馈已关闭。</description></item></list>
+若标定成功(无错误码)，控制器会自动保存标定结果，重启控制器后生效。
+</summary>
+            <param name="type">坐标系类型，支持工具(FrameType::tool), 工件(FrameType::wobj), 基坐标系(FrameType::base)</param>
+            <param name="points">轴角度列表，列表长度为N。例如，使用三点法标定工具坐标系，应传入3组轴角度。轴角度的单位是弧度。</param>
+            <param name="is_held">true - 机器人手持 | false - 外部。仅影响工具/工件的标定</param>
+            <param name="base_aux">基坐标系标定时用到的辅助点, 单位[米]</param>
+            <param name="ec">错误码</param>
+            <returns>标定结果，当错误码没有被置位时，标定结果有效。</returns>
+        </member>
+        <member name="M:rokae.clr.PCB4Robot.calcFk(System.Double[],rokae.clr.ErrorCode@)">
+            <summary>
+根据轴角度计算正解
+</summary>
+            <param name="joints">轴角度, 单位: 弧度</param>
+            <param name="ec">错误码</param>
+            <returns>机器人末端位姿，相对于外部参考坐标系</returns>
+        </member>
+        <member name="M:rokae.clr.PCB4Robot.calcIk(rokae.clr.CartesianPosition,rokae.clr.ErrorCode@)">
+            <summary>
+根据位姿计算逆解
+</summary>
+            <param name="posture">机器人末端位姿，相对于外部参考坐标系</param>
+            <param name="ec">错误码</param>
+            <returns>关节角度, 单位:弧度</returns>
+        </member>
+        <member name="M:rokae.clr.PCB4Robot.jointTorque(rokae.clr.ErrorCode@)">
+            <summary>
+关节力传感器数值 [Nm]
+</summary>
+            <param name="ec">错误码</param>
+            <returns>关节力矩</returns>
+        </member>
+        <member name="M:rokae.clr.PCB4Robot.jointVel(rokae.clr.ErrorCode@)">
+            <summary>
+机器人当前关节速度 [rad/s]
+</summary>
+            <param name="ec">错误码</param>
+            <returns>关节速度</returns>
+        </member>
+        <member name="M:rokae.clr.PCB4Robot.jointPos(rokae.clr.ErrorCode@)">
+            <summary>
+机器人当前轴角度 [rad]
+</summary>
+            <param name="ec">错误码</param>
+            <returns>关节弧度</returns>
+        </member>
+        <member name="M:rokae.clr.PCB4Robot.connectToRobot(System.String)">
+            <summary>
+初始化PCB4Robot，建立与机器人的连接。
+</summary>
+            <param name="remoteIP">机器人IP地址</param>
+            <exception cref="T:rokae.clr.ApiException">网络连接异常;控制器版本不兼容;机型不匹配等</exception>
+        </member>
+        <member name="M:rokae.clr.PCB4Robot.connectToRobot(rokae.clr.ErrorCode@)">
+            <summary>
+连接到机器人。机器人地址为创建PCB3Robot实例时传入的
+</summary>
+            <param name="ec">错误码</param>
+        </member>
+        <member name="M:rokae.clr.PCB4Robot.Dispose">
+            <summary>
+deconstructor
+</summary>
+        </member>
+        <member name="M:rokae.clr.PCB4Robot.#ctor(System.String)">
+            <summary>
+创建机器人实例并建立连接
+</summary>
+            <param name="remoteIP">机器人IP地址</param>
+            <exception cref="T:rokae.clr.ApiException">网络连接异常;控制器版本不兼容;机型不匹配等</exception>
+        </member>
+        <member name="M:rokae.clr.PCB4Robot.#ctor">
+            <summary>
+默认构造，需调用connectToRobot(remoteIP)初始化
+</summary>
+        </member>
+        <member name="T:rokae.clr.PCB4Robot">
+            <summary>
+PCB4轴机型
+</summary>
+        </member>
+        <member name="M:rokae.clr.PCB3Robot.setSoftLimit(System.Boolean,System.Double[0:,0:],rokae.clr.ErrorCode@)">
+            <summary>
+设置软限位。软限位设定要求：
+<list type="bullet"><item>打开软限位时，机械臂应下电且处于手动模式</item><item>软限位不能超过机械硬限位</item><item>机械臂当前各轴角度应在设定的限位范围内</item></list></summary>
+            <param name="enable">true - 打开 | false - 关闭</param>
+            <param name="limits">各轴[下限, 上限]，单位：弧度。
+<list><item>当limits为默认值时，视为仅打开软限位不修改数值; 不为默认值时，先修改软限位再打开</item><item>关闭软限位时不会修改限位数值</item></list></param>
+            <param name="ec">错误码</param>
+        </member>
+        <member name="M:rokae.clr.PCB3Robot.getSoftLimit(System.Double[0:,0:]@,rokae.clr.ErrorCode@)">
+            <summary>
+获取当前软限位数值
+</summary>
+            <param name="limits">各轴软限位 [下限, 上限]，单位: 弧度</param>
+            <param name="ec">错误码</param>
+            <returns>true - 已打开 | false - 已关闭</returns>
+        </member>
+        <member name="M:rokae.clr.PCB3Robot.calibrateFrame(rokae.clr.FrameType,System.Collections.Generic.List`1{System.Double[]},System.Boolean,System.Double[],rokae.clr.ErrorCode@)">
+            <summary>
+坐标系标定 (N点标定).
+<list type="bullet"><listheader><term><description>各坐标系类型支持的标定方法及注意事项x</description></term></listheader><item><term>工具坐标系</term><description>三点 / 四点 / 六点标定法</description></item><item><term>工件坐标系</term><description>三点标定。标定结果不会相对用户坐标系做变换，即，若为外部工件，返回的结果是相对于基坐标系的。</description></item><item><term>基坐标系</term><description>六点标定。标定前请确保动力学约束和前馈已关闭。</description></item></list>
+若标定成功(无错误码)，控制器会自动保存标定结果，重启控制器后生效。
+</summary>
+            <param name="type">坐标系类型，支持工具(FrameType::tool), 工件(FrameType::wobj), 基坐标系(FrameType::base)</param>
+            <param name="points">轴角度列表，列表长度为N。例如，使用三点法标定工具坐标系，应传入3组轴角度。轴角度的单位是弧度。</param>
+            <param name="is_held">true - 机器人手持 | false - 外部。仅影响工具/工件的标定</param>
+            <param name="base_aux">基坐标系标定时用到的辅助点, 单位[米]</param>
+            <param name="ec">错误码</param>
+            <returns>标定结果，当错误码没有被置位时，标定结果有效。</returns>
+        </member>
+        <member name="M:rokae.clr.PCB3Robot.calcFk(System.Double[],rokae.clr.ErrorCode@)">
+            <summary>
+根据轴角度计算正解
+</summary>
+            <param name="joints">轴角度, 单位: 弧度</param>
+            <param name="ec">错误码</param>
+            <returns>机器人末端位姿，相对于外部参考坐标系</returns>
+        </member>
+        <member name="M:rokae.clr.PCB3Robot.calcIk(rokae.clr.CartesianPosition,rokae.clr.ErrorCode@)">
+            <summary>
+根据位姿计算逆解
+</summary>
+            <param name="posture">机器人末端位姿，相对于外部参考坐标系</param>
+            <param name="ec">错误码</param>
+            <returns>关节角度, 单位:弧度</returns>
+        </member>
+        <member name="M:rokae.clr.PCB3Robot.jointTorque(rokae.clr.ErrorCode@)">
+            <summary>
+关节力传感器数值 [Nm]
+</summary>
+            <param name="ec">错误码</param>
+            <returns>关节力矩</returns>
+        </member>
+        <member name="M:rokae.clr.PCB3Robot.jointVel(rokae.clr.ErrorCode@)">
+            <summary>
+机器人当前关节速度 [rad/s]
+</summary>
+            <param name="ec">错误码</param>
+            <returns>关节速度</returns>
+        </member>
+        <member name="M:rokae.clr.PCB3Robot.jointPos(rokae.clr.ErrorCode@)">
+            <summary>
+机器人当前轴角度 [rad]
+</summary>
+            <param name="ec">错误码</param>
+            <returns>关节弧度</returns>
+        </member>
+        <member name="M:rokae.clr.PCB3Robot.connectToRobot(System.String)">
+            <summary>
+建立与机器人的连接。
+</summary>
+            <param name="remoteIP">机器人IP地址</param>
+            <exception cref="T:rokae.clr.ApiException">网络连接异常;控制器版本不兼容;机型不匹配等</exception>
+        </member>
+        <member name="M:rokae.clr.PCB3Robot.connectToRobot(rokae.clr.ErrorCode@)">
+            <summary>
+连接到机器人。机器人地址为创建PCB3Robot实例时传入的
+</summary>
+            <param name="ec">错误码</param>
+        </member>
+        <member name="M:rokae.clr.PCB3Robot.Dispose">
+            <summary>
+deconstructor
+</summary>
+        </member>
+        <member name="M:rokae.clr.PCB3Robot.#ctor(System.String)">
+            <summary>
+创建机器人实例并建立连接
+</summary>
+            <param name="remoteIP">机器人IP地址</param>
+            <exception cref="T:rokae.clr.ApiException">网络连接异常;控制器版本不兼容;机型不匹配等</exception>
+        </member>
+        <member name="M:rokae.clr.PCB3Robot.#ctor">
+            <summary>
+默认构造，需调用connectToRobot(remoteIP)初始化
+</summary>
+        </member>
+        <member name="T:rokae.clr.PCB3Robot">
+            <summary>
+PCB3轴机型
+</summary>
+        </member>
+        <member name="M:rokae.clr.xMateRobot.setSoftLimit(System.Boolean,System.Double[0:,0:],rokae.clr.ErrorCode@)">
+            <summary>
+设置软限位。软限位设定要求：
+<list type="bullet"><item>打开软限位时，机械臂应下电且处于手动模式</item><item>软限位不能超过机械硬限位</item><item>机械臂当前各轴角度应在设定的限位范围内</item></list></summary>
+            <param name="enable">true - 打开 | false - 关闭</param>
+            <param name="limits">各轴[下限, 上限]，单位：弧度。
+<list><item>当limits为默认值时，视为仅打开软限位不修改数值; 不为默认值时，先修改软限位再打开</item><item>关闭软限位时不会修改限位数值</item></list></param>
+            <param name="ec">错误码</param>
+        </member>
+        <member name="M:rokae.clr.xMateRobot.getSoftLimit(System.Double[0:,0:]@,rokae.clr.ErrorCode@)">
+            <summary>
+获取当前软限位数值
+</summary>
+            <param name="limits">各轴软限位 [下限, 上限]，单位: 弧度</param>
+            <param name="ec">错误码</param>
+            <returns>true - 已打开 | false - 已关闭</returns>
+        </member>
+        <member name="M:rokae.clr.xMateRobot.startJog(rokae.clr.JogSpace,System.Double,System.Double,System.UInt32,System.Boolean,rokae.clr.ErrorCode@)">
+            <summary>
+开始jog机器人，需要切换到手动操作模式。调用此接口并且机器人开始运动后，无论机器人是否已经自行停止，都必须调用stop()来结束jog操作，否则机器人会一直处于jog的运行状态。
+</summary>
+            <param name="space">jog参考坐标系。
+<list type="bullet"><item>工具/工件坐标系使用原则同setToolset()</item><item>xMateCR和xMateSR机型支持两种奇异规避方式Jog：Space::singularityAvoidMode, Space::baseParallelMode</item></list></param>
+            <param name="rate">速率, 范围 0.01 - 1</param>
+            <param name="step">步长。单位: 笛卡尔空间-毫米 | 轴空间-度。步长大于0即可，不设置上限，如果机器人无法继续jog会自行停止运动。</param>
+            <param name="index">根据不同的space，该参数含义如下：
+<list type="bullet"><item>世界坐标系,基坐标系,法兰坐标系,工具工件坐标系: 0~5分别对应X, Y, Z, Rx, Ry, Rz</item><item>轴空间: 关节序号，从0开始计数</item><item>奇异规避模式,平行基座模式: 0~5分别对应X, Y, Z, J4(4轴), Ry, J6(6轴)</item></list></param>
+            <param name="direction">根据不同的space和index，该参数含义如下：
+<list type="bullet"><item>奇异规避模式 J4: true - ±180° | false - 0°</item><item>平行基座模式 J4,Ry: true - ±180° | false - 0°</item><item>其它，true - 正向 | false - 负向</item></list></param>
+            <param name="ec">错误码</param>
+        </member>
+        <member name="M:rokae.clr.xMateRobot.getAvoidSingularity(rokae.clr.ErrorCode@)">
+            <summary>
+查询是否处于规避奇异点的状态
+</summary>
+            <param name="ec">错误码</param>
+            <returns>true - 已打开</returns>
+        </member>
+        <member name="M:rokae.clr.xMateRobot.setAvoidSingularity(System.Boolean,rokae.clr.ErrorCode@)">
+            <summary>
+适用于xMateCR系列机型，打开后，机械臂将在受限的笛卡尔自由度下运动，避免出现奇异和尖点问题。
+目前是通过锁住机械臂4轴的方式来规避奇异点，打开后发送给机械臂的运动指令和Jog功能有所变化:
+<list type="number"><item>运动指令-笛卡尔点位的Rx值必须为0, 否则会报错”目标点超出范围“</item><item>运动指令-关节点位的4轴需要是0, 如果4轴不为零时在笛卡尔空间运动，会报错”目标点超出范围“</item><item>笛卡尔空间Rx无法Jog</item><item>不能设置工具工件坐标系</item></list></summary>
+            <param name="enable">true - 打开功能 | false - 关闭。打开之前要确保4轴处于零位。</param>
+            <param name="ec">错误码</param>
+        </member>
+        <member name="M:rokae.clr.xMateRobot.calibrateFrame(rokae.clr.FrameType,System.Collections.Generic.List`1{System.Double[]},System.Boolean,System.Double[],rokae.clr.ErrorCode@)">
+            <summary>
+坐标系标定 (N点标定).
+<list type="bullet"><listheader><term><description>各坐标系类型支持的标定方法及注意事项x</description></term></listheader><item><term>工具坐标系</term><description>三点 / 四点 / 六点标定法</description></item><item><term>工件坐标系</term><description>三点标定。标定结果不会相对用户坐标系做变换，即，若为外部工件，返回的结果是相对于基坐标系的。</description></item><item><term>基坐标系</term><description>六点标定。标定前请确保动力学约束和前馈已关闭。</description></item></list>
+若标定成功(无错误码)，控制器会自动保存标定结果，重启控制器后生效。
+</summary>
+            <param name="type">坐标系类型，支持工具(FrameType::tool), 工件(FrameType::wobj), 基坐标系(FrameType::base)</param>
+            <param name="points">轴角度列表，列表长度为N。例如，使用三点法标定工具坐标系，应传入3组轴角度。轴角度的单位是弧度。</param>
+            <param name="is_held">true - 机器人手持 | false - 外部。仅影响工具/工件的标定</param>
+            <param name="base_aux">基坐标系标定时用到的辅助点, 单位[米]</param>
+            <param name="ec">错误码</param>
+            <returns>标定结果，当错误码没有被置位时，标定结果有效。</returns>
+        </member>
+        <member name="M:rokae.clr.xMateRobot.enableCollisionDetection(System.Double[],rokae.clr.StopLevel,System.Double,rokae.clr.ErrorCode@)">
+            <summary>
+设置碰撞检测相关参数, 打开碰撞检测功能。
+</summary>
+            <param name="sensitivity">碰撞检测灵敏度，范围0.01-2.0</param>
+            <param name="behaviour">碰撞后机器人行为, 支持stop1(安全停止, stop0和stop1处理方式相同), stop2(触发暂停）, suppleStop(柔顺停止)</param>
+            <param name="fallback_compliance">根据碰撞后机器人行为，参数含义分别是
+<list type="bullet"><item><term>安全停止,触发暂停</term><description>碰撞后回退距离，单位: 米</description></item><item><term>柔顺停止</term><description>柔顺度，范围 [0.0, 1.0]</description></item></list></param>
+            <param name="ec">错误码</param>
+        </member>
+        <member name="M:rokae.clr.xMateRobot.calcFk(System.Double[],rokae.clr.ErrorCode@)">
+            <summary>
+根据轴角度计算正解
+</summary>
+            <param name="joints">轴角度,数组长度应和轴数一致，单位: 弧度</param>
+            <param name="ec">错误码</param>
+            <returns>机器人末端位姿，相对于外部参考坐标系</returns>
+        </member>
+        <member name="M:rokae.clr.xMateRobot.calcIk(rokae.clr.CartesianPosition,rokae.clr.ErrorCode@)">
+            <summary>
+根据位姿计算逆解
+</summary>
+            <param name="posture">机器人末端位姿，相对于外部参考坐标系</param>
+            <param name="ec">错误码</param>
+            <returns>关节角度, 单位:弧度</returns>
+        </member>
+        <member name="M:rokae.clr.xMateRobot.getEndTorque(rokae.clr.FrameType,System.Double[]@,System.Double[]@,System.Double[]@,System.Double[]@,rokae.clr.ErrorCode@)">
+            <summary>
+获取当前力矩信息
+</summary>
+            <param name="ref_type">力矩相对的参考系
+<list type="bullet"><item><term>FrameType::world</term><description>末端相对世界坐标系的力矩信息</description></item><item><term>FrameType::flange</term><description>末端相对于法兰盘的力矩信息</description></item><item><term>FrameType::tool</term><description>末端相对于TCP点的力矩信息</description></item></list></param>
+            <param name="joint_torque_measured">各轴测量力</param>
+            <param name="external_torque_measured">各轴外部力</param>
+            <param name="cart_torque">笛卡尔空间力矩 [X, Y, Z], 单位Nm</param>
+            <param name="cart_force">笛卡尔空间力 [X, Y, Z], 单位N</param>
+            <param name="ec">错误码</param>
+        </member>
+        <member name="M:rokae.clr.xMateRobot.jointTorque(rokae.clr.ErrorCode@)">
+            <summary>
+关节力传感器数值 [Nm]
+</summary>
+            <param name="ec">错误码</param>
+            <returns>关节力矩</returns>
+        </member>
+        <member name="M:rokae.clr.xMateRobot.jointVel(rokae.clr.ErrorCode@)">
+            <summary>
+机器人当前关节速度 [rad/s]
+</summary>
+            <param name="ec">错误码</param>
+            <returns>关节速度</returns>
+        </member>
+        <member name="M:rokae.clr.xMateRobot.jointPos(rokae.clr.ErrorCode@)">
+            <summary>
+机器人当前轴角度 [rad]
+</summary>
+            <param name="ec">错误码</param>
+            <returns>关节弧度</returns>
+        </member>
+        <member name="M:rokae.clr.xMateRobot.connectToRobot(System.String)">
+            <summary>
+建立与机器人的连接。
+</summary>
+            <param name="remoteIP">机器人IP地址</param>
+            <exception cref="T:rokae.clr.ApiException">网络连接异常;控制器版本不兼容;机型不匹配等</exception>
+        </member>
+        <member name="M:rokae.clr.xMateRobot.connectToRobot(rokae.clr.ErrorCode@)">
+            <summary>
+连接到机器人。机器人地址为创建xMateRobot实例时传入的
+</summary>
+            <param name="ec">错误码</param>
+        </member>
+        <member name="M:rokae.clr.xMateRobot.Dispose">
+            <summary>
+decosntructor
+</summary>
+        </member>
+        <member name="M:rokae.clr.xMateRobot.#ctor(System.String)">
+            <summary>
+创建机器人实例并建立连接
+</summary>
+            <param name="remoteIP">机器人IP地址</param>
+            <exception cref="T:rokae.clr.ApiException">网络连接异常;控制器版本不兼容;机型不匹配等</exception>
+        </member>
+        <member name="M:rokae.clr.xMateRobot.#ctor">
+            <summary>
+默认构造，需调用connectToRobot(remoteIP)初始化
+</summary>
+        </member>
+        <member name="T:rokae.clr.xMateRobot">
+            <summary>
+xMate六轴机器人6轴协作机器人, 包括 xMateCR7/12, xMateSR3/4, xMateER3/7
+</summary>
+        </member>
+        <member name="M:rokae.clr.Cobot.setxPanelVout(rokae.clr.xPanelOpt.Vout,rokae.clr.ErrorCode@)">
+            <summary>
+设置xPanel对外供电模式。注：仅部分机型支持xPanel功能，不支持的机型会返回错误码
+</summary>
+            <param name="opt">模式</param>
+            <param name="ec">错误码</param>
+        </member>
+        <member name="M:rokae.clr.Cobot.queryPathLists(rokae.clr.ErrorCode@)">
+            <summary>
+查询已保存的所有路径名称
+</summary>
+            <param name="ec">错误码</param>
+            <returns>名称列表, 若没有路径则返回空列表</returns>
+        </member>
+        <member name="M:rokae.clr.Cobot.removePath(System.String,System.Boolean,rokae.clr.ErrorCode@)">
+            <summary>
+删除已保存的路径
+</summary>
+            <param name="name">要删除的路径名称</param>
+            <param name="removeAll">是否删除所有路径</param>
+            <param name="ec">错误码。若路径不存在，错误码不会被置位</param>
+        </member>
+        <member name="M:rokae.clr.Cobot.replayPath(System.String,System.Double,rokae.clr.ErrorCode@)">
+            <summary>
+运动指令-路径回放
+</summary>
+            <param name="name">要回放的路径名称</param>
+            <param name="rate">回放速率, 应小于3.0, 1为路径原始速率。注意当速率大于1时，可能产生驱动器无法跟随错误</param>
+            <param name="ec">错误码</param>
+        </member>
+        <member name="M:rokae.clr.Cobot.saveRecordPath(System.String,System.String,rokae.clr.ErrorCode@)">
+            <summary>
+保存录制好的路径
+</summary>
+            <param name="name">路径名称</param>
+            <param name="saveAs">重命名，可传入空字符串。如果已录制好一条路径但没有保存，则用该名字保存路径。如果没有未保存的路径，则将已保存的名为"name"的路径重命名为"saveAs"</param>
+            <param name="ec">错误码</param>
+        </member>
+        <member name="M:rokae.clr.Cobot.cancelRecordPath(rokae.clr.ErrorCode@)">
+            <summary>
+取消录制, 缓存的路径数据将被删除
+</summary>
+            <param name="ec">错误码</param>
+        </member>
+        <member name="M:rokae.clr.Cobot.stopRecordPath(rokae.clr.ErrorCode@)">
+            <summary>
+停止录制路径, 若录制成功(无错误码)则路径数据保存在缓存中
+</summary>
+            <param name="ec">错误码</param>
+        </member>
+        <member name="M:rokae.clr.Cobot.startRecordPath(rokae.clr.ErrorCode@)">
+            <summary>
+开始录制路径。录制的时长需要限制在30分钟以内, 此接口不会阻塞等待，录制完毕调用stopRecordPath()来停止录制
+</summary>
+            <param name="ec">错误码</param>
+        </member>
+        <member name="M:rokae.clr.Cobot.disableCollisionDetection(rokae.clr.ErrorCode@)">
+            <summary>
+关闭碰撞检测功能
+</summary>
+            <param name="ec">错误码</param>
+        </member>
+        <member name="M:rokae.clr.Cobot.disableDrag(rokae.clr.ErrorCode@)">
+            <summary>
+关闭拖动
+</summary>
+            <param name="ec">错误码</param>
+        </member>
+        <member name="M:rokae.clr.Cobot.enableDrag(rokae.clr.DragOpt.Space,rokae.clr.DragOpt.Type,rokae.clr.ErrorCode@)">
+            <summary>
+打开拖动
+</summary>
+            <param name="space">拖动空间。轴空间拖动仅支持自由拖拽类型</param>
+            <param name="type">拖动类型</param>
+            <param name="ec">错误码</param>
+        </member>
+        <member name="T:rokae.clr.Cobot">
+            <summary>
+协作机器人通用接口
+</summary>
+        </member>
+        <member name="M:rokae.clr.StandardRobot.setSoftLimit(System.Boolean,System.Double[0:,0:],rokae.clr.ErrorCode@)">
+            <summary>
+设置软限位。软限位设定要求：
+<list type="bullet"><item>打开软限位时，机械臂应下电且处于手动模式</item><item>软限位不能超过机械硬限位</item><item>机械臂当前各轴角度应在设定的限位范围内</item></list></summary>
+            <param name="enable">true - 打开 | false - 关闭</param>
+            <param name="limits">各轴[下限, 上限]，单位：弧度。
+<list><item>当limits为默认值时，视为仅打开软限位不修改数值; 不为默认值时，先修改软限位再打开</item><item>关闭软限位时不会修改限位数值</item></list></param>
+            <param name="ec">错误码</param>
+        </member>
+        <member name="M:rokae.clr.StandardRobot.getSoftLimit(System.Double[0:,0:]@,rokae.clr.ErrorCode@)">
+            <summary>
+获取当前软限位数值
+</summary>
+            <param name="limits">各轴软限位 [下限, 上限]，单位: 弧度</param>
+            <param name="ec">错误码</param>
+            <returns>true - 已打开 | false - 已关闭</returns>
+        </member>
+        <member name="M:rokae.clr.StandardRobot.disableCollisionDetection(rokae.clr.ErrorCode@)">
+            <summary>
+关闭碰撞检测功能
+</summary>
+            <param name="ec">错误码</param>
+        </member>
+        <member name="M:rokae.clr.StandardRobot.enableCollisionDetection(System.Double[],System.Double,rokae.clr.ErrorCode@)">
+            <summary>
+设置碰撞检测相关参数, 打开碰撞检测功能。工业机型只支持stop1（安全停止）
+</summary>
+            <param name="sensitivity">碰撞检测灵敏度，范围0.01-2.0</param>
+            <param name="fallback">碰撞后回退距离，单位: 米</param>
+            <param name="ec">错误码</param>
+        </member>
+        <member name="M:rokae.clr.StandardRobot.calibrateFrame(rokae.clr.FrameType,System.Collections.Generic.List`1{System.Double[]},System.Boolean,System.Double[],rokae.clr.ErrorCode@)">
+            <summary>
+坐标系标定 (N点标定).
+<list type="bullet"><listheader><term><description>各坐标系类型支持的标定方法及注意事项x</description></term></listheader><item><term>工具坐标系</term><description>三点 / 四点 / 六点标定法</description></item><item><term>工件坐标系</term><description>三点标定。标定结果不会相对用户坐标系做变换，即，若为外部工件，返回的结果是相对于基坐标系的。</description></item><item><term>基坐标系</term><description>六点标定。标定前请确保动力学约束和前馈已关闭。</description></item></list>
+若标定成功(无错误码)，控制器会自动保存标定结果，重启控制器后生效。
+</summary>
+            <param name="type">坐标系类型，支持工具(FrameType::tool), 工件(FrameType::wobj), 基坐标系(FrameType::base)</param>
+            <param name="points">轴角度列表，列表长度为N。例如，使用三点法标定工具坐标系，应传入3组轴角度。轴角度的单位是弧度。</param>
+            <param name="is_held">true - 机器人手持 | false - 外部。仅影响工具/工件的标定</param>
+            <param name="base_aux">基坐标系标定时用到的辅助点, 单位[米]</param>
+            <param name="ec">错误码</param>
+            <returns>标定结果，当错误码没有被置位时，标定结果有效。</returns>
+        </member>
+        <member name="M:rokae.clr.StandardRobot.calcFk(System.Double[],rokae.clr.ErrorCode@)">
+            <summary>
+根据轴角度计算正解
+</summary>
+            <param name="joints">轴角度,数组长度应与轴数一致。单位: 弧度</param>
+            <param name="ec">错误码</param>
+            <returns>机器人末端位姿，相对于外部参考坐标系</returns>
+        </member>
+        <member name="M:rokae.clr.StandardRobot.calcIk(rokae.clr.CartesianPosition,rokae.clr.ErrorCode@)">
+            <summary>
+根据位姿计算逆解
+</summary>
+            <param name="posture">机器人末端位姿，相对于外部参考坐标系</param>
+            <param name="ec">错误码</param>
+            <returns>关节角度, 单位:弧度</returns>
+        </member>
+        <member name="M:rokae.clr.StandardRobot.jointTorque(rokae.clr.ErrorCode@)">
+            <summary>
+关节力传感器数值 [Nm]
+</summary>
+            <param name="ec">错误码</param>
+            <returns>关节力矩</returns>
+        </member>
+        <member name="M:rokae.clr.StandardRobot.jointVel(rokae.clr.ErrorCode@)">
+            <summary>
+机器人当前关节速度 [rad/s]
+</summary>
+            <param name="ec">错误码</param>
+            <returns>关节速度</returns>
+        </member>
+        <member name="M:rokae.clr.StandardRobot.jointPos(rokae.clr.ErrorCode@)">
+            <summary>
+机器人当前轴角度 [rad]
+</summary>
+            <param name="ec">错误码</param>
+            <returns>关节弧度</returns>
+        </member>
+        <member name="M:rokae.clr.StandardRobot.connectToRobot(System.String)">
+            <summary>
+建立与机器人的连接。
+</summary>
+            <param name="remoteIP">机器人IP地址</param>
+            <exception cref="T:rokae.clr.ApiException">网络连接异常;控制器版本不兼容;机型不匹配等</exception>
+        </member>
+        <member name="M:rokae.clr.StandardRobot.connectToRobot(rokae.clr.ErrorCode@)">
+            <summary>
+连接到机器人。机器人地址为创建StandardRobot实例时传入的
+</summary>
+            <param name="ec">错误码</param>
+        </member>
+        <member name="M:rokae.clr.StandardRobot.#ctor(System.String)">
+            <summary>
+创建机器人实例并建立连接，适用机型: 工业六轴
+</summary>
+            <param name="remoteIP">机器人IP地址</param>
+            <exception cref="T:rokae.clr.ApiException">网络连接异常;控制器版本不兼容;机型不匹配等</exception>
+        </member>
+        <member name="M:rokae.clr.StandardRobot.#ctor">
+            <summary>
+默认构造，需调用connectToRobot(remoteIP)初始化
+</summary>
+        </member>
+        <member name="T:rokae.clr.StandardRobot">
+            <summary>
+工业六轴机器人
+</summary>
+        </member>
+        <member name="M:rokae.clr.BaseRobot.wobjsInfo(rokae.clr.ErrorCode@)">
+            <summary>
+查询当前加载工程的工件信息
+</summary>
+            <param name="ec">错误码</param>
+            <returns>工件信息列表, 若未加载任何工程或没有创建工件, 则返回空vector</returns>
+        </member>
+        <member name="M:rokae.clr.BaseRobot.toolsInfo(rokae.clr.ErrorCode@)">
+            <summary>
+查询当前加载工程的工具信息
+</summary>
+            <param name="ec">错误码</param>
+            <returns>工具信息列表, 若未加载任何工程或没有创建工具, 则返回默认工具tool0的信息</returns>
+        </member>
+        <member name="M:rokae.clr.BaseRobot.setProjectRunningOpt(System.Double,System.Boolean,rokae.clr.ErrorCode@)">
+            <summary>
+更改工程的运行速度和循环模式
+</summary>
+            <param name="rate">运行速率，范围 0.01 - 1</param>
+            <param name="loop">true - 循环执行 | false - 单次执行</param>
+            <param name="ec">错误码</param>
+        </member>
+        <member name="M:rokae.clr.BaseRobot.pauseProject(rokae.clr.ErrorCode@)">
+            <summary>
+暂停运行工程
+</summary>
+            <param name="ec">错误码</param>
+        </member>
+        <member name="M:rokae.clr.BaseRobot.runProject(rokae.clr.ErrorCode@)">
+            <summary>
+开始运行当前加载的工程
+</summary>
+            <param name="ec">错误码</param>
+        </member>
+        <member name="M:rokae.clr.BaseRobot.ppToMain(rokae.clr.ErrorCode@)">
+            <summary>
+程序指针跳转到main。调用后，等待控制器解析完工程后返回，阻塞时间视工程大小而定，超时时间设定为10秒。
+</summary>
+            <param name="ec">错误码。错误码能提供的信息有限，不能反馈如RL语法错误、变量不存在等错误。可通过queryControllerLog()查询错误日志。</param>
+        </member>
+        <member name="M:rokae.clr.BaseRobot.loadProject(System.String,System.Collections.Generic.List`1{System.String},rokae.clr.ErrorCode@)">
+            <summary>
+加载工程
+</summary>
+            <param name="name">工程名称</param>
+            <param name="tasks">
+                <typeparam name="System::String">
+要运行的任务。该参数必须指定，不能为空，否则无法执行工程。
+</typeparam>
+            </param>
+            <param name="ec">错误码</param>
+        </member>
+        <member name="M:rokae.clr.BaseRobot.projectsInfo(rokae.clr.ErrorCode@)">
+            <summary>
+查询工控机中RL工程名称及任务
+</summary>
+            <param name="ec">错误码</param>
+            <returns>工程信息列表，若没有创建工程则返回空列表</returns>
+        </member>
+        <member name="M:rokae.clr.BaseRobot.setSimulationMode(System.Boolean,rokae.clr.ErrorCode@)">
+            <summary>
+设置输入仿真模式
+</summary>
+            <param name="state">true - 打开 | false - 关闭</param>
+            <param name="ec">错误码</param>
+        </member>
+        <member name="M:rokae.clr.BaseRobot.setAO(System.UInt32,System.UInt32,System.Double,rokae.clr.ErrorCode@)">
+            <summary>
+设置模拟量输出信号
+</summary>
+            <param name="board">IO板序号</param>
+            <param name="port">信号端口号</param>
+            <param name="value">输出值</param>
+            <param name="ec">错误码</param>
+        </member>
+        <member name="M:rokae.clr.BaseRobot.getAI(System.UInt32,System.UInt32,rokae.clr.ErrorCode@)">
+            <summary>
+读取模拟量输入信号值
+</summary>
+            <param name="board">IO板序号</param>
+            <param name="port">信号端口号</param>
+            <param name="ec">错误码</param>
+            <returns>信号值</returns>
+        </member>
+        <member name="M:rokae.clr.BaseRobot.getDO(System.UInt32,System.UInt32,rokae.clr.ErrorCode@)">
+            <summary>
+查询数字输出量信号值
+</summary>
+            <param name="board">IO板序号</param>
+            <param name="port">信号端口号</param>
+            <param name="ec">错误码</param>
+            <returns>true-开 | false-关</returns>
+        </member>
+        <member name="M:rokae.clr.BaseRobot.setDO(System.UInt32,System.UInt32,System.Boolean,rokae.clr.ErrorCode@)">
+            <summary>
+设置数字量输出信号值
+</summary>
+            <param name="board">IO板序号</param>
+            <param name="port">信号端口号</param>
+            <param name="state">true-开 | false-关</param>
+            <param name="ec">错误码</param>
+        </member>
+        <member name="M:rokae.clr.BaseRobot.getDI(System.UInt32,System.UInt32,rokae.clr.ErrorCode@)">
+            <summary>
+查询数字量输入信号值
+</summary>
+            <param name="board">IO板序号</param>
+            <param name="port">信号端口号</param>
+            <param name="ec">错误码</param>
+            <returns>true-开 | false-关</returns>
+        </member>
+        <member name="M:rokae.clr.BaseRobot.setDI(System.UInt32,System.UInt32,System.Boolean,rokae.clr.ErrorCode@)">
+            <summary>
+设置数字量输入信号，仅当输入仿真模式打开时可以设置(见setSimulationMode())
+</summary>
+            <param name="board">IO板序号</param>
+            <param name="port">信号端口号</param>
+            <param name="state">true-开 | false-关</param>
+            <param name="ec">错误码</param>
+        </member>
+        <member name="M:rokae.clr.BaseRobot.queryControllerLog(System.UInt32,rokae.clr.LogInfo.Level,rokae.clr.ErrorCode@)">
+            <summary>
+查询控制器最新的日志
+</summary>
+            <param name="count">查询个数，上限是10条</param>
+            <param name="level">指定日志等级，空集合代表不指定</param>
+            <param name="ec">错误码</param>
+            <returns>日志信息</returns>
+        </member>
+        <member name="M:rokae.clr.BaseRobot.clearServoAlarm(rokae.clr.ErrorCode@)">
+            <summary>
+清除伺服报警
+</summary>
+            <param name="ec">错误码，当有伺服报警且清除失败的情况下错误码置为-1</param>
+        </member>
+        <member name="M:rokae.clr.BaseRobot.startJog(rokae.clr.JogSpace,System.Double,System.Double,System.UInt32,System.Boolean,rokae.clr.ErrorCode@)">
+            <summary>
+开始jog机器人，需要切换到手动操作模式。调用此接口并且机器人开始运动后，无论机器人是否已经自行停止，都必须调用stop()来结束jog操作，否则机器人会一直处于jog的运行状态。
+</summary>
+            <param name="space">jog参考坐标系。工具/工件坐标系使用原则同setToolset()。</param>
+            <param name="rate">速率, 范围 0.01 - 1</param>
+            <param name="step">步长。单位: 笛卡尔空间-毫米 | 轴空间-度。步长大于0即可，不设置上限，如果机器人无法继续jog会自行停止运动。</param>
+            <param name="index">笛卡尔空间 - 0~5分别对应XYZABC | 轴空间 - 关节序号，从0开始计数</param>
+            <param name="direction">方向，true - 正向 | false - 负向</param>
+            <param name="ec">错误码</param>
+        </member>
+        <member name="M:rokae.clr.BaseRobot.setEventWatcher(rokae.clr.Event,rokae.clr.EventCallbackDelegate,rokae.clr.ErrorCode@)">
+            <summary>
+设置接收事件的回调函数。
+</summary>
+            <param name="eventType">事件类型</param>
+            <param name="callback">处理事件的回调函数
+<list type="bullet"><item><term>Event::moveExecution</term><description> 回调函数在同一个线程执行, 请避免函数中有执行时间较长的操作</description></item><item><term>Event::safety</term><description> 每次独立线程回调, 没有执行时间的限制</description></item></list></param>
+            <param name="ec">错误码</param>
+        </member>
+        <member name="M:rokae.clr.BaseRobot.queryEventInfo(rokae.clr.Event,rokae.clr.ErrorCode@)">
+            <summary>
+查询事件信息。
+</summary>
+            <param name="eventType">事件类型</param>
+            <param name="ec">错误码</param>
+            <returns>事件信息</returns>
+        </member>
+        <member name="M:rokae.clr.BaseRobot.adjustSpeedOnline(System.Double,rokae.clr.ErrorCode@)">
+            <summary>
+动态调整机器人运动速率，非实时模式时生效。
+</summary>
+            <param name="scale">运动指令的速度的比例，范围 0.01 - 1。当设置scale为1时，机器人将以路径原本速度运动。</param>
+            <param name="ec">错误码</param>
+        </member>
+        <member name="M:rokae.clr.BaseRobot.setMaxCacheSize(System.Int32,rokae.clr.ErrorCode@)">
+            <summary>
+设置最大缓存指令个数，指发送到控制器待规划的路径点个数，允许的范围[1,20]，初始值为10。
+</summary>
+            <remarks>如果轨迹多为短轨迹，可以调大这个数值，避免因指令发送不及时导致机器人停止运动(停止后如果有未执行的指令，可moveStart()继续);</remarks>
+            <param name="number">个数</param>
+            <param name="ec">错误码</param>
+        </member>
+        <member name="M:rokae.clr.BaseRobot.moveStart(rokae.clr.ErrorCode@)">
+            <summary>
+开始/继续运动
+</summary>
+            <param name="ec">错误码</param>
+        </member>
+        <member name="M:rokae.clr.BaseRobot.setDefaultConfOpt(System.Boolean,rokae.clr.ErrorCode@)">
+            <summary>
+设置是否严格遵循笛卡尔点位Conf检查。初始值为false (不严格遵循).
+对于xMateCR和xMateSR系列机型，由于构型特殊，当运动指令设置了confData时，默认使用confData进行逆解计算。
+</summary>
+            <param name="forced">true - 严格遵循，此时会用运动指令的confData计算笛卡尔点位逆解, 如计算失败则返回错误;
+false - 不严格遵循，逆解时会选取机械臂当前轴角度的最近解</param>
+            <param name="ec">错误码</param>
+        </member>
+        <member name="M:rokae.clr.BaseRobot.setDefaultZone(System.Int32,rokae.clr.ErrorCode@)">
+            <summary>
+设定默认转弯区。初始值为为0 (fine, 无转弯区)。该数值表示运动最大转弯区半径(单位:mm), 自动计算转弯百分比
+</summary>
+            <param name="zone"> 该接口不对参数进行范围限制。转弯区半径大小实际有效范围是0-200。
+<list type="bullet">转弯百分比划分4个范围
+<item><term>&lt; 1</term><description> 0 (fine)</description></item><item><term>1 ~ 20</term><description> 10 %</description></item><item><term>20 ~ 60</term><description> 30 %</description></item><item><term>&gt; 60</term><description> 100 %</description></item></list></param>
+            <param name="ec">错误码</param>
+        </member>
+        <member name="M:rokae.clr.BaseRobot.setDefaultSpeed(System.Int32,rokae.clr.ErrorCode@)">
+            <summary>
+设定默认运动速度，初始值为100。该数值表示末端最大线速度(单位mm/s), 自动计算对应末端旋转速度及轴速度
+</summary>
+            <param name="speed">该接口不对参数进行范围限制。末端线速度的实际有效范围分别是5-4000(协作), 5-7000(工业)。
+<list type="bullet">关节速度百分比划分为5个的范围
+<item><term>&lt; 100</term><description> 10%</description></item><item><term>100 ~ 200</term><description> 30%</description></item><item><term>200 ~ 500</term><description> 50%</description></item><item><term>500 ~ 800</term><description> 80%</description></item><item><term>&gt; 800</term><description> 100%</description></item></list></param>
+            <param name="ec">错误码</param>
+        </member>
+        <member name="M:rokae.clr.BaseRobot.moveAppend(rokae.clr.MoveCommand.Type,System.Collections.Generic.List`1{rokae.clr.MoveCommand},System.String@,rokae.clr.ErrorCode@)">
+            <summary>
+添加单条或多条运动指令, 添加后调用moveStart()开始运动
+</summary>
+            <param name="type">指令类型</param>
+            <param name="cmd">指令列表, 允许的个数为1-100, 需为同类型指令</param>
+            <param name="cmdId">本条指令的ID, 可用于查询指令执行信息</param>
+            <param name="ec">错误码，仅反馈执行前的错误, 包括:
+<list type="number"><item>网络连接问题;</item><item>指令个数或类型不符</item></list></param>
+        </member>
+        <member name="M:rokae.clr.BaseRobot.executeCommand(rokae.clr.MoveCommand.Type,System.Collections.Generic.List`1{rokae.clr.MoveCommand},rokae.clr.ErrorCode@)">
+            <summary>
+执行单条或多条运动指令，调用后机器人立刻开始运动
+</summary>
+            <param name="type">指令类型</param>
+            <param name="cmd">指令列表, 允许的个数为1-100, 需为同类型指令</param>
+            <param name="ec">错误码，仅反馈执行前的错误, 包括:
+<list type="number"><item>网络连接问题;</item><item>指令个数或类型不符</item></list></param>
+        </member>
+        <member name="M:rokae.clr.BaseRobot.stop(rokae.clr.ErrorCode@)">
+            <summary>
+暂停机器人运动; 暂停后可调用moveStart()继续运动。若需要完全停止，不再执行已添加的指令，可调用moveReset()
+</summary>
+            <remarks>
+目前支持stop2停止类型:规划停止不断电, 见<see cref="T:rokae.clr.StopLevel">StopLevel</see>。</remarks>
+            <param name="ec">错误码</param>
+        </member>
+        <member name="M:rokae.clr.BaseRobot.moveReset(rokae.clr.ErrorCode@)">
+            <summary>
+重置运动缓存, 清空已发送的运动指令, 清除执行信息
+</summary>
+            <remarks>
+每次程序开始运行并第一次执行运动指令之前, 调用该函数来重置运动缓存</remarks>
+            <param name="ec">错误码</param>
+        </member>
+        <member name="M:rokae.clr.BaseRobot.setMotionControlMode(rokae.clr.MotionControlMode,rokae.clr.ErrorCode@)">
+            <summary>
+设置运动控制模式.在调用各运动控制接口之前, 必须设置对应的控制模式。
+</summary>
+            <param name="mode">模式</param>
+            <param name="ec">错误码</param>
+        </member>
+        <member name="M:rokae.clr.BaseRobot.setToolset(System.String,System.String,rokae.clr.ErrorCode@)">
+            <summary>
+使用已创建的工具和工件，设置工具工件组信息
+</summary>
+            <remarks>
+设置前提: 已加载一个RL工程，且创建了工具和工件。否则，只能设置为默认的工具工件，即"tool0"和"wobj0"。一组工具工件无法同时为手持或外部；如果有冲突，以工具的位置为准，例如工具工件同时为手持，不会返回错误，但是工件的坐标系变成了外部
+</remarks>
+            <param name="toolName">工具名称</param>
+            <param name="wobjName">工件名称</param>
+            <param name="ec">错误码</param>
+        </member>
+        <member name="M:rokae.clr.BaseRobot.setToolset(rokae.clr.Toolset,rokae.clr.ErrorCode@)">
+            <summary>
+设置工具工件组信息。
+</summary>
+            <remarks>
+此工具工件组仅为SDK运动控制使用, 不与RL工程相关.除此接口外, 如果通过RobotAssist更改默认工具工件(右上角的选项), 该工具工件组也会相应更改.
+</remarks>
+            <param name="toolset">工具工件组信息</param>
+            <param name="ec">错误码</param>
+        </member>
+        <member name="M:rokae.clr.BaseRobot.toolset(rokae.clr.ErrorCode@)">
+            <summary>
+查询当前工具工件组信息.此工具工件组仅为SDK运动控制使用, 不与RL工程相关
+</summary>
+            <param name="ec">错误码</param>
+            <returns>工具工件组</returns>
+        </member>
+        <member name="M:rokae.clr.BaseRobot.baseFrame(rokae.clr.ErrorCode@)">
+            <summary>
+读取基坐标系, 相对于世界坐标系
+</summary>
+            <param name="ec">错误码</param>
+            <returns>坐标系[x, y, z, rx, ry, rz]</returns>
+        </member>
+        <member name="M:rokae.clr.BaseRobot.cartPosture(rokae.clr.CoordinateType,rokae.clr.ErrorCode@)">
+            <summary>
+获取机器人法兰或末端的当前位姿
+</summary>
+            <param name="ct">坐标系类型</param>
+            <param name="ec">错误码</param>
+            <returns>当前笛卡尔位置</returns>
+        </member>
+        <member name="M:rokae.clr.BaseRobot.posture(rokae.clr.CoordinateType,rokae.clr.ErrorCode@)">
+            <summary>
+获取机器人法兰或末端的当前位姿
+</summary>
+            <param name="ct">坐标系类型
+<list type="number"><item><term>flangeInBase</term><description>法兰相对于基坐标系;</description></item><item><term>endInRef</term><description>末端相对于外部参考坐标系。例如, 当设置了手持工具及外部工件后，该坐标系类型返回的是工具相对于工件坐标系的坐标。
+再例如，若外部参考坐标系与基坐标系重合，那么返回的结果等同于末端相对于基坐标系的位姿。</description></item></list></param>
+            <param name="ec">错误码</param>
+            <returns>double数组, [x, y, z, rx, ry, rz].</returns>
+        </member>
+        <member name="M:rokae.clr.BaseRobot.operationState(rokae.clr.ErrorCode@)">
+            <summary>
+查询机器人当前运行状态 (空闲, 运动中, 拖动开启等)
+</summary>
+            <param name="ec">错误码</param>
+            <returns>运行状态枚举类</returns>
+        </member>
+        <member name="M:rokae.clr.BaseRobot.setOperateMode(rokae.clr.OperateMode,rokae.clr.ErrorCode@)">
+            <summary>
+切换手自动模式
+</summary>
+            <param name="mode">手动/自动</param>
+            <param name="ec">错误码</param>
+        </member>
+        <member name="M:rokae.clr.BaseRobot.operateMode(rokae.clr.ErrorCode@)">
+            <summary>
+查询机器人当前操作模式
+</summary>
+            <param name="ec">错误码</param>
+            <returns>手动 | 自动</returns>
+        </member>
+        <member name="M:rokae.clr.BaseRobot.setPowerState(System.Boolean,rokae.clr.ErrorCode@)">
+            <summary>
+机器人上下电。注: 只有无外接使能开关或示教器的机器人才能手动模式上电。
+</summary>
+            <param name="on">true-上电 | false-下电</param>
+            <param name="ec">错误码</param>
+        </member>
+        <member name="M:rokae.clr.BaseRobot.powerState(rokae.clr.ErrorCode@)">
+            <summary>
+查询机器人上下电以及急停状态
+</summary>
+            <param name="ec">错误码</param>
+            <returns>on-上电 | off-下电 | estop-急停 | gstop-安全门打开</returns>
+        </member>
+        <member name="M:rokae.clr.BaseRobot.sdkVersion">
+            <summary>查询xCoreSDK版本</summary>
+            <returns>版本号</returns>
+        </member>
+        <member name="M:rokae.clr.BaseRobot.robotInfo(rokae.clr.ErrorCode@)">
+            <summary>
+查询机器人基本信息
+</summary>
+            <param name="ec">错误码</param>
+            <returns>机器人基本信息</returns>
+        </member>
+        <member name="M:rokae.clr.BaseRobot.disconnectFromRobot(rokae.clr.ErrorCode@)">
+            <summary>
+断开与机器人连接。断开前会停止机器人运动, 请注意安全。
+</summary>
+            <param name="ec">错误码</param>
+        </member>
+        <member name="T:rokae.clr.BaseRobot">
+            <summary>
+机器人通用接口
+</summary>
+        </member>
+        <member name="T:rokae.clr.ApiException">
+            <summary>
+xCoreSDK 寮傚父
+</summary>
+        </member>
+        <member name="F:rokae.clr.WorkToolInfo.load">
+            <summary>负载</summary>
+        </member>
+        <member name="F:rokae.clr.WorkToolInfo.pos">
+            <summary>位姿</summary>
+        </member>
+        <member name="F:rokae.clr.WorkToolInfo.robotHeld">
+            <summary>是否机器人手持</summary>
+        </member>
+        <member name="F:rokae.clr.WorkToolInfo.alias">
+            <summary>别名, 暂未使用</summary>
+        </member>
+        <member name="F:rokae.clr.WorkToolInfo.name">
+            <summary>名称</summary>
+        </member>
+        <member name="T:rokae.clr.WorkToolInfo">
+            <summary>
+工具/工件信息。工件的坐标系已相对其用户坐标系变换
+</summary>
+        </member>
+        <member name="F:rokae.clr.RLProjectInfo.taskList">
+            <summary>任务名称列表</summary>
+        </member>
+        <member name="F:rokae.clr.RLProjectInfo.name">
+            <summary>工程名称</summary>
+        </member>
+        <member name="T:rokae.clr.RLProjectInfo">
+            <summary>
+RL工程信息
+</summary>
+        </member>
+        <member name="F:rokae.clr.LogInfo.repair">
+            <summary>修复办法</summary>
+        </member>
+        <member name="F:rokae.clr.LogInfo.content">
+            <summary>日志内容</summary>
+        </member>
+        <member name="F:rokae.clr.LogInfo.timestamp">
+            <summary>日期及时间</summary>
+        </member>
+        <member name="F:rokae.clr.LogInfo.id">
+            <summary>日志ID号</summary>
+        </member>
+        <member name="F:rokae.clr.LogInfo.Level.error">
+            <summary>错误</summary>
+        </member>
+        <member name="F:rokae.clr.LogInfo.Level.warning">
+            <summary>警告</summary>
+        </member>
+        <member name="F:rokae.clr.LogInfo.Level.info">
+            <summary>通知</summary>
+        </member>
+        <member name="T:rokae.clr.LogInfo.Level">
+            <summary>日志等级</summary>
+        </member>
+        <member name="T:rokae.clr.LogInfo">
+            <summary>
+控制器日志信息
+</summary>
+        </member>
+        <member name="F:rokae.clr.FrameCalibrationResult.errors">
+            <summary>样本点与TCP标定值的偏差, 依次为最小值,平均值,最大值, 单位m</summary>
+        </member>
+        <member name="F:rokae.clr.FrameCalibrationResult.frame">
+            <summary>标定结果坐标系</summary>
+        </member>
+        <member name="T:rokae.clr.FrameCalibrationResult">
+            <summary>
+坐标系标定结果
+</summary>
+        </member>
+        <member name="F:rokae.clr.Toolset.reference">
+            <summary>机器人参考坐标系相对世界坐标系转换</summary>
+        </member>
+        <member name="F:rokae.clr.Toolset.end">
+            <summary>机器人末端坐标系相对法兰坐标系转换</summary>
+        </member>
+        <member name="F:rokae.clr.Toolset.load">
+            <summary>机器人末端手持负载</summary>
+        </member>
+        <member name="T:rokae.clr.Toolset">
+            <summary>
+工具工件组信息, 根据一对工具工件的坐标、负载、机器人手持设置计算得出
+</summary>
+            <remarks>并不显式区分手持/外部. 该类可这样理解: 如手持工具, 则负载和机器人末端坐标系是工具的, 参考坐标系则是工件的；反之, 如果手持工件, 则负载和末端坐标系来自工件, 参考坐标系来自工具</remarks>
+        </member>
+        <member name="F:rokae.clr.Load.inertia">
+            <summary>惯量 [ix, iy, iz, 单位:千克·平方米</summary>
+        </member>
+        <member name="F:rokae.clr.Load.cog">
+            <summary>质心 [x, y, z], 单位:米</summary>
+        </member>
+        <member name="F:rokae.clr.Load.mass">
+            <summary>负载质量, 单位:千克</summary>
+        </member>
+        <member name="T:rokae.clr.Load">
+            <summary>
+负载信息
+</summary>
+        </member>
+        <member name="F:rokae.clr.MoveCommand.args">
+            <summary>
+运动指令其它参数
+<list type="bullet"><item><term>Type::MoveCF</term><description>接受长度为1参数，含义: 全圆执行角度[弧度]</description></item><item><term>Type::MoveSP</term><description>接受长度为4参数，依次为:初始半径[米];  每旋转单位角度半径的变化[米/弧度]; 
+合计旋转角度[弧度]; 旋转方向, 1顺时针|0逆时针</description></item></list></summary>
+        </member>
+        <member name="F:rokae.clr.MoveCommand.zone">
+            <summary>转弯区大小</summary>
+        </member>
+        <member name="F:rokae.clr.MoveCommand.speed">
+            <summary>速率</summary>
+        </member>
+        <member name="F:rokae.clr.MoveCommand.auxPoint">
+            <summary>辅助点</summary>
+        </member>
+        <member name="F:rokae.clr.MoveCommand.jointTarget">
+            <summary>目标关节点位</summary>
+        </member>
+        <member name="F:rokae.clr.MoveCommand.cartTarget">
+            <summary>目标笛卡尔点位</summary>
+        </member>
+        <member name="F:rokae.clr.MoveCommand.Type.MoveSP">
+            <summary>螺旋线轨迹MoveSP, 目标点是cartTarget</summary>
+        </member>
+        <member name="F:rokae.clr.MoveCommand.Type.MoveCF">
+            <summary>全圆轨迹MoveCF, 目标点是cartTarget,经过辅助点auxPoint</summary>
+        </member>
+        <member name="F:rokae.clr.MoveCommand.Type.MoveC">
+            <summary>圆弧轨迹MoveC, 目标点是cartTarget,经过辅助点auxPoint</summary>
+        </member>
+        <member name="F:rokae.clr.MoveCommand.Type.MoveAbsJ">
+            <summary>轴运动，目标点是jointTarget</summary>
+        </member>
+        <member name="F:rokae.clr.MoveCommand.Type.MoveJ">
+            <summary>轴运动，目标点是cartTarget</summary>
+        </member>
+        <member name="F:rokae.clr.MoveCommand.Type.MoveL">
+            <summary>末端直线轨迹，目标点是cartTarget</summary>
+        </member>
+        <member name="T:rokae.clr.MoveCommand.Type">
+            <summary>
+指令类型
+</summary>
+        </member>
+        <member name="T:rokae.clr.MoveCommand">
+            <summary>
+非实时运动指令
+</summary>
+        </member>
+        <member name="F:rokae.clr.JointPosition.external">
+            <summary>外部关节角度值, 单位:弧度</summary>
+        </member>
+        <member name="F:rokae.clr.JointPosition.joints">
+            <summary>关节角度值, 单位:弧度</summary>
+        </member>
+        <member name="T:rokae.clr.JointPosition">
+            <summary>
+关节点位
+</summary>
+        </member>
+        <member name="F:rokae.clr.CartesianPosition.external">
+            <summary>外部关节角度, 单位:弧度</summary>
+        </member>
+        <member name="F:rokae.clr.CartesianPosition.confData">
+            <summary>轴配置数据，[cf1, cf2, cf3, cf4, cf5, cf6, cf7, cfx]</summary>
+        </member>
+        <member name="T:rokae.clr.CartesianPosition">
+            <summary>
+笛卡尔点位
+</summary>
+        </member>
+        <member name="F:rokae.clr.Frame.rpy">
+            <summary>欧拉角 [Rx, Ry, Rz], 单位:弧度</summary>
+        </member>
+        <member name="F:rokae.clr.Frame.trans">
+            <summary>平移量 [X, Y, Z], 单位:米</summary>
+        </member>
+        <member name="T:rokae.clr.Frame">
+            <summary>
+坐标系
+</summary>
+        </member>
+        <member name="F:rokae.clr.Info.joint_num">
+            <summary>轴数</summary>
+        </member>
+        <member name="F:rokae.clr.Info.type">
+            <summary>机器人机型名称</summary>
+        </member>
+        <member name="F:rokae.clr.Info.version">
+            <summary>控制器版本</summary>
+        </member>
+        <member name="F:rokae.clr.Info.id">
+            <summary>机器人uid, 可用于区分连接的机器人</summary>
+        </member>
+        <member name="T:rokae.clr.Info">
+            <summary>
+机器人基本信息，在与建立机器人连接后加载
+</summary>
+        </member>
+        <member name="T:rokae.clr.Event">
+            <summary>
+事件类型
+</summary>
+        </member>
+        <member name="F:rokae.clr.Event.safety">
+            <summary>安全 (是否碰撞)</summary>
+        </member>
+        <member name="F:rokae.clr.Event.moveExecution">
+            <summary>非实时运动指令执行信息</summary>
+        </member>
+        <member name="F:rokae.clr.xPanelOpt.Vout.supply24v">
+            <summary>输出24V</summary>
+        </member>
+        <member name="F:rokae.clr.xPanelOpt.Vout.supply12v">
+            <summary>输出12V</summary>
+        </member>
+        <member name="F:rokae.clr.xPanelOpt.Vout.reserve">
+            <summary>保留</summary>
+        </member>
+        <member name="F:rokae.clr.xPanelOpt.Vout.off">
+            <summary>不输出</summary>
+        </member>
+        <member name="T:rokae.clr.xPanelOpt.Vout">
+            <summary>
+xPanel对外供电模式
+</summary>
+        </member>
+        <member name="T:rokae.clr.xPanelOpt">
+            <summary>
+xPanel配置
+</summary>
+        </member>
+        <member name="F:rokae.clr.DragOpt.Type.freely">
+            <summary>自由拖拽</summary>
+        </member>
+        <member name="F:rokae.clr.DragOpt.Type.rotationOnly">
+            <summary>仅旋转</summary>
+        </member>
+        <member name="F:rokae.clr.DragOpt.Type.translationOnly">
+            <summary>仅平移</summary>
+        </member>
+        <member name="F:rokae.clr.DragOpt.Space.cartesianSpace">
+            <summary>笛卡尔空间</summary>
+        </member>
+        <member name="F:rokae.clr.DragOpt.Space.jointSpace">
+            <summary>轴空间</summary>
+        </member>
+        <member name="T:rokae.clr.DragOpt">
+            <summary>
+机器人拖动模式参数, 包括拖动类型和空间
+</summary>
+        </member>
+        <member name="T:rokae.clr.FrameType">
+            <summary>
+笛卡尔空间坐标系类型
+</summary>
+        </member>
+        <member name="F:rokae.clr.FrameType.path">
+            <summary>路径坐标系</summary>
+        </member>
+        <member name="F:rokae.clr.FrameType.wobj">
+            <summary>工件坐标系</summary>
+        </member>
+        <member name="F:rokae.clr.FrameType.tool">
+            <summary>工具坐标系</summary>
+        </member>
+        <member name="F:rokae.clr.FrameType.flange">
+            <summary>法兰坐标系</summary>
+        </member>
+        <member name="F:rokae.clr.FrameType.base">
+            <summary>基坐标系</summary>
+        </member>
+        <member name="F:rokae.clr.FrameType.world">
+            <summary>世界坐标系</summary>
+        </member>
+        <member name="T:rokae.clr.JogSpace">
+            <summary>
+Jog选项: 坐标系
+</summary>
+        </member>
+        <member name="F:rokae.clr.JogSpace.baseParallelMode">
+            <summary>平行基座模式，仅适用于xMateCR和xMateSR机型</summary>
+        </member>
+        <member name="F:rokae.clr.JogSpace.singularityAvoidMode">
+            <summary>奇异规避模式，仅适用于xMateCR和xMateSR机型，规避方法是锁定4轴</summary>
+        </member>
+        <member name="F:rokae.clr.JogSpace.jointSpace">
+            <summary>轴空间</summary>
+        </member>
+        <member name="F:rokae.clr.JogSpace.wobjFrame">
+            <summary>工件坐标系</summary>
+        </member>
+        <member name="F:rokae.clr.JogSpace.toolFrame">
+            <summary>工具坐标系</summary>
+        </member>
+        <member name="F:rokae.clr.JogSpace.baseFrame">
+            <summary>基坐标系</summary>
+        </member>
+        <member name="F:rokae.clr.JogSpace.flange">
+            <summary>法兰坐标系</summary>
+        </member>
+        <member name="F:rokae.clr.JogSpace.world">
+            <summary>世界坐标系</summary>
+        </member>
+        <member name="T:rokae.clr.MotionControlMode">
+            <summary>
+SDK运动控制模式
+</summary>
+        </member>
+        <member name="F:rokae.clr.MotionControlMode.RtCommand">
+            <summary>实时模式控制</summary>
+        </member>
+        <member name="F:rokae.clr.MotionControlMode.NrtRLTask">
+            <summary>非实时模式运行RL工程</summary>
+        </member>
+        <member name="F:rokae.clr.MotionControlMode.NrtCommand">
+            <summary>非实时模式执行运动指令</summary>
+        </member>
+        <member name="F:rokae.clr.MotionControlMode.Idle">
+            <summary>空闲</summary>
+        </member>
+        <member name="T:rokae.clr.StopLevel">
+            <summary>
+机器人停止运动等级
+</summary>
+        </member>
+        <member name="F:rokae.clr.StopLevel.suppleStop">
+            <summary>柔顺停止，仅适用于协作机型</summary>
+        </member>
+        <member name="F:rokae.clr.StopLevel.stop2">
+            <summary>规划停止机器人运动后不断电, 停在原始路径上</summary>
+        </member>
+        <member name="F:rokae.clr.StopLevel.stop1">
+            <summary>规划停止机器人运动后断电, 停在原始路径上</summary>
+        </member>
+        <member name="F:rokae.clr.StopLevel.stop0">
+            <summary>快速停止机器人运动后断电</summary>
+        </member>
+        <member name="T:rokae.clr.CoordinateType">
+            <summary>
+位姿坐标系类型
+</summary>
+        </member>
+        <member name="F:rokae.clr.CoordinateType.endInRef">
+            <summary>末端相对于外部坐标系</summary>
+        </member>
+        <member name="F:rokae.clr.CoordinateType.flangeInBase">
+            <summary>法兰相对于基坐标系</summary>
+        </member>
+        <member name="T:rokae.clr.OperationState">
+            <summary>
+机器人工作状态
+</summary>
+        </member>
+        <member name="F:rokae.clr.OperationState.unknown">
+            <summary>未知(异常情况)</summary>
+        </member>
+        <member name="F:rokae.clr.OperationState.jogging">
+            <summary> Jog运动中</summary>
+        </member>
+        <member name="F:rokae.clr.OperationState.moving">
+            <summary>机器人运动中</summary>
+        </member>
+        <member name="F:rokae.clr.OperationState.loadIdentify">
+            <summary>负载辨识中</summary>
+        </member>
+        <member name="F:rokae.clr.OperationState.frictionIdentify">
+            <summary>摩擦力辨识中</summary>
+        </member>
+        <member name="F:rokae.clr.OperationState.dynamicIdentify">
+            <summary>动力学辨识中</summary>
+        </member>
+        <member name="F:rokae.clr.OperationState.demo">
+            <summary>Demo演示中</summary>
+        </member>
+        <member name="F:rokae.clr.OperationState.rlProgram">
+            <summary>RL工程运行中</summary>
+        </member>
+        <member name="F:rokae.clr.OperationState.drag">
+            <summary>拖动已开启</summary>
+        </member>
+        <member name="F:rokae.clr.OperationState.rtControlling">
+            <summary>实时模式控制中</summary>
+        </member>
+        <member name="F:rokae.clr.OperationState.jog">
+            <summary>jog状态(未运动)</summary>
+        </member>
+        <member name="F:rokae.clr.OperationState.idle">
+            <summary>机器人静止</summary>
+        </member>
+        <member name="T:rokae.clr.OperateMode">
+            <summary>
+机器人操作模式
+</summary>
+        </member>
+        <member name="F:rokae.clr.OperateMode.unknown">
+            <summary>未知(发生异常)</summary>
+        </member>
+        <member name="F:rokae.clr.OperateMode.automatic">
+            <summary>自动</summary>
+        </member>
+        <member name="F:rokae.clr.OperateMode.manual">
+            <summary>手动</summary>
+        </member>
+        <member name="T:rokae.clr.PowerState">
+            <summary>
+机器人上下电及急停状态
+</summary>
+        </member>
+        <member name="F:rokae.clr.PowerState.unknown">
+            <summary>未知(发生异常)</summary>
+        </member>
+        <member name="F:rokae.clr.PowerState.gstop">
+            <summary>安全门打开</summary>
+        </member>
+        <member name="F:rokae.clr.PowerState.estop">
+            <summary>急停被按下</summary>
+        </member>
+        <member name="F:rokae.clr.PowerState.off">
+            <summary>下电</summary>
+        </member>
+        <member name="F:rokae.clr.PowerState.on">
+            <summary>上电</summary>
+        </member>
+        <member name="P:rokae.clr.ErrorCode.value">
+            <summary>
+错误码数值
+</summary>
+        </member>
+        <member name="P:rokae.clr.ErrorCode.message">
+            <summary>
+错误信息
+</summary>
+        </member>
+        <member name="T:rokae.clr.ErrorCode">
+            <summary>
+xCoreSDK错误码
+</summary>
+        </member>
+        <!-- 丢弃成员“M:rokae.Frame.#ctor(std.array<System.Double,0x03>!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.array<System.Double,0x03>!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)”的格式错误的 XML 文档注释。-->
+        <!-- 丢弃成员“M:rokae.Frame.#ctor(std.array<System.Double,0x06>!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)”的格式错误的 XML 文档注释。-->
+        <!-- 丢弃成员“M:rokae.Frame.#ctor(std.initializer_list<System.Double>)”的格式错误的 XML 文档注释。-->
+        <!-- 丢弃成员“T:Eigen.internal.scalar_boolean_and_op”的格式错误的 XML 文档注释。-->
+        <!-- 丢弃成员“F:Eigen.placeholders.last”的格式错误的 XML 文档注释。-->
+        <!-- 丢弃成员“F:Eigen.placeholders.all”的格式错误的 XML 文档注释。-->
+        <!-- 丢弃成员“D:Eigen.Matrix2i”的格式错误的 XML 文档注释。-->
+        <!-- 丢弃成员“D:Eigen.Array22i”的格式错误的 XML 文档注释。-->
+        <!-- 丢弃成员“M:Eigen.internal.manage_caching_sizes_helper(System.Int64,System.Int64)”的格式错误的 XML 文档注释。-->
+        <!-- 丢弃成员“M:rokae.BaseRobot.setDefaultSpeed(System.Int32,std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)”的格式错误的 XML 文档注释。-->
+        <!-- 丢弃成员“M:rokae.BaseRobot.setDefaultZone(System.Int32,std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)”的格式错误的 XML 文档注释。-->
+        <!-- 丢弃成员“M:rokae.xMateRobot.startJog(rokae.JogOpt.Space,System.Double,System.Double,System.UInt32,System.Boolean,std.error_code*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)”的格式错误的 XML 文档注释。-->
+    </members>
+</doc>
