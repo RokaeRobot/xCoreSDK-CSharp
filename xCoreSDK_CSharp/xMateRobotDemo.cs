@@ -1,6 +1,7 @@
 ﻿using rokae.clr;
 using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using System.Threading;
 using EventInfos = System.Collections.Generic.Dictionary<System.String, System.Object>;
 
@@ -11,7 +12,7 @@ namespace xCoreSDK_CSharp
         // 协作六轴机型
         // 方式一: 创建对象并连接到机器人
         // xMateRobot robot = new xMateRobot("192.168.0.160");
-
+   
         // 方式二：default constructor，然后调用connectToRobot(remoteIP)
         private xMateRobot robot = new xMateRobot();
 
@@ -151,29 +152,6 @@ namespace xCoreSDK_CSharp
         }
 
         /// <summary>
-        /// 事件处理 - 模拟发生碰撞后等待5秒上电并继续运行
-        /// </summary>
-        /// <param name="safetyInfo">反馈的信息</param>
-        void RecoverFromCollision(EventInfos safetyInfo)
-        {
-            ErrorCode ec;
-            var isCollided = (Boolean)safetyInfo["collided"]; // 指令ID
-            if (isCollided)
-            {
-                Console.WriteLine("发生碰撞");
-                Thread.Sleep(5000);
-                robot.setPowerState(true, out ec);
-                robot.moveStart(out ec);
-                Console.WriteLine("已上电并继续运动");
-            }
-            else
-            {
-                Console.WriteLine("状态已恢复");
-            }
-
-        }
-
-        /// <summary>
         /// 执行运动之前一些操作：
         /// 必要操作：切换到自动模式上电；
         /// 可选操作：清除缓存，设置默认工具工件，速度和转弯区
@@ -234,8 +212,8 @@ namespace xCoreSDK_CSharp
                 movel1 = new MoveCommand();
 
             // MoveAbsJ指令 - 轴运动, 目标点类型为关节
-            absj1.jointTarget.joints = new double[] { 0.5, 0.5, 0.5, 0.5, 0.5, 0.5 };
-            drag.jointTarget.joints = new double[] { 0, Math.PI / 6, -Math.PI / 2, 0, -Math.PI / 3, 0 };
+            absj1.jointTarget.joints = new List<double> { 0.5, 0.5, 0.5, 0.5, 0.5, 0.5 };
+            drag.jointTarget.joints = new List<double> { 0, Math.PI / 6, -Math.PI / 2, 0, -Math.PI / 3, 0 };
             absj1.speed = 1000;
             drag.speed = 200;
             List<MoveCommand> cmds = new List<MoveCommand>();
@@ -334,7 +312,7 @@ namespace xCoreSDK_CSharp
             string cmdid = "";
 
             MoveCommand absj = new MoveCommand(), sp1 = new MoveCommand(), sp2 = new MoveCommand();
-            absj.jointTarget.joints = new double[] { 0.0, 0.22150561307150393, 1.4779577696969546, 0.0, 1.2675963456219013, 0.0 };
+            absj.jointTarget.joints = new List<double> { 0.0, 0.22150561307150393, 1.4779577696969546, 0.0, 1.2675963456219013, 0.0 };
             // 螺旋线1 终点姿态
             sp1.cartTarget.rpy[0] = 2.967;
             sp1.cartTarget.rpy[1] = -0.2;
@@ -377,7 +355,7 @@ namespace xCoreSDK_CSharp
 
             // 先运动到拖拽位姿，保证后面的Jog操作可执行
             MoveCommand drag = new MoveCommand();
-            drag.jointTarget.joints = new double[] { 0, Math.PI / 6, -Math.PI / 2, 0, -Math.PI / 3, 0 };
+            drag.jointTarget.joints = new List<double>{ 0, Math.PI / 6, -Math.PI / 2, 0, -Math.PI / 3, 0 };
             robot.executeCommand(MoveCommand.Type.MoveAbsJ, new List<MoveCommand> { drag }, out ec);
             waitRobot();
 
@@ -549,7 +527,7 @@ namespace xCoreSDK_CSharp
                 movel2 = new MoveCommand();
 
             // 先用MoveAbsJ指令运动到起始点
-            absj1.jointTarget.joints = new double[] { 0.453, 0.539, -1.581, 0.0, 0.026, 0 };
+            absj1.jointTarget.joints = new List<double> { 0.453, 0.539, -1.581, 0.0, 0.026, 0 };
             movel1.cartTarget.trans = new double[] { 0.66675437164302165, -0.23850040314585069, 0.85182031 };
             movel1.cartTarget.rpy = new double[] { -3.1415926535897931, 1.0471975511965979, 3.01151 };
             movel2.cartTarget.trans = new double[] { 0.66675437164302154, 0.15775146321850292, 0.464946 };

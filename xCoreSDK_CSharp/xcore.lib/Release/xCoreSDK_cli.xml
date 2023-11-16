@@ -2078,9 +2078,8 @@ PCB3轴机型
         </member>
         <member name="M:rokae.clr.xMateRobot.setAvoidSingularity(System.Boolean,rokae.clr.ErrorCode@)">
             <summary>
-适用于xMateCR系列机型，打开后，机械臂将在受限的笛卡尔自由度下运动，避免出现奇异和尖点问题。
-目前是通过锁住机械臂4轴的方式来规避奇异点，打开后发送给机械臂的运动指令和Jog功能有所变化:
-<list type="number"><item>运动指令-笛卡尔点位的Rx值必须为0, 否则会报错”目标点超出范围“</item><item>运动指令-关节点位的4轴需要是0, 如果4轴不为零时在笛卡尔空间运动，会报错”目标点超出范围“</item><item>笛卡尔空间Rx无法Jog</item><item>不能设置工具工件坐标系</item></list></summary>
+适用于xMateCR和xMateSR系列机型，打开后，机械臂将在受限的笛卡尔自由度下运动，目前是通过锁住机械臂4轴的方式来规避奇异点, 避免出现奇异和尖点问题。
+</summary>
             <param name="enable">true - 打开功能 | false - 关闭。打开之前要确保4轴处于零位。</param>
             <param name="ec">错误码</param>
         </member>
@@ -2508,7 +2507,7 @@ xMate六轴机器人6轴协作机器人, 包括 xMateCR7/12, xMateSR3/4, xMateER
 查询控制器最新的日志
 </summary>
             <param name="count">查询个数，上限是10条</param>
-            <param name="level">指定日志等级，空集合代表不指定</param>
+            <param name="level">指定日志等级</param>
             <param name="ec">错误码</param>
             <returns>日志信息</returns>
         </member>
@@ -2838,7 +2837,7 @@ RL工程信息
             <remarks>并不显式区分手持/外部. 该类可这样理解: 如手持工具, 则负载和机器人末端坐标系是工具的, 参考坐标系则是工件的；反之, 如果手持工件, 则负载和末端坐标系来自工件, 参考坐标系来自工具</remarks>
         </member>
         <member name="F:rokae.clr.Load.inertia">
-            <summary>惯量 [ix, iy, iz, 单位:千克·平方米</summary>
+            <summary>惯量 [ix, iy, iz], 单位:千克·平方米</summary>
         </member>
         <member name="F:rokae.clr.Load.cog">
             <summary>质心 [x, y, z], 单位:米</summary>
@@ -2862,6 +2861,12 @@ RL工程信息
         </member>
         <member name="F:rokae.clr.MoveCommand.speed">
             <summary>速率</summary>
+        </member>
+        <member name="F:rokae.clr.MoveCommand.auxPointOffset">
+            <summary>辅助点偏移选项</summary>
+        </member>
+        <member name="F:rokae.clr.MoveCommand.cartTargetOffset">
+            <summary>笛卡尔目标点偏移选项</summary>
         </member>
         <member name="F:rokae.clr.MoveCommand.auxPoint">
             <summary>辅助点</summary>
@@ -2916,6 +2921,26 @@ RL工程信息
         </member>
         <member name="F:rokae.clr.CartesianPosition.confData">
             <summary>轴配置数据，[cf1, cf2, cf3, cf4, cf5, cf6, cf7, cfx]</summary>
+        </member>
+        <member name="F:rokae.clr.CartesianPosition.elbow">
+            <summary>臂角, 适用于7轴机器人, 单位：弧度</summary>
+        </member>
+        <member name="F:rokae.clr.CartesianPosition.Offset.Type.relTool">
+            <summary>相对工具坐标系偏移</summary>
+        </member>
+        <member name="F:rokae.clr.CartesianPosition.Offset.Type.offs">
+            <summary>相对工件坐标系偏移</summary>
+        </member>
+        <member name="F:rokae.clr.CartesianPosition.Offset.Type.none">
+            <summary>无偏移</summary>
+        </member>
+        <member name="T:rokae.clr.CartesianPosition.Offset.Type">
+            <summary>偏移类型</summary>
+        </member>
+        <member name="T:rokae.clr.CartesianPosition.Offset">
+            <summary>
+偏移
+</summary>
         </member>
         <member name="T:rokae.clr.CartesianPosition">
             <summary>

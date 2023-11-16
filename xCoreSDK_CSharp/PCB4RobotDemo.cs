@@ -55,7 +55,7 @@ namespace xCoreSDK_CSharp
         /// <summary>
         /// 示例 - 连接到机器人
         /// </summary>
-        /// <param name="remoteIP"></param>
+        /// <param name="remoteIP">机器人地址</param>
         public void connect(string remoteIP)
         {
             robot.connectToRobot(remoteIP);
@@ -128,6 +128,7 @@ namespace xCoreSDK_CSharp
             movej1.cartTarget.rpy[0] = Math.PI;
             movej1.cartTarget.rpy[1] = 0.047;
             movej1.cartTarget.rpy[2] = Math.PI;
+
             // MoveJ2 X-0.502, Y-0, Z-0.63, A-3.14, B-1.416, C-3.14
             movej2.cartTarget.trans[0] = 0.502;
             movej2.cartTarget.trans[1] = 0.0;
@@ -135,6 +136,9 @@ namespace xCoreSDK_CSharp
             movej2.cartTarget.rpy[0] = Math.PI;
             movej2.cartTarget.rpy[1] = 1.4167484;
             movej2.cartTarget.rpy[2] = Math.PI;
+            // 沿外部工件坐标系X+偏移0.01
+            movej2.cartTargetOffset.type = CartesianPosition.Offset.Type.offs;
+            movej2.cartTargetOffset.frame.trans[0] = 0.01;
 
             var cmds = new List<MoveCommand> { movej1, movej2 };
             robot.moveAppend(MoveCommand.Type.MoveJ, cmds, ref id, out ec);

@@ -11,10 +11,13 @@ namespace xCoreSDK_CSharp
 {
     internal class Program
     {
-        // 协作6轴机器人实例
+        // 协作6轴机器人
         static xMateRobotDemo xmate = new xMateRobotDemo();
-        // 工业4轴机器人实例
-        // static PCB4RobotDemo pcb4 = new PCB4RobotDemo();
+        // 工业4轴机器人
+        static PCB4RobotDemo pcb4 = new PCB4RobotDemo();
+        // 协作7轴机器人
+        static xMateErProRobotDemo xmatepro = new xMateErProRobotDemo();
+        
         static void Main(string[] args)
         {
             try
@@ -32,7 +35,6 @@ namespace xCoreSDK_CSharp
            
             Console.ReadKey(true);
             Console.WriteLine(" --- BYE --- ");
-            //xmate.disconnect();
         }
     }
 }

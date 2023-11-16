@@ -87,6 +87,7 @@
     <Compile Include="PrintHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="xMateErProRobotDemo.cs" />
     <Compile Include="xMateRobotDemo.cs" />
     <Compile Include="Workflow.cs" />
   </ItemGroup>
