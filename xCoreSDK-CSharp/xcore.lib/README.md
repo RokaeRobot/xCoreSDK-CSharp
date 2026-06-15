@@ -2,9 +2,9 @@
 
 本目录下的 `xCoreSDK_cli.dll`（及可选的 `.pdb`）不在 Git 仓库中托管，请从 GitHub Releases 下载：
 
-https://github.com/RokaeRobot/xCoreSDK-CSharp/releases/tag/v0.5.1
+https://github.com/RokaeRobot/xCoreSDK-CSharp/releases/tag/v0.7.1
 
-下载 `xCoreSDK-CSharp-0.5.1-win.zip`，在**仓库根目录**解压。
+下载 `xCoreSDK-CSharp-0.7.1-win.zip`，在**仓库根目录**解压。
 
 Expected files:
 

@@ -25,8 +25,8 @@ xCore SDK 编程接口库是珞石机器人提供给客户用于二次开发的�
    git clone https://github.com/RokaeRobot/xCoreSDK-CSharp.git
    cd xCoreSDK-CSharp
    ```
-2. **确认 SDK 版本** — 须与 Release 版本一致（当前为 **v0.5.1**，见 [CHANGELOG.md](CHANGELOG.md)）。
-3. **打开对应 Release 页面** — [Release v0.5.1](https://github.com/RokaeRobot/xCoreSDK-CSharp/releases/tag/v0.5.1)  
+2. **确认 SDK 版本** — 须与 Release 版本一致（当前为 **v0.7.1**，见 [CHANGELOG.md](CHANGELOG.md)）。
+3. **打开对应 Release 页面** — [Release v0.7.1](https://github.com/RokaeRobot/xCoreSDK-CSharp/releases/tag/v0.7.1)  
    链接格式：`https://github.com/RokaeRobot/xCoreSDK-CSharp/releases/tag/v{VERSION}`
 4. **下载** `xCoreSDK-CSharp-{version}-win.zip`。
 5. **在仓库根目录解压**，使文件落入 `xCoreSDK-CSharp/xcore.lib/`。

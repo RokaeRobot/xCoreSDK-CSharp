@@ -1,5 +1,29 @@
 # CHANGELOG
 
+## v0.7.1 2026-03-03
+
+* 修复
+  * 实时模式关节点位跟随功能优化，处理奇异点问题
+  * 设置工具工件信息(setToolInfo, setWobjInfo) 时旋转角度和负载信息设置错误
+
+## v0.7.0 2026-01-16
+
+* 兼容性
+  * xCore >= v3.2.0
+* 新增
+  * ServoJ功能: setServoJoint(), stopServoJoint(), sendCommand()
+  * 导出控制器备份exportBackup() 和升级 upgrade() 接口
+  * 力控指令: 阻抗力限幅, 阻抗速度限幅, 设置关节力控带宽、摩擦力补偿系数
+  * 计算全部逆解 calcAllIkSolutions()
+  * 关闭工控机 shutdownSystem()
+  * 查询控制器日志增加偏移选项
+  * 读取DH参数 getRobotCfg_DHparam()
+* 优化
+  * 隔离内部引入的spdlog, 避免冲突
+  * 实时模式运动延迟问题，增大超时时间上限到20ms
+* 修复
+  * 末端工具指令兼容新旧固件
+
 ## v0.5.1 2025-07-04
 
 * 分发
