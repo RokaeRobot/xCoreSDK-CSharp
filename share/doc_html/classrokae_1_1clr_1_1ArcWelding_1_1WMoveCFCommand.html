@@ -1,0 +1,715 @@
+<!-- HTML header for doxygen 1.8.7-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.4"/>
+<title>xCore-SDK: rokae::clr::ArcWelding::WMoveCFCommand类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href='https://fonts.googleapis.com/css?family=Roboto:400' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Roboto:500' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/SVG"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="container">
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="Rokae_logo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">xCore-SDK
+   &#160;<span id="projectnumber">0.5.0</span>
+   </div>
+   <div id="projectbrief">xCore SDK C# API</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.9.4 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'搜索','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><b>rokae</b></li><li class="navelem"><b>clr</b></li><li class="navelem"><a class="el" href="classrokae_1_1clr_1_1ArcWelding.html">ArcWelding</a></li><li class="navelem"><a class="el" href="classrokae_1_1clr_1_1ArcWelding_1_1WMoveCFCommand.html">WMoveCFCommand</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pub-attribs">Public 属性</a> &#124;
+<a href="classrokae_1_1clr_1_1ArcWelding_1_1WMoveCFCommand-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">rokae::clr::ArcWelding::WMoveCFCommand类 参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>焊接指令 - 整圆轨迹，摆动参数默认为空  
+ <a href="classrokae_1_1clr_1_1ArcWelding_1_1WMoveCFCommand.html#details">更多...</a></p>
+
+<p><code>#include &lt;<a class="el" href="arcwelding__cli_8hpp_source.html">arcwelding_cli.hpp</a>&gt;</code></p>
+<div class="dynheader">
+类 rokae::clr::ArcWelding::WMoveCFCommand 继承关系图:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classrokae_1_1clr_1_1ArcWelding_1_1WMoveCFCommand.png" usemap="#rokae::clr::ArcWelding::WMoveCFCommand_map" alt=""/>
+  <map id="rokae::clr::ArcWelding::WMoveCFCommand_map" name="rokae::clr::ArcWelding::WMoveCFCommand_map">
+<area href="classrokae_1_1clr_1_1ArcWelding_1_1ArcWeldingCommand.html" alt="rokae::clr::ArcWelding::ArcWeldingCommand" shape="rect" coords="0,0,264,24"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:ac303c33ef7c693e3842986520c2eb263"><td class="memItemLeft" align="right" valign="top"><a id="ac303c33ef7c693e3842986520c2eb263" name="ac303c33ef7c693e3842986520c2eb263"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>WMoveCFCommand</b> ()</td></tr>
+<tr class="memdesc:ac303c33ef7c693e3842986520c2eb263"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor <br /></td></tr>
+<tr class="separator:ac303c33ef7c693e3842986520c2eb263"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a078606d06f06cf87859b769784d8b526"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrokae_1_1clr_1_1ArcWelding_1_1WMoveCFCommand.html#a078606d06f06cf87859b769784d8b526">WMoveCFCommand</a> (<a class="el" href="classrokae_1_1clr_1_1CartesianPosition.html">CartesianPosition</a> ^ <a class="el" href="classrokae_1_1clr_1_1ArcWelding_1_1WMoveCFCommand.html#a81f5f8ad07f743a6eef995c0655b4e59">target</a>, <a class="el" href="classrokae_1_1clr_1_1CartesianPosition.html">CartesianPosition</a> ^ <a class="el" href="classrokae_1_1clr_1_1ArcWelding_1_1WMoveCFCommand.html#afb812145399b66451f369f0a84d155ac">aux</a>, double <a class="el" href="classrokae_1_1clr_1_1ArcWelding_1_1WMoveCFCommand.html#a65b71bd91a626a0446d2df31a40c79de">angle</a>, Int32 <a class="el" href="classrokae_1_1clr_1_1ArcWelding_1_1WMoveCFCommand.html#a7aca6f08652a999c00a2c39ca42476ef">speed</a>, Int32 <a class="el" href="classrokae_1_1clr_1_1ArcWelding_1_1WMoveCFCommand.html#aa3bb218c45a22f6928501b7b3fde76e0">zone</a>)</td></tr>
+<tr class="memdesc:a078606d06f06cf87859b769784d8b526"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor  <a href="classrokae_1_1clr_1_1ArcWelding_1_1WMoveCFCommand.html#a078606d06f06cf87859b769784d8b526">更多...</a><br /></td></tr>
+<tr class="separator:a078606d06f06cf87859b769784d8b526"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aecc6780af91066eb4c550be7f5745163"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrokae_1_1clr_1_1ArcWelding_1_1WMoveCFCommand.html#aecc6780af91066eb4c550be7f5745163">WMoveCFCommand</a> (<a class="el" href="classrokae_1_1clr_1_1CartesianPosition.html">CartesianPosition</a> ^ <a class="el" href="classrokae_1_1clr_1_1ArcWelding_1_1WMoveCFCommand.html#a81f5f8ad07f743a6eef995c0655b4e59">target</a>, <a class="el" href="classrokae_1_1clr_1_1CartesianPosition.html">CartesianPosition</a> ^ <a class="el" href="classrokae_1_1clr_1_1ArcWelding_1_1WMoveCFCommand.html#afb812145399b66451f369f0a84d155ac">aux</a>, double <a class="el" href="classrokae_1_1clr_1_1ArcWelding_1_1WMoveCFCommand.html#a65b71bd91a626a0446d2df31a40c79de">angle</a>, Int32 <a class="el" href="classrokae_1_1clr_1_1ArcWelding_1_1WMoveCFCommand.html#a7aca6f08652a999c00a2c39ca42476ef">speed</a>, Int32 <a class="el" href="classrokae_1_1clr_1_1ArcWelding_1_1WMoveCFCommand.html#aa3bb218c45a22f6928501b7b3fde76e0">zone</a>, String ^ weaveData)</td></tr>
+<tr class="memdesc:aecc6780af91066eb4c550be7f5745163"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor  <a href="classrokae_1_1clr_1_1ArcWelding_1_1WMoveCFCommand.html#aecc6780af91066eb4c550be7f5745163">更多...</a><br /></td></tr>
+<tr class="separator:aecc6780af91066eb4c550be7f5745163"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c67973bf98a4db5052e32f045ed10db"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrokae_1_1clr_1_1ArcWelding_1_1WMoveCFCommand.html#a9c67973bf98a4db5052e32f045ed10db">WMoveCFCommand</a> (<a class="el" href="classrokae_1_1clr_1_1CartesianPosition.html">CartesianPosition</a> ^ <a class="el" href="classrokae_1_1clr_1_1ArcWelding_1_1WMoveCFCommand.html#a81f5f8ad07f743a6eef995c0655b4e59">target</a>, <a class="el" href="classrokae_1_1clr_1_1CartesianPosition.html">CartesianPosition</a> ^ <a class="el" href="classrokae_1_1clr_1_1ArcWelding_1_1WMoveCFCommand.html#afb812145399b66451f369f0a84d155ac">aux</a>, double <a class="el" href="classrokae_1_1clr_1_1ArcWelding_1_1WMoveCFCommand.html#a65b71bd91a626a0446d2df31a40c79de">angle</a>, Int32 <a class="el" href="classrokae_1_1clr_1_1ArcWelding_1_1WMoveCFCommand.html#a7aca6f08652a999c00a2c39ca42476ef">speed</a>, Int32 <a class="el" href="classrokae_1_1clr_1_1ArcWelding_1_1WMoveCFCommand.html#aa3bb218c45a22f6928501b7b3fde76e0">zone</a>, String ^ weaveData, String ^ trackData)</td></tr>
+<tr class="memdesc:a9c67973bf98a4db5052e32f045ed10db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor  <a href="classrokae_1_1clr_1_1ArcWelding_1_1WMoveCFCommand.html#a9c67973bf98a4db5052e32f045ed10db">更多...</a><br /></td></tr>
+<tr class="separator:a9c67973bf98a4db5052e32f045ed10db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2439dab503954898de9f6417a5f4212"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrokae_1_1clr_1_1ArcWelding_1_1WMoveCFCommand.html#ad2439dab503954898de9f6417a5f4212">setWeaveData</a> (String ^ weaveData, [Out] <a class="el" href="classrokae_1_1clr_1_1ErrorCode.html">ErrorCode</a> ^ % ec)</td></tr>
+<tr class="memdesc:ad2439dab503954898de9f6417a5f4212"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置摆动参数  <a href="classrokae_1_1clr_1_1ArcWelding_1_1WMoveCFCommand.html#ad2439dab503954898de9f6417a5f4212">更多...</a><br /></td></tr>
+<tr class="separator:ad2439dab503954898de9f6417a5f4212"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af49445cbb737368c33df2ffcb88b47ff"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrokae_1_1clr_1_1ArcWelding_1_1WMoveCFCommand.html#af49445cbb737368c33df2ffcb88b47ff">getWeaveData</a> ()</td></tr>
+<tr class="memdesc:af49445cbb737368c33df2ffcb88b47ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取摆动参数  <a href="classrokae_1_1clr_1_1ArcWelding_1_1WMoveCFCommand.html#af49445cbb737368c33df2ffcb88b47ff">更多...</a><br /></td></tr>
+<tr class="separator:af49445cbb737368c33df2ffcb88b47ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a69737fd58cec3420a9f921a0a17cbf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrokae_1_1clr_1_1ArcWelding_1_1WMoveCFCommand.html#a5a69737fd58cec3420a9f921a0a17cbf">setTrackData</a> (String ^ trackData, [Out] <a class="el" href="classrokae_1_1clr_1_1ErrorCode.html">ErrorCode</a> ^ % ec)</td></tr>
+<tr class="memdesc:a5a69737fd58cec3420a9f921a0a17cbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置电弧跟踪参数  <a href="classrokae_1_1clr_1_1ArcWelding_1_1WMoveCFCommand.html#a5a69737fd58cec3420a9f921a0a17cbf">更多...</a><br /></td></tr>
+<tr class="separator:a5a69737fd58cec3420a9f921a0a17cbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b036807df84a0baef5ab0d5b2cf87ac"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrokae_1_1clr_1_1ArcWelding_1_1WMoveCFCommand.html#a6b036807df84a0baef5ab0d5b2cf87ac">getTrackData</a> ()</td></tr>
+<tr class="memdesc:a6b036807df84a0baef5ab0d5b2cf87ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取电弧跟踪参数  <a href="classrokae_1_1clr_1_1ArcWelding_1_1WMoveCFCommand.html#a6b036807df84a0baef5ab0d5b2cf87ac">更多...</a><br /></td></tr>
+<tr class="separator:a6b036807df84a0baef5ab0d5b2cf87ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public 属性</h2></td></tr>
+<tr class="memitem:a81f5f8ad07f743a6eef995c0655b4e59"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classrokae_1_1clr_1_1CartesianPosition.html">CartesianPosition</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrokae_1_1clr_1_1ArcWelding_1_1WMoveCFCommand.html#a81f5f8ad07f743a6eef995c0655b4e59">target</a> = gcnew <a class="el" href="classrokae_1_1clr_1_1CartesianPosition.html">CartesianPosition</a>()</td></tr>
+<tr class="memdesc:a81f5f8ad07f743a6eef995c0655b4e59"><td class="mdescLeft">&#160;</td><td class="mdescRight">目标笛卡尔点位 <a href="classrokae_1_1clr_1_1ArcWelding_1_1WMoveCFCommand.html#a81f5f8ad07f743a6eef995c0655b4e59">更多...</a><br /></td></tr>
+<tr class="separator:a81f5f8ad07f743a6eef995c0655b4e59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb812145399b66451f369f0a84d155ac"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classrokae_1_1clr_1_1CartesianPosition.html">CartesianPosition</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrokae_1_1clr_1_1ArcWelding_1_1WMoveCFCommand.html#afb812145399b66451f369f0a84d155ac">aux</a> = gcnew <a class="el" href="classrokae_1_1clr_1_1CartesianPosition.html">CartesianPosition</a>()</td></tr>
+<tr class="memdesc:afb812145399b66451f369f0a84d155ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">辅助点 <a href="classrokae_1_1clr_1_1ArcWelding_1_1WMoveCFCommand.html#afb812145399b66451f369f0a84d155ac">更多...</a><br /></td></tr>
+<tr class="separator:afb812145399b66451f369f0a84d155ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16f84dfcda89cba341a8866721b4717c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classrokae_1_1clr_1_1CartesianPosition_1_1Offset.html">CartesianPosition::Offset</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrokae_1_1clr_1_1ArcWelding_1_1WMoveCFCommand.html#a16f84dfcda89cba341a8866721b4717c">cartTargetOffset</a> = gcnew <a class="el" href="classrokae_1_1clr_1_1CartesianPosition_1_1Offset.html">CartesianPosition::Offset</a>()</td></tr>
+<tr class="memdesc:a16f84dfcda89cba341a8866721b4717c"><td class="mdescLeft">&#160;</td><td class="mdescRight">笛卡尔目标点偏移选项 <a href="classrokae_1_1clr_1_1ArcWelding_1_1WMoveCFCommand.html#a16f84dfcda89cba341a8866721b4717c">更多...</a><br /></td></tr>
+<tr class="separator:a16f84dfcda89cba341a8866721b4717c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48c6a8065374854db73586cda1fca49f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classrokae_1_1clr_1_1CartesianPosition_1_1Offset.html">CartesianPosition::Offset</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrokae_1_1clr_1_1ArcWelding_1_1WMoveCFCommand.html#a48c6a8065374854db73586cda1fca49f">auxPointOffset</a> = gcnew <a class="el" href="classrokae_1_1clr_1_1CartesianPosition_1_1Offset.html">CartesianPosition::Offset</a>()</td></tr>
+<tr class="memdesc:a48c6a8065374854db73586cda1fca49f"><td class="mdescLeft">&#160;</td><td class="mdescRight">辅助点偏移选项 <a href="classrokae_1_1clr_1_1ArcWelding_1_1WMoveCFCommand.html#a48c6a8065374854db73586cda1fca49f">更多...</a><br /></td></tr>
+<tr class="separator:a48c6a8065374854db73586cda1fca49f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7aca6f08652a999c00a2c39ca42476ef"><td class="memItemLeft" align="right" valign="top">Int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrokae_1_1clr_1_1ArcWelding_1_1WMoveCFCommand.html#a7aca6f08652a999c00a2c39ca42476ef">speed</a> = -1</td></tr>
+<tr class="memdesc:a7aca6f08652a999c00a2c39ca42476ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">机器人末端最大线速度, 单位mm/s。 <a href="classrokae_1_1clr_1_1ArcWelding_1_1WMoveCFCommand.html#a7aca6f08652a999c00a2c39ca42476ef">更多...</a><br /></td></tr>
+<tr class="separator:a7aca6f08652a999c00a2c39ca42476ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3bb218c45a22f6928501b7b3fde76e0"><td class="memItemLeft" align="right" valign="top">Int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrokae_1_1clr_1_1ArcWelding_1_1WMoveCFCommand.html#aa3bb218c45a22f6928501b7b3fde76e0">zone</a> = -1</td></tr>
+<tr class="memdesc:aa3bb218c45a22f6928501b7b3fde76e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">转弯区半径，单位mm <a href="classrokae_1_1clr_1_1ArcWelding_1_1WMoveCFCommand.html#aa3bb218c45a22f6928501b7b3fde76e0">更多...</a><br /></td></tr>
+<tr class="separator:aa3bb218c45a22f6928501b7b3fde76e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24a1b272b4ed97a2673adcf089c3a8d3"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrokae_1_1clr_1_1ArcWelding_1_1WMoveCFCommand.html#a24a1b272b4ed97a2673adcf089c3a8d3">rotSpeed</a> = -1</td></tr>
+<tr class="memdesc:a24a1b272b4ed97a2673adcf089c3a8d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">空间旋转速度，用于末端类型指令，单位rad/s。 大于等于0时生效；小于0时旋转速度默认为200°/s <a href="classrokae_1_1clr_1_1ArcWelding_1_1WMoveCFCommand.html#a24a1b272b4ed97a2673adcf089c3a8d3">更多...</a><br /></td></tr>
+<tr class="separator:a24a1b272b4ed97a2673adcf089c3a8d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeeaaecf29db634313dd293902ae84bb0"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrokae_1_1clr_1_1ArcWelding_1_1WMoveCFCommand.html#aeeaaecf29db634313dd293902ae84bb0">customInfo</a> = &quot;&quot;</td></tr>
+<tr class="memdesc:aeeaaecf29db634313dd293902ae84bb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">自定义信息，可在运动信息反馈中返回出来 <a href="classrokae_1_1clr_1_1ArcWelding_1_1WMoveCFCommand.html#aeeaaecf29db634313dd293902ae84bb0">更多...</a><br /></td></tr>
+<tr class="separator:aeeaaecf29db634313dd293902ae84bb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65b71bd91a626a0446d2df31a40c79de"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrokae_1_1clr_1_1ArcWelding_1_1WMoveCFCommand.html#a65b71bd91a626a0446d2df31a40c79de">angle</a> = 0</td></tr>
+<tr class="memdesc:a65b71bd91a626a0446d2df31a40c79de"><td class="mdescLeft">&#160;</td><td class="mdescRight">执行角度, 单位弧度 <a href="classrokae_1_1clr_1_1ArcWelding_1_1WMoveCFCommand.html#a65b71bd91a626a0446d2df31a40c79de">更多...</a><br /></td></tr>
+<tr class="separator:a65b71bd91a626a0446d2df31a40c79de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a629b4347722ed867e05e4fc59492c74c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrokae_1_1clr_1_1ArcWelding_1_1WMoveCFCommand.html#a629b4347722ed867e05e4fc59492c74c">rotType</a> = 0</td></tr>
+<tr class="memdesc:a629b4347722ed867e05e4fc59492c74c"><td class="mdescLeft">&#160;</td><td class="mdescRight">旋转姿态类型, 0不变姿态|1动轴旋转|2定轴旋转 <a href="classrokae_1_1clr_1_1ArcWelding_1_1WMoveCFCommand.html#a629b4347722ed867e05e4fc59492c74c">更多...</a><br /></td></tr>
+<tr class="separator:a629b4347722ed867e05e4fc59492c74c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4782dbad70a024600e928ec5ab15158c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structrokae_1_1clr_1_1ArcWelding_1_1ArcSetOpt.html">ArcSetOpt</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrokae_1_1clr_1_1ArcWelding_1_1WMoveCFCommand.html#a4782dbad70a024600e928ec5ab15158c">arc_set_opt</a> = <a class="el" href="structrokae_1_1clr_1_1ArcWelding_1_1ArcSetOpt.html#af24c63bd67a473b26ddf700e61614811">ArcSetOpt::CreateDefault</a>()</td></tr>
+<tr class="memdesc:a4782dbad70a024600e928ec5ab15158c"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置焊接参数选项。 <a href="classrokae_1_1clr_1_1ArcWelding_1_1WMoveCFCommand.html#a4782dbad70a024600e928ec5ab15158c">更多...</a><br /></td></tr>
+<tr class="separator:a4782dbad70a024600e928ec5ab15158c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p >焊接指令 - 整圆轨迹，摆动参数默认为空 </p>
+
+<p class="definition">在文件 <a class="el" href="arcwelding__cli_8hpp_source.html">arcwelding_cli.hpp</a> 第 <a class="el" href="arcwelding__cli_8hpp_source.html#l02070">2070</a> 行定义.</p>
+</div><h2 class="groupheader">构造及析构函数说明</h2>
+<a id="a078606d06f06cf87859b769784d8b526" name="a078606d06f06cf87859b769784d8b526"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a078606d06f06cf87859b769784d8b526">&#9670;&nbsp;</a></span>WMoveCFCommand() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">rokae::clr::ArcWelding::WMoveCFCommand::WMoveCFCommand </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classrokae_1_1clr_1_1CartesianPosition.html">CartesianPosition</a> ^&#160;</td>
+          <td class="paramname"><em>target</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classrokae_1_1clr_1_1CartesianPosition.html">CartesianPosition</a> ^&#160;</td>
+          <td class="paramname"><em>aux</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>angle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Int32&#160;</td>
+          <td class="paramname"><em>speed</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Int32&#160;</td>
+          <td class="paramname"><em>zone</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructor </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target</td><td>目标点</td></tr>
+    <tr><td class="paramname">aux</td><td>辅助点</td></tr>
+    <tr><td class="paramname">angle</td><td>执行角度, 单位弧度</td></tr>
+    <tr><td class="paramname">speed</td><td>运行速度</td></tr>
+    <tr><td class="paramname">zone</td><td>转弯区</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">在文件 <a class="el" href="arcwelding__cli_8hpp_source.html">arcwelding_cli.hpp</a> 第 <a class="el" href="arcwelding__cli_8hpp_source.html#l02085">2085</a> 行定义.</p>
+
+</div>
+</div>
+<a id="aecc6780af91066eb4c550be7f5745163" name="aecc6780af91066eb4c550be7f5745163"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aecc6780af91066eb4c550be7f5745163">&#9670;&nbsp;</a></span>WMoveCFCommand() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">rokae::clr::ArcWelding::WMoveCFCommand::WMoveCFCommand </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classrokae_1_1clr_1_1CartesianPosition.html">CartesianPosition</a> ^&#160;</td>
+          <td class="paramname"><em>target</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classrokae_1_1clr_1_1CartesianPosition.html">CartesianPosition</a> ^&#160;</td>
+          <td class="paramname"><em>aux</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>angle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Int32&#160;</td>
+          <td class="paramname"><em>speed</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Int32&#160;</td>
+          <td class="paramname"><em>zone</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">String ^&#160;</td>
+          <td class="paramname"><em>weaveData</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructor </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target</td><td>目标点</td></tr>
+    <tr><td class="paramname">aux</td><td>辅助点</td></tr>
+    <tr><td class="paramname">angle</td><td>执行角度, 单位弧度</td></tr>
+    <tr><td class="paramname">speed</td><td>运行速度</td></tr>
+    <tr><td class="paramname">zone</td><td>转弯区</td></tr>
+    <tr><td class="paramname">weaveData</td><td>摆动参数名称</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">在文件 <a class="el" href="arcwelding__cli_8hpp_source.html">arcwelding_cli.hpp</a> 第 <a class="el" href="arcwelding__cli_8hpp_source.html#l02096">2096</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a9c67973bf98a4db5052e32f045ed10db" name="a9c67973bf98a4db5052e32f045ed10db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c67973bf98a4db5052e32f045ed10db">&#9670;&nbsp;</a></span>WMoveCFCommand() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">rokae::clr::ArcWelding::WMoveCFCommand::WMoveCFCommand </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classrokae_1_1clr_1_1CartesianPosition.html">CartesianPosition</a> ^&#160;</td>
+          <td class="paramname"><em>target</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classrokae_1_1clr_1_1CartesianPosition.html">CartesianPosition</a> ^&#160;</td>
+          <td class="paramname"><em>aux</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>angle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Int32&#160;</td>
+          <td class="paramname"><em>speed</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Int32&#160;</td>
+          <td class="paramname"><em>zone</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">String ^&#160;</td>
+          <td class="paramname"><em>weaveData</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">String ^&#160;</td>
+          <td class="paramname"><em>trackData</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target</td><td>目标点</td></tr>
+    <tr><td class="paramname">aux</td><td>辅助点</td></tr>
+    <tr><td class="paramname">angle</td><td>执行角度, 单位弧度</td></tr>
+    <tr><td class="paramname">speed</td><td>运行速度</td></tr>
+    <tr><td class="paramname">zone</td><td>转弯区</td></tr>
+    <tr><td class="paramname">weaveData</td><td>摆动参数名称</td></tr>
+    <tr><td class="paramname">trackData</td><td>电弧跟踪参数名称</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">成员函数说明</h2>
+<a id="a6b036807df84a0baef5ab0d5b2cf87ac" name="a6b036807df84a0baef5ab0d5b2cf87ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b036807df84a0baef5ab0d5b2cf87ac">&#9670;&nbsp;</a></span>getTrackData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">String rokae::clr::ArcWelding::WMoveCFCommand::getTrackData </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取电弧跟踪参数 </p>
+<dl class="section return"><dt>返回</dt><dd>电弧跟踪参数名</dd></dl>
+
+</div>
+</div>
+<a id="af49445cbb737368c33df2ffcb88b47ff" name="af49445cbb737368c33df2ffcb88b47ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af49445cbb737368c33df2ffcb88b47ff">&#9670;&nbsp;</a></span>getWeaveData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">String rokae::clr::ArcWelding::WMoveCFCommand::getWeaveData </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取摆动参数 </p>
+<dl class="section return"><dt>返回</dt><dd>摆动参数名</dd></dl>
+
+</div>
+</div>
+<a id="a5a69737fd58cec3420a9f921a0a17cbf" name="a5a69737fd58cec3420a9f921a0a17cbf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a69737fd58cec3420a9f921a0a17cbf">&#9670;&nbsp;</a></span>setTrackData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rokae::clr::ArcWelding::WMoveCFCommand::setTrackData </td>
+          <td>(</td>
+          <td class="paramtype">String ^&#160;</td>
+          <td class="paramname"><em>trackData</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">[Out] <a class="el" href="classrokae_1_1clr_1_1ErrorCode.html">ErrorCode</a> ^ %&#160;</td>
+          <td class="paramname"><em>ec</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>设置电弧跟踪参数 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">trackData</td><td>电弧跟踪参数名称</td></tr>
+    <tr><td class="paramname">ec</td><td>错误码</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad2439dab503954898de9f6417a5f4212" name="ad2439dab503954898de9f6417a5f4212"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2439dab503954898de9f6417a5f4212">&#9670;&nbsp;</a></span>setWeaveData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rokae::clr::ArcWelding::WMoveCFCommand::setWeaveData </td>
+          <td>(</td>
+          <td class="paramtype">String ^&#160;</td>
+          <td class="paramname"><em>weaveData</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">[Out] <a class="el" href="classrokae_1_1clr_1_1ErrorCode.html">ErrorCode</a> ^ %&#160;</td>
+          <td class="paramname"><em>ec</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>设置摆动参数 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">weaveData</td><td>摆动参数名称</td></tr>
+    <tr><td class="paramname">ec</td><td>错误码</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">类成员变量说明</h2>
+<a id="a65b71bd91a626a0446d2df31a40c79de" name="a65b71bd91a626a0446d2df31a40c79de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65b71bd91a626a0446d2df31a40c79de">&#9670;&nbsp;</a></span>angle</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double rokae::clr::ArcWelding::WMoveCFCommand::angle = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>执行角度, 单位弧度</p>
+
+<p class="definition">在文件 <a class="el" href="arcwelding__cli_8hpp_source.html">arcwelding_cli.hpp</a> 第 <a class="el" href="arcwelding__cli_8hpp_source.html#l02154">2154</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a4782dbad70a024600e928ec5ab15158c" name="a4782dbad70a024600e928ec5ab15158c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4782dbad70a024600e928ec5ab15158c">&#9670;&nbsp;</a></span>arc_set_opt</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structrokae_1_1clr_1_1ArcWelding_1_1ArcSetOpt.html">ArcSetOpt</a> rokae::clr::ArcWelding::WMoveCFCommand::arc_set_opt = <a class="el" href="structrokae_1_1clr_1_1ArcWelding_1_1ArcSetOpt.html#af24c63bd67a473b26ddf700e61614811">ArcSetOpt::CreateDefault</a>()</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>设置焊接参数选项。</p>
+
+<p class="definition">在文件 <a class="el" href="arcwelding__cli_8hpp_source.html">arcwelding_cli.hpp</a> 第 <a class="el" href="arcwelding__cli_8hpp_source.html#l02158">2158</a> 行定义.</p>
+
+</div>
+</div>
+<a id="afb812145399b66451f369f0a84d155ac" name="afb812145399b66451f369f0a84d155ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb812145399b66451f369f0a84d155ac">&#9670;&nbsp;</a></span>aux</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classrokae_1_1clr_1_1CartesianPosition.html">CartesianPosition</a> rokae::clr::ArcWelding::WMoveCFCommand::aux = gcnew <a class="el" href="classrokae_1_1clr_1_1CartesianPosition.html">CartesianPosition</a>()</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>辅助点</p>
+
+<p class="definition">在文件 <a class="el" href="arcwelding__cli_8hpp_source.html">arcwelding_cli.hpp</a> 第 <a class="el" href="arcwelding__cli_8hpp_source.html#l02139">2139</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a48c6a8065374854db73586cda1fca49f" name="a48c6a8065374854db73586cda1fca49f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48c6a8065374854db73586cda1fca49f">&#9670;&nbsp;</a></span>auxPointOffset</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classrokae_1_1clr_1_1CartesianPosition_1_1Offset.html">CartesianPosition::Offset</a> rokae::clr::ArcWelding::WMoveCFCommand::auxPointOffset = gcnew <a class="el" href="classrokae_1_1clr_1_1CartesianPosition_1_1Offset.html">CartesianPosition::Offset</a>()</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>辅助点偏移选项</p>
+
+<p class="definition">在文件 <a class="el" href="arcwelding__cli_8hpp_source.html">arcwelding_cli.hpp</a> 第 <a class="el" href="arcwelding__cli_8hpp_source.html#l02143">2143</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a16f84dfcda89cba341a8866721b4717c" name="a16f84dfcda89cba341a8866721b4717c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16f84dfcda89cba341a8866721b4717c">&#9670;&nbsp;</a></span>cartTargetOffset</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classrokae_1_1clr_1_1CartesianPosition_1_1Offset.html">CartesianPosition::Offset</a> rokae::clr::ArcWelding::WMoveCFCommand::cartTargetOffset = gcnew <a class="el" href="classrokae_1_1clr_1_1CartesianPosition_1_1Offset.html">CartesianPosition::Offset</a>()</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>笛卡尔目标点偏移选项</p>
+
+<p class="definition">在文件 <a class="el" href="arcwelding__cli_8hpp_source.html">arcwelding_cli.hpp</a> 第 <a class="el" href="arcwelding__cli_8hpp_source.html#l02141">2141</a> 行定义.</p>
+
+</div>
+</div>
+<a id="aeeaaecf29db634313dd293902ae84bb0" name="aeeaaecf29db634313dd293902ae84bb0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeeaaecf29db634313dd293902ae84bb0">&#9670;&nbsp;</a></span>customInfo</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">String rokae::clr::ArcWelding::WMoveCFCommand::customInfo = &quot;&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>自定义信息，可在运动信息反馈中返回出来</p>
+
+<p class="definition">在文件 <a class="el" href="arcwelding__cli_8hpp_source.html">arcwelding_cli.hpp</a> 第 <a class="el" href="arcwelding__cli_8hpp_source.html#l02152">2152</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a24a1b272b4ed97a2673adcf089c3a8d3" name="a24a1b272b4ed97a2673adcf089c3a8d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24a1b272b4ed97a2673adcf089c3a8d3">&#9670;&nbsp;</a></span>rotSpeed</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double rokae::clr::ArcWelding::WMoveCFCommand::rotSpeed = -1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>空间旋转速度，用于末端类型指令，单位rad/s。 大于等于0时生效；小于0时旋转速度默认为200°/s</p>
+
+<p class="definition">在文件 <a class="el" href="arcwelding__cli_8hpp_source.html">arcwelding_cli.hpp</a> 第 <a class="el" href="arcwelding__cli_8hpp_source.html#l02150">2150</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a629b4347722ed867e05e4fc59492c74c" name="a629b4347722ed867e05e4fc59492c74c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a629b4347722ed867e05e4fc59492c74c">&#9670;&nbsp;</a></span>rotType</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int rokae::clr::ArcWelding::WMoveCFCommand::rotType = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>旋转姿态类型, 0不变姿态|1动轴旋转|2定轴旋转</p>
+
+<p class="definition">在文件 <a class="el" href="arcwelding__cli_8hpp_source.html">arcwelding_cli.hpp</a> 第 <a class="el" href="arcwelding__cli_8hpp_source.html#l02156">2156</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a7aca6f08652a999c00a2c39ca42476ef" name="a7aca6f08652a999c00a2c39ca42476ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7aca6f08652a999c00a2c39ca42476ef">&#9670;&nbsp;</a></span>speed</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Int32 rokae::clr::ArcWelding::WMoveCFCommand::speed = -1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>机器人末端最大线速度, 单位mm/s。</p>
+
+<p class="definition">在文件 <a class="el" href="arcwelding__cli_8hpp_source.html">arcwelding_cli.hpp</a> 第 <a class="el" href="arcwelding__cli_8hpp_source.html#l02145">2145</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a81f5f8ad07f743a6eef995c0655b4e59" name="a81f5f8ad07f743a6eef995c0655b4e59"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81f5f8ad07f743a6eef995c0655b4e59">&#9670;&nbsp;</a></span>target</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classrokae_1_1clr_1_1CartesianPosition.html">CartesianPosition</a> rokae::clr::ArcWelding::WMoveCFCommand::target = gcnew <a class="el" href="classrokae_1_1clr_1_1CartesianPosition.html">CartesianPosition</a>()</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>目标笛卡尔点位</p>
+
+<p class="definition">在文件 <a class="el" href="arcwelding__cli_8hpp_source.html">arcwelding_cli.hpp</a> 第 <a class="el" href="arcwelding__cli_8hpp_source.html#l02137">2137</a> 行定义.</p>
+
+</div>
+</div>
+<a id="aa3bb218c45a22f6928501b7b3fde76e0" name="aa3bb218c45a22f6928501b7b3fde76e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3bb218c45a22f6928501b7b3fde76e0">&#9670;&nbsp;</a></span>zone</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Int32 rokae::clr::ArcWelding::WMoveCFCommand::zone = -1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>转弯区半径，单位mm</p>
+
+<p class="definition">在文件 <a class="el" href="arcwelding__cli_8hpp_source.html">arcwelding_cli.hpp</a> 第 <a class="el" href="arcwelding__cli_8hpp_source.html#l02147">2147</a> 行定义.</p>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li><a class="el" href="arcwelding__cli_8hpp_source.html">arcwelding_cli.hpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- HTML footer for doxygen 1.8.7-->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者 &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.9.4
+</small></address>
+</div>
+</body>
+</html>

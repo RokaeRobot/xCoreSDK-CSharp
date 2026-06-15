@@ -1,0 +1,245 @@
+<!-- HTML header for doxygen 1.8.7-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.4"/>
+<title>xCore-SDK: force_control_cli.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href='https://fonts.googleapis.com/css?family=Roboto:400' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Roboto:500' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/SVG"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="container">
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="Rokae_logo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">xCore-SDK
+   &#160;<span id="projectnumber">0.7.1</span>
+   </div>
+   <div id="projectbrief">xCore SDK C# API</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.9.4 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'搜索','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">force_control_cli.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="force__control__cli_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#ifndef XCORESDK_SRC_MANAGED_FORCE_CONTROL_CLI_HPP_</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#define XCORESDK_SRC_MANAGED_FORCE_CONTROL_CLI_HPP_</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="data__types__cli_8hpp.html">data_types_cli.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;exception_cli.hpp&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">using namespace </span>System;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">using namespace </span>System::Collections::Generic;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">using namespace </span>System::Runtime::InteropServices;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">namespace </span>rokae {</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> <span class="keyword">class </span>BaseForceControl;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> <span class="keyword">template</span>&lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> DoF&gt;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classrokae_1_1ForceControl__T.html">   23</a></span> <span class="keyword">class </span><a class="code hl_class" href="classrokae_1_1ForceControl__T.html">ForceControl_T</a>;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>}</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">namespace </span>rokae::clr {</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classrokae_1_1clr_1_1ForceControl.html">   31</a></span> <span class="keyword">public ref class</span> <a class="code hl_class" href="classrokae_1_1clr_1_1ForceControl.html">ForceControl</a> {</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>  <span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>   <a class="code hl_class" href="classrokae_1_1ForceControl__T.html">rokae::ForceControl_T&lt;5&gt;</a>* fc_cr5;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>   <a class="code hl_class" href="classrokae_1_1ForceControl__T.html">rokae::ForceControl_T&lt;6&gt;</a>* fc_xmate;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>   <a class="code hl_class" href="classrokae_1_1ForceControl__T.html">rokae::ForceControl_T&lt;7&gt;</a>* fc_pro;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>   <span class="keyword">const</span> <span class="keywordtype">int</span> dof;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>   rokae::BaseForceControl* fc_base;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>   <a class="code hl_class" href="classrokae_1_1clr_1_1ForceControl.html">ForceControl</a>(<a class="code hl_class" href="classrokae_1_1ForceControl__T.html">rokae::ForceControl_T&lt;5&gt;</a>*);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>   <a class="code hl_class" href="classrokae_1_1clr_1_1ForceControl.html">ForceControl</a>(<a class="code hl_class" href="classrokae_1_1ForceControl__T.html">rokae::ForceControl_T&lt;6&gt;</a>*);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>   <a class="code hl_class" href="classrokae_1_1clr_1_1ForceControl.html">ForceControl</a>(<a class="code hl_class" href="classrokae_1_1ForceControl__T.html">rokae::ForceControl_T&lt;7&gt;</a>*);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>   <span class="keyword">virtual</span> <a class="code hl_class" href="classrokae_1_1clr_1_1ForceControl.html">~ForceControl</a>();</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="classrokae_1_1clr_1_1ForceControl.html#acb378758eecdf56edb95dddad2129362">   63</a></span>   <span class="keywordtype">void</span> <a class="code hl_function" href="classrokae_1_1clr_1_1ForceControl.html#acb378758eecdf56edb95dddad2129362">getEndTorque</a>(<a class="code hl_enumeration" href="data__types__cli_8hpp.html#a3784c57527d41af24d4399cb8ca095d8">FrameType</a> ref_type,</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>                     array&lt;double&gt;^% joint_torque_measured,</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>   array&lt;double&gt;^% external_torque_measured,</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>   array&lt;double&gt;^% cart_torque,</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>   array&lt;double&gt;^% cart_force, [Out] <a class="code hl_class" href="classrokae_1_1clr_1_1ErrorCode.html">ErrorCode</a>^% ec);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="classrokae_1_1clr_1_1ForceControl.html#a54ab5b6b8dfc3961335cd29d53d46df2">   74</a></span>   <span class="keywordtype">void</span> <a class="code hl_function" href="classrokae_1_1clr_1_1ForceControl.html#a54ab5b6b8dfc3961335cd29d53d46df2">fcInit</a>(<a class="code hl_enumeration" href="data__types__cli_8hpp.html#a3784c57527d41af24d4399cb8ca095d8">FrameType</a> type, [Out] <a class="code hl_class" href="classrokae_1_1clr_1_1ErrorCode.html">ErrorCode</a>^% ec);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="classrokae_1_1clr_1_1ForceControl.html#a7586a4b96673825b8324c9ec118a6349">   82</a></span>   <span class="keywordtype">void</span> <a class="code hl_function" href="classrokae_1_1clr_1_1ForceControl.html#a7586a4b96673825b8324c9ec118a6349">fcStart</a>([Out] <a class="code hl_class" href="classrokae_1_1clr_1_1ErrorCode.html">ErrorCode</a>^% ec);</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="classrokae_1_1clr_1_1ForceControl.html#aa5af64a076454639c65d2e8460d33fdb">   88</a></span>   <span class="keywordtype">void</span> <a class="code hl_function" href="classrokae_1_1clr_1_1ForceControl.html#aa5af64a076454639c65d2e8460d33fdb">fcStop</a>([Out] <a class="code hl_class" href="classrokae_1_1clr_1_1ErrorCode.html">ErrorCode</a>^% ec);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="classrokae_1_1clr_1_1ForceControl.html#a10510a5b3a553951998b1dc6dddbcbc3">   95</a></span>   <span class="keywordtype">void</span> <a class="code hl_function" href="classrokae_1_1clr_1_1ForceControl.html#a10510a5b3a553951998b1dc6dddbcbc3">setControlType</a>(<span class="keywordtype">int</span> type, [Out] <a class="code hl_class" href="classrokae_1_1clr_1_1ErrorCode.html">ErrorCode</a>^% ec);</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="classrokae_1_1clr_1_1ForceControl.html#ad71e16ae0d87bd9dde5cfea73759c286">  102</a></span>   <span class="keywordtype">void</span> <a class="code hl_function" href="classrokae_1_1clr_1_1ForceControl.html#ad71e16ae0d87bd9dde5cfea73759c286">setLoad</a>(<a class="code hl_class" href="classrokae_1_1clr_1_1Load.html">Load</a>^ load, [Out] <a class="code hl_class" href="classrokae_1_1clr_1_1ErrorCode.html">ErrorCode</a>^% ec);</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="classrokae_1_1clr_1_1ForceControl.html#adde4860678e136608dc124b319662ae7">  110</a></span>   <span class="keywordtype">void</span> <a class="code hl_function" href="classrokae_1_1clr_1_1ForceControl.html#adde4860678e136608dc124b319662ae7">setJointStiffness</a>(array&lt;double&gt;^ stiffness, [Out] <a class="code hl_class" href="classrokae_1_1clr_1_1ErrorCode.html">ErrorCode</a>^% ec);</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno"><a class="line" href="classrokae_1_1clr_1_1ForceControl.html#a79ce8d110c4a14f268d9315ef186c74d">  118</a></span>   <span class="keywordtype">void</span> <a class="code hl_function" href="classrokae_1_1clr_1_1ForceControl.html#a79ce8d110c4a14f268d9315ef186c74d">setCartesianStiffness</a>(array&lt;double&gt;^ stiffness, [Out] <a class="code hl_class" href="classrokae_1_1clr_1_1ErrorCode.html">ErrorCode</a>^% ec);</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno"><a class="line" href="classrokae_1_1clr_1_1ForceControl.html#a909a0c19eaa39fab5fcd6e8b510c1004">  125</a></span>   <span class="keywordtype">void</span> <a class="code hl_function" href="classrokae_1_1clr_1_1ForceControl.html#a909a0c19eaa39fab5fcd6e8b510c1004">setCartesianNullspaceStiffness</a>(<span class="keywordtype">double</span> stiffness, [Out] <a class="code hl_class" href="classrokae_1_1clr_1_1ErrorCode.html">ErrorCode</a>^% ec);</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno"><a class="line" href="classrokae_1_1clr_1_1ForceControl.html#ab81dd6f491292194962564baca965501">  132</a></span>   <span class="keywordtype">void</span> <a class="code hl_function" href="classrokae_1_1clr_1_1ForceControl.html#ab81dd6f491292194962564baca965501">setJointDesiredTorque</a>(array&lt;double&gt;^ torque, [Out] <a class="code hl_class" href="classrokae_1_1clr_1_1ErrorCode.html">ErrorCode</a>^% ec);</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno"><a class="line" href="classrokae_1_1clr_1_1ForceControl.html#ac6feb50b302bc4b1a3409241841022dc">  139</a></span>   <span class="keywordtype">void</span> <a class="code hl_function" href="classrokae_1_1clr_1_1ForceControl.html#ac6feb50b302bc4b1a3409241841022dc">setCartesianDesiredForce</a>(array&lt;double&gt;^ value, [Out] <a class="code hl_class" href="classrokae_1_1clr_1_1ErrorCode.html">ErrorCode</a>^% ec);</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno"><a class="line" href="classrokae_1_1clr_1_1ForceControl.html#a1079b8549e77f0c5c9e74efe67a28785">  152</a></span>   <span class="keywordtype">void</span> <a class="code hl_function" href="classrokae_1_1clr_1_1ForceControl.html#a1079b8549e77f0c5c9e74efe67a28785">setSineOverlay</a>(<span class="keywordtype">int</span> line_dir, <span class="keywordtype">double</span> amplify, <span class="keywordtype">double</span> frequency, <span class="keywordtype">double</span> phase,</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>                       <span class="keywordtype">double</span> bias, [Out] <a class="code hl_class" href="classrokae_1_1clr_1_1ErrorCode.html">ErrorCode</a>^% ec);</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno"><a class="line" href="classrokae_1_1clr_1_1ForceControl.html#a2b4e0ad48e70a76346ef22e565a8b7c1">  166</a></span>   <span class="keywordtype">void</span> <a class="code hl_function" href="classrokae_1_1clr_1_1ForceControl.html#a2b4e0ad48e70a76346ef22e565a8b7c1">setLissajousOverlay</a>(<span class="keywordtype">int</span> plane, <span class="keywordtype">double</span> amplify_one, <span class="keywordtype">double</span> frequency_one, <span class="keywordtype">double</span> amplify_two,</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>                            <span class="keywordtype">double</span> frequency_two, <span class="keywordtype">double</span> phase_diff, [Out] <a class="code hl_class" href="classrokae_1_1clr_1_1ErrorCode.html">ErrorCode</a>^% ec);</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno"><a class="line" href="classrokae_1_1clr_1_1ForceControl.html#a30b891f158ddcecf5ca2123913337ca8">  174</a></span>   <span class="keywordtype">void</span> <a class="code hl_function" href="classrokae_1_1clr_1_1ForceControl.html#a30b891f158ddcecf5ca2123913337ca8">startOverlay</a>([Out] <a class="code hl_class" href="classrokae_1_1clr_1_1ErrorCode.html">ErrorCode</a>^% ec);</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span> </div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno"><a class="line" href="classrokae_1_1clr_1_1ForceControl.html#ab8998bce35bfd23c7c07711871242a0e">  180</a></span>   <span class="keywordtype">void</span> <a class="code hl_function" href="classrokae_1_1clr_1_1ForceControl.html#ab8998bce35bfd23c7c07711871242a0e">stopOverlay</a>([Out] <a class="code hl_class" href="classrokae_1_1clr_1_1ErrorCode.html">ErrorCode</a>^% ec);</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span> </div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno"><a class="line" href="classrokae_1_1clr_1_1ForceControl.html#a940446b2d145651dccba98c34a20a674">  186</a></span>   <span class="keywordtype">void</span> <a class="code hl_function" href="classrokae_1_1clr_1_1ForceControl.html#a940446b2d145651dccba98c34a20a674">pauseOverlay</a>([Out] <a class="code hl_class" href="classrokae_1_1clr_1_1ErrorCode.html">ErrorCode</a>^% ec);</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span> </div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno"><a class="line" href="classrokae_1_1clr_1_1ForceControl.html#aa6492ffd42bdfb6542e4f7db3d220c5a">  192</a></span>   <span class="keywordtype">void</span> <a class="code hl_function" href="classrokae_1_1clr_1_1ForceControl.html#aa6492ffd42bdfb6542e4f7db3d220c5a">restartOverlay</a>([Out] <a class="code hl_class" href="classrokae_1_1clr_1_1ErrorCode.html">ErrorCode</a>^% ec);</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span> </div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno"><a class="line" href="classrokae_1_1clr_1_1ForceControl.html#a123d0c3f122b2eed5d6b55934bb3b7e9">  203</a></span>   <span class="keywordtype">void</span> <a class="code hl_function" href="classrokae_1_1clr_1_1ForceControl.html#a123d0c3f122b2eed5d6b55934bb3b7e9">setForceCondition</a>(array&lt;double&gt;^ range, <span class="keywordtype">bool</span> isInside, <span class="keywordtype">double</span> timeout, [Out] <a class="code hl_class" href="classrokae_1_1clr_1_1ErrorCode.html">ErrorCode</a>^% ec);</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span> </div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno"><a class="line" href="classrokae_1_1clr_1_1ForceControl.html#a809d7cfedea605f077e740d81ab05a4f">  214</a></span>   <span class="keywordtype">void</span> <a class="code hl_function" href="classrokae_1_1clr_1_1ForceControl.html#a809d7cfedea605f077e740d81ab05a4f">setTorqueCondition</a>(array&lt;double&gt;^ range, <span class="keywordtype">bool</span> isInside, <span class="keywordtype">double</span> timeout, [Out] <a class="code hl_class" href="classrokae_1_1clr_1_1ErrorCode.html">ErrorCode</a>^% ec);</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span> </div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno"><a class="line" href="classrokae_1_1clr_1_1ForceControl.html#a18cf7249e41d86cbe44abebf4fedc881">  224</a></span>   <span class="keywordtype">void</span> <a class="code hl_function" href="classrokae_1_1clr_1_1ForceControl.html#a18cf7249e41d86cbe44abebf4fedc881">setPoseBoxCondition</a>(<a class="code hl_class" href="classrokae_1_1clr_1_1Frame.html">Frame</a>^ supervising_frame, array&lt;double&gt;^ box, <span class="keywordtype">bool</span> isInside,</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>                            <span class="keywordtype">double</span> timeout, [Out] <a class="code hl_class" href="classrokae_1_1clr_1_1ErrorCode.html">ErrorCode</a>^% ec);</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span> </div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno"><a class="line" href="classrokae_1_1clr_1_1ForceControl.html#a844f45be13976cbee63b62e9c594d90e">  231</a></span>   <span class="keywordtype">void</span> <a class="code hl_function" href="classrokae_1_1clr_1_1ForceControl.html#a844f45be13976cbee63b62e9c594d90e">waitCondition</a>([Out] <a class="code hl_class" href="classrokae_1_1clr_1_1ErrorCode.html">ErrorCode</a>^% ec);</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span> </div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno"><a class="line" href="classrokae_1_1clr_1_1ForceControl.html#acf6f7f53cca655f3a964a0a6e75d4c98">  242</a></span>   <span class="keywordtype">void</span> <a class="code hl_function" href="classrokae_1_1clr_1_1ForceControl.html#acf6f7f53cca655f3a964a0a6e75d4c98">fcMonitor</a>(<span class="keywordtype">bool</span> enable, [Out] <a class="code hl_class" href="classrokae_1_1clr_1_1ErrorCode.html">ErrorCode</a>^% ec);</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span> </div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno"><a class="line" href="classrokae_1_1clr_1_1ForceControl.html#a209c1dc43d70ff7183665b23b27500a7">  249</a></span>   <span class="keywordtype">void</span> <a class="code hl_function" href="classrokae_1_1clr_1_1ForceControl.html#a209c1dc43d70ff7183665b23b27500a7">setJointMaxVel</a>(array&lt;double&gt;^ velocity, [Out] <a class="code hl_class" href="classrokae_1_1clr_1_1ErrorCode.html">ErrorCode</a>^% ec);</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span> </div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno"><a class="line" href="classrokae_1_1clr_1_1ForceControl.html#a835a265c39ada62f9ce00d4e98a15980">  257</a></span>   <span class="keywordtype">void</span> <a class="code hl_function" href="classrokae_1_1clr_1_1ForceControl.html#a835a265c39ada62f9ce00d4e98a15980">setJointMaxMomentum</a>(array&lt;double&gt;^ momentum, [Out] <a class="code hl_class" href="classrokae_1_1clr_1_1ErrorCode.html">ErrorCode</a>^% ec);</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span> </div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno"><a class="line" href="classrokae_1_1clr_1_1ForceControl.html#ace5705391dbc4c405aadb2b3480ed81d">  265</a></span>   <span class="keywordtype">void</span> <a class="code hl_function" href="classrokae_1_1clr_1_1ForceControl.html#ace5705391dbc4c405aadb2b3480ed81d">setJointMaxEnergy</a>(array&lt;double&gt;^ energy, [Out] <a class="code hl_class" href="classrokae_1_1clr_1_1ErrorCode.html">ErrorCode</a>^% ec);</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span> </div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno"><a class="line" href="classrokae_1_1clr_1_1ForceControl.html#a0c014ede7b3a7e35d9b20019ad53c1aa">  272</a></span>   <span class="keywordtype">void</span> <a class="code hl_function" href="classrokae_1_1clr_1_1ForceControl.html#a0c014ede7b3a7e35d9b20019ad53c1aa">setCartesianMaxVel</a>(array&lt;double&gt;^ velocity, [Out] <a class="code hl_class" href="classrokae_1_1clr_1_1ErrorCode.html">ErrorCode</a>^% ec);</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span> </div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno"><a class="line" href="classrokae_1_1clr_1_1ForceControl.html#a941a3becf12c202c045cdd4601789fba">  280</a></span>   <span class="keywordtype">void</span> <a class="code hl_function" href="classrokae_1_1clr_1_1ForceControl.html#a941a3becf12c202c045cdd4601789fba">setCartesianControlMaxWrench</a>(array&lt;double&gt;^ max_wrench, [Out] <a class="code hl_class" href="classrokae_1_1clr_1_1ErrorCode.html">ErrorCode</a>^% ec);</div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span> </div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno"><a class="line" href="classrokae_1_1clr_1_1ForceControl.html#a317cf7ea294b64ffa036f5b0974647fa">  288</a></span>   <span class="keywordtype">void</span> <a class="code hl_function" href="classrokae_1_1clr_1_1ForceControl.html#a317cf7ea294b64ffa036f5b0974647fa">setCartesianControlMaxVel</a>(array&lt;double&gt;^ max_cart_vel, [Out] <a class="code hl_class" href="classrokae_1_1clr_1_1ErrorCode.html">ErrorCode</a>^% ec);</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span> </div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno"><a class="line" href="classrokae_1_1clr_1_1ForceControl.html#ae9a772b9c8dd88f558d766193a4587fc">  296</a></span>   <span class="keywordtype">void</span> <a class="code hl_function" href="classrokae_1_1clr_1_1ForceControl.html#ae9a772b9c8dd88f558d766193a4587fc">setJointControlMaxTorque</a>(array&lt;double&gt;^ max_torque, [Out] <a class="code hl_class" href="classrokae_1_1clr_1_1ErrorCode.html">ErrorCode</a>^% ec);</div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span> </div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno"><a class="line" href="classrokae_1_1clr_1_1ForceControl.html#a37b82ba7155fe78ba80f312711cb3527">  304</a></span>   <span class="keywordtype">void</span> <a class="code hl_function" href="classrokae_1_1clr_1_1ForceControl.html#a37b82ba7155fe78ba80f312711cb3527">setJointControlMaxVel</a>(array&lt;double&gt;^ max_joint_vel, [Out] <a class="code hl_class" href="classrokae_1_1clr_1_1ErrorCode.html">ErrorCode</a>^% ec);</div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span> </div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno"><a class="line" href="classrokae_1_1clr_1_1ForceControl.html#a0eeb42c4306f5ff736a10f8067f77684">  311</a></span>   <span class="keywordtype">void</span> <a class="code hl_function" href="classrokae_1_1clr_1_1ForceControl.html#a0eeb42c4306f5ff736a10f8067f77684">setFcGain</a>(array&lt;double&gt;^ gain, [Out] <a class="code hl_class" href="classrokae_1_1clr_1_1ErrorCode.html">ErrorCode</a>^% ec);</div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span> </div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno"><a class="line" href="classrokae_1_1clr_1_1ForceControl.html#afff9460b27a0da8f76dde72ebda640e1">  318</a></span>   <span class="keywordtype">void</span> <a class="code hl_function" href="classrokae_1_1clr_1_1ForceControl.html#afff9460b27a0da8f76dde72ebda640e1">setFriction</a>(array&lt;double&gt;^ fric, [Out] <a class="code hl_class" href="classrokae_1_1clr_1_1ErrorCode.html">ErrorCode</a>^% ec);</div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span> </div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span> };</div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span> </div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>}</div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span> </div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span> </div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span><span class="preprocessor">#endif </span><span class="comment">//XCORESDK_SRC_MANAGED_FORCE_CONTROL_CLI_HPP_</span></div>
+<div class="ttc" id="aclassrokae_1_1ForceControl__T_html"><div class="ttname"><a href="classrokae_1_1ForceControl__T.html">rokae::ForceControl_T</a></div><div class="ttdef"><b>Definition:</b> <a href="force__control__cli_8hpp_source.html#l00023">force_control_cli.hpp:23</a></div></div>
+<div class="ttc" id="aclassrokae_1_1clr_1_1ErrorCode_html"><div class="ttname"><a href="classrokae_1_1clr_1_1ErrorCode.html">rokae::clr::ErrorCode</a></div><div class="ttdoc">xCoreSDK错误码</div><div class="ttdef"><b>Definition:</b> <a href="data__types__cli_8hpp_source.html#l00023">data_types_cli.hpp:23</a></div></div>
+<div class="ttc" id="aclassrokae_1_1clr_1_1ForceControl_html"><div class="ttname"><a href="classrokae_1_1clr_1_1ForceControl.html">rokae::clr::ForceControl</a></div><div class="ttdoc">力控指令</div><div class="ttdef"><b>Definition:</b> <a href="force__control__cli_8hpp_source.html#l00031">force_control_cli.hpp:31</a></div></div>
+<div class="ttc" id="aclassrokae_1_1clr_1_1ForceControl_html_a0c014ede7b3a7e35d9b20019ad53c1aa"><div class="ttname"><a href="classrokae_1_1clr_1_1ForceControl.html#a0c014ede7b3a7e35d9b20019ad53c1aa">rokae::clr::ForceControl::setCartesianMaxVel</a></div><div class="ttdeci">void setCartesianMaxVel(array&lt; double &gt;^ velocity, [Out] ErrorCode^% ec)</div><div class="ttdoc">设置力控模式下, 机械臂末端相对基坐标系的最大速度</div></div>
+<div class="ttc" id="aclassrokae_1_1clr_1_1ForceControl_html_a0eeb42c4306f5ff736a10f8067f77684"><div class="ttname"><a href="classrokae_1_1clr_1_1ForceControl.html#a0eeb42c4306f5ff736a10f8067f77684">rokae::clr::ForceControl::setFcGain</a></div><div class="ttdeci">void setFcGain(array&lt; double &gt;^ gain, [Out] ErrorCode^% ec)</div><div class="ttdoc">设置各轴力控带宽。fcStart()开始生效, fcStop后失效。</div></div>
+<div class="ttc" id="aclassrokae_1_1clr_1_1ForceControl_html_a10510a5b3a553951998b1dc6dddbcbc3"><div class="ttname"><a href="classrokae_1_1clr_1_1ForceControl.html#a10510a5b3a553951998b1dc6dddbcbc3">rokae::clr::ForceControl::setControlType</a></div><div class="ttdeci">void setControlType(int type, [Out] ErrorCode^% ec)</div><div class="ttdoc">设置阻抗控制类型</div></div>
+<div class="ttc" id="aclassrokae_1_1clr_1_1ForceControl_html_a1079b8549e77f0c5c9e74efe67a28785"><div class="ttname"><a href="classrokae_1_1clr_1_1ForceControl.html#a1079b8549e77f0c5c9e74efe67a28785">rokae::clr::ForceControl::setSineOverlay</a></div><div class="ttdeci">void setSineOverlay(int line_dir, double amplify, double frequency, double phase, double bias, [Out] ErrorCode^% ec)</div><div class="ttdoc">设置绕单轴旋转的正弦搜索运动。 设置阻抗控制类型为笛卡尔阻抗(即setControlType(1))之后, startOverlay()之前调用生效。 各机型的搜索运动幅值上限和搜索运动频率上限不同，请...</div></div>
+<div class="ttc" id="aclassrokae_1_1clr_1_1ForceControl_html_a123d0c3f122b2eed5d6b55934bb3b7e9"><div class="ttname"><a href="classrokae_1_1clr_1_1ForceControl.html#a123d0c3f122b2eed5d6b55934bb3b7e9">rokae::clr::ForceControl::setForceCondition</a></div><div class="ttdeci">void setForceCondition(array&lt; double &gt;^ range, bool isInside, double timeout, [Out] ErrorCode^% ec)</div><div class="ttdoc">设置与接触力有关的终止条件</div></div>
+<div class="ttc" id="aclassrokae_1_1clr_1_1ForceControl_html_a18cf7249e41d86cbe44abebf4fedc881"><div class="ttname"><a href="classrokae_1_1clr_1_1ForceControl.html#a18cf7249e41d86cbe44abebf4fedc881">rokae::clr::ForceControl::setPoseBoxCondition</a></div><div class="ttdeci">void setPoseBoxCondition(Frame^ supervising_frame, array&lt; double &gt;^ box, bool isInside, double timeout, [Out] ErrorCode^% ec)</div><div class="ttdoc">设置与接触位置有关的终止条件</div></div>
+<div class="ttc" id="aclassrokae_1_1clr_1_1ForceControl_html_a209c1dc43d70ff7183665b23b27500a7"><div class="ttname"><a href="classrokae_1_1clr_1_1ForceControl.html#a209c1dc43d70ff7183665b23b27500a7">rokae::clr::ForceControl::setJointMaxVel</a></div><div class="ttdeci">void setJointMaxVel(array&lt; double &gt;^ velocity, [Out] ErrorCode^% ec)</div><div class="ttdoc">设置力控模式下的轴最大速度</div></div>
+<div class="ttc" id="aclassrokae_1_1clr_1_1ForceControl_html_a2b4e0ad48e70a76346ef22e565a8b7c1"><div class="ttname"><a href="classrokae_1_1clr_1_1ForceControl.html#a2b4e0ad48e70a76346ef22e565a8b7c1">rokae::clr::ForceControl::setLissajousOverlay</a></div><div class="ttdeci">void setLissajousOverlay(int plane, double amplify_one, double frequency_one, double amplify_two, double frequency_two, double phase_diff, [Out] ErrorCode^% ec)</div><div class="ttdoc">设置平面内的莉萨如搜索运动。 设置阻抗控制类型为笛卡尔阻抗(即setControlType(1))之后, startOverlay()之前调用生效。</div></div>
+<div class="ttc" id="aclassrokae_1_1clr_1_1ForceControl_html_a30b891f158ddcecf5ca2123913337ca8"><div class="ttname"><a href="classrokae_1_1clr_1_1ForceControl.html#a30b891f158ddcecf5ca2123913337ca8">rokae::clr::ForceControl::startOverlay</a></div><div class="ttdeci">void startOverlay([Out] ErrorCode^% ec)</div><div class="ttdoc">开启搜索运动，fcStart()之后调用生效。 搜索运动为前序设置的 setSineOverlay()或 setLissajousOverlay()的叠加</div></div>
+<div class="ttc" id="aclassrokae_1_1clr_1_1ForceControl_html_a317cf7ea294b64ffa036f5b0974647fa"><div class="ttname"><a href="classrokae_1_1clr_1_1ForceControl.html#a317cf7ea294b64ffa036f5b0974647fa">rokae::clr::ForceControl::setCartesianControlMaxVel</a></div><div class="ttdeci">void setCartesianControlMaxVel(array&lt; double &gt;^ max_cart_vel, [Out] ErrorCode^% ec)</div><div class="ttdoc">阻抗力限幅指令 - 笛卡尔。fcStart()开始生效, fcStop后失效。 说明: 以加期望力下压直到接触这个场景为例，一般是设置期望力的方式来实现。此接口可对该接触过程做限速处理。</div></div>
+<div class="ttc" id="aclassrokae_1_1clr_1_1ForceControl_html_a37b82ba7155fe78ba80f312711cb3527"><div class="ttname"><a href="classrokae_1_1clr_1_1ForceControl.html#a37b82ba7155fe78ba80f312711cb3527">rokae::clr::ForceControl::setJointControlMaxVel</a></div><div class="ttdeci">void setJointControlMaxVel(array&lt; double &gt;^ max_joint_vel, [Out] ErrorCode^% ec)</div><div class="ttdoc">阻抗速度限幅 - 关节。fcStart()开始生效, fcStop后失效。 说明: 以加期望力下压直到接触这个场景为例，一般是设置期望力的方式来实现。此接口可对该接触过程做限速处理。</div></div>
+<div class="ttc" id="aclassrokae_1_1clr_1_1ForceControl_html_a54ab5b6b8dfc3961335cd29d53d46df2"><div class="ttname"><a href="classrokae_1_1clr_1_1ForceControl.html#a54ab5b6b8dfc3961335cd29d53d46df2">rokae::clr::ForceControl::fcInit</a></div><div class="ttdeci">void fcInit(FrameType type, [Out] ErrorCode^% ec)</div><div class="ttdoc">力控初始化</div></div>
+<div class="ttc" id="aclassrokae_1_1clr_1_1ForceControl_html_a7586a4b96673825b8324c9ec118a6349"><div class="ttname"><a href="classrokae_1_1clr_1_1ForceControl.html#a7586a4b96673825b8324c9ec118a6349">rokae::clr::ForceControl::fcStart</a></div><div class="ttdeci">void fcStart([Out] ErrorCode^% ec)</div><div class="ttdoc">开始力控，fcInit()之后调用。 如需在力控模式下执行运动指令，fcStart()之后可执行。 注意，如果在fcStart()之前通过moveAppend()下发了运动指令但未开始运动，fcStar...</div></div>
+<div class="ttc" id="aclassrokae_1_1clr_1_1ForceControl_html_a79ce8d110c4a14f268d9315ef186c74d"><div class="ttname"><a href="classrokae_1_1clr_1_1ForceControl.html#a79ce8d110c4a14f268d9315ef186c74d">rokae::clr::ForceControl::setCartesianStiffness</a></div><div class="ttdeci">void setCartesianStiffness(array&lt; double &gt;^ stiffness, [Out] ErrorCode^% ec)</div><div class="ttdoc">设置笛卡尔阻抗刚度, fcInit()之后调用生效.</div></div>
+<div class="ttc" id="aclassrokae_1_1clr_1_1ForceControl_html_a809d7cfedea605f077e740d81ab05a4f"><div class="ttname"><a href="classrokae_1_1clr_1_1ForceControl.html#a809d7cfedea605f077e740d81ab05a4f">rokae::clr::ForceControl::setTorqueCondition</a></div><div class="ttdeci">void setTorqueCondition(array&lt; double &gt;^ range, bool isInside, double timeout, [Out] ErrorCode^% ec)</div><div class="ttdoc">设置与接触力矩有关的终止条件</div></div>
+<div class="ttc" id="aclassrokae_1_1clr_1_1ForceControl_html_a835a265c39ada62f9ce00d4e98a15980"><div class="ttname"><a href="classrokae_1_1clr_1_1ForceControl.html#a835a265c39ada62f9ce00d4e98a15980">rokae::clr::ForceControl::setJointMaxMomentum</a></div><div class="ttdeci">void setJointMaxMomentum(array&lt; double &gt;^ momentum, [Out] ErrorCode^% ec)</div><div class="ttdoc">设置力控模式下轴最大动量。 计算方式：F* t，可以理解为冲量，F为力矩传感器读数，t为控制周期，如果超过30个周期都超过动量阈值则触发保护</div></div>
+<div class="ttc" id="aclassrokae_1_1clr_1_1ForceControl_html_a844f45be13976cbee63b62e9c594d90e"><div class="ttname"><a href="classrokae_1_1clr_1_1ForceControl.html#a844f45be13976cbee63b62e9c594d90e">rokae::clr::ForceControl::waitCondition</a></div><div class="ttdeci">void waitCondition([Out] ErrorCode^% ec)</div><div class="ttdoc">激活前序设置的终止条件并等待，直到满足这些条件或者超时</div></div>
+<div class="ttc" id="aclassrokae_1_1clr_1_1ForceControl_html_a909a0c19eaa39fab5fcd6e8b510c1004"><div class="ttname"><a href="classrokae_1_1clr_1_1ForceControl.html#a909a0c19eaa39fab5fcd6e8b510c1004">rokae::clr::ForceControl::setCartesianNullspaceStiffness</a></div><div class="ttdeci">void setCartesianNullspaceStiffness(double stiffness, [Out] ErrorCode^% ec)</div><div class="ttdoc">设置笛卡尔零空间阻抗刚度。fcInit()之后调用生效</div></div>
+<div class="ttc" id="aclassrokae_1_1clr_1_1ForceControl_html_a940446b2d145651dccba98c34a20a674"><div class="ttname"><a href="classrokae_1_1clr_1_1ForceControl.html#a940446b2d145651dccba98c34a20a674">rokae::clr::ForceControl::pauseOverlay</a></div><div class="ttdeci">void pauseOverlay([Out] ErrorCode^% ec)</div><div class="ttdoc">暂停搜索运动。startOverlay()之后调用生效</div></div>
+<div class="ttc" id="aclassrokae_1_1clr_1_1ForceControl_html_a941a3becf12c202c045cdd4601789fba"><div class="ttname"><a href="classrokae_1_1clr_1_1ForceControl.html#a941a3becf12c202c045cdd4601789fba">rokae::clr::ForceControl::setCartesianControlMaxWrench</a></div><div class="ttdeci">void setCartesianControlMaxWrench(array&lt; double &gt;^ max_wrench, [Out] ErrorCode^% ec)</div><div class="ttdoc">阻抗力限幅指令 - 笛卡尔。fcStart()开始生效, fcStop后失效。 说明: 在部分力控装配场景，采用阻抗下运动，同时想限制末端出力，也起到一个末端力监控的作用。</div></div>
+<div class="ttc" id="aclassrokae_1_1clr_1_1ForceControl_html_aa5af64a076454639c65d2e8460d33fdb"><div class="ttname"><a href="classrokae_1_1clr_1_1ForceControl.html#aa5af64a076454639c65d2e8460d33fdb">rokae::clr::ForceControl::fcStop</a></div><div class="ttdeci">void fcStop([Out] ErrorCode^% ec)</div><div class="ttdoc">停止力控</div></div>
+<div class="ttc" id="aclassrokae_1_1clr_1_1ForceControl_html_aa6492ffd42bdfb6542e4f7db3d220c5a"><div class="ttname"><a href="classrokae_1_1clr_1_1ForceControl.html#aa6492ffd42bdfb6542e4f7db3d220c5a">rokae::clr::ForceControl::restartOverlay</a></div><div class="ttdeci">void restartOverlay([Out] ErrorCode^% ec)</div><div class="ttdoc">重新开启暂停的搜索运动。pauseOverlay()之后调用生效。</div></div>
+<div class="ttc" id="aclassrokae_1_1clr_1_1ForceControl_html_ab81dd6f491292194962564baca965501"><div class="ttname"><a href="classrokae_1_1clr_1_1ForceControl.html#ab81dd6f491292194962564baca965501">rokae::clr::ForceControl::setJointDesiredTorque</a></div><div class="ttdeci">void setJointDesiredTorque(array&lt; double &gt;^ torque, [Out] ErrorCode^% ec)</div><div class="ttdoc">设置关节期望力矩。fcStart()之后可调用</div></div>
+<div class="ttc" id="aclassrokae_1_1clr_1_1ForceControl_html_ab8998bce35bfd23c7c07711871242a0e"><div class="ttname"><a href="classrokae_1_1clr_1_1ForceControl.html#ab8998bce35bfd23c7c07711871242a0e">rokae::clr::ForceControl::stopOverlay</a></div><div class="ttdeci">void stopOverlay([Out] ErrorCode^% ec)</div><div class="ttdoc">停止搜索运动</div></div>
+<div class="ttc" id="aclassrokae_1_1clr_1_1ForceControl_html_ac6feb50b302bc4b1a3409241841022dc"><div class="ttname"><a href="classrokae_1_1clr_1_1ForceControl.html#ac6feb50b302bc4b1a3409241841022dc">rokae::clr::ForceControl::setCartesianDesiredForce</a></div><div class="ttdeci">void setCartesianDesiredForce(array&lt; double &gt;^ value, [Out] ErrorCode^% ec)</div><div class="ttdoc">设置笛卡尔期望力/力矩。fcStart()之后可调用</div></div>
+<div class="ttc" id="aclassrokae_1_1clr_1_1ForceControl_html_acb378758eecdf56edb95dddad2129362"><div class="ttname"><a href="classrokae_1_1clr_1_1ForceControl.html#acb378758eecdf56edb95dddad2129362">rokae::clr::ForceControl::getEndTorque</a></div><div class="ttdeci">void getEndTorque(FrameType ref_type, array&lt; double &gt;^% joint_torque_measured, array&lt; double &gt;^% external_torque_measured, array&lt; double &gt;^% cart_torque, array&lt; double &gt;^% cart_force, [Out] ErrorCode^% ec)</div><div class="ttdoc">获取当前力矩信息</div></div>
+<div class="ttc" id="aclassrokae_1_1clr_1_1ForceControl_html_ace5705391dbc4c405aadb2b3480ed81d"><div class="ttname"><a href="classrokae_1_1clr_1_1ForceControl.html#ace5705391dbc4c405aadb2b3480ed81d">rokae::clr::ForceControl::setJointMaxEnergy</a></div><div class="ttdeci">void setJointMaxEnergy(array&lt; double &gt;^ energy, [Out] ErrorCode^% ec)</div><div class="ttdoc">设置力控模式下轴最大动能。 计算方式：F* v，可以理解为功率，F为力矩传感器读数，v为关节速度, 如果超过30个周期都超过动能阈值则触发保护</div></div>
+<div class="ttc" id="aclassrokae_1_1clr_1_1ForceControl_html_acf6f7f53cca655f3a964a0a6e75d4c98"><div class="ttname"><a href="classrokae_1_1clr_1_1ForceControl.html#acf6f7f53cca655f3a964a0a6e75d4c98">rokae::clr::ForceControl::fcMonitor</a></div><div class="ttdeci">void fcMonitor(bool enable, [Out] ErrorCode^% ec)</div><div class="ttdoc">启动/关闭力控模块保护监控。 设置监控参数(setJointMaxVel, setJointMaxMomentum, setJointMaxEnergy, setCartesianMaxVel)后，不立...</div></div>
+<div class="ttc" id="aclassrokae_1_1clr_1_1ForceControl_html_ad71e16ae0d87bd9dde5cfea73759c286"><div class="ttname"><a href="classrokae_1_1clr_1_1ForceControl.html#ad71e16ae0d87bd9dde5cfea73759c286">rokae::clr::ForceControl::setLoad</a></div><div class="ttdeci">void setLoad(Load^ load, [Out] ErrorCode^% ec)</div><div class="ttdoc">设置力控模块使用的负载信息，fcStart()之后可调用。</div></div>
+<div class="ttc" id="aclassrokae_1_1clr_1_1ForceControl_html_adde4860678e136608dc124b319662ae7"><div class="ttname"><a href="classrokae_1_1clr_1_1ForceControl.html#adde4860678e136608dc124b319662ae7">rokae::clr::ForceControl::setJointStiffness</a></div><div class="ttdeci">void setJointStiffness(array&lt; double &gt;^ stiffness, [Out] ErrorCode^% ec)</div><div class="ttdoc">设置关节阻抗刚度, fcInit()之后调用生效.</div></div>
+<div class="ttc" id="aclassrokae_1_1clr_1_1ForceControl_html_ae9a772b9c8dd88f558d766193a4587fc"><div class="ttname"><a href="classrokae_1_1clr_1_1ForceControl.html#ae9a772b9c8dd88f558d766193a4587fc">rokae::clr::ForceControl::setJointControlMaxTorque</a></div><div class="ttdeci">void setJointControlMaxTorque(array&lt; double &gt;^ max_torque, [Out] ErrorCode^% ec)</div><div class="ttdoc">阻抗力限幅指令 - 关节。fcStart()开始生效, fcStop后失效。 说明: 在部分力控装配场景，采用阻抗下运动，同时想限制末端出力，也起到一个末端力监控的作用。</div></div>
+<div class="ttc" id="aclassrokae_1_1clr_1_1ForceControl_html_afff9460b27a0da8f76dde72ebda640e1"><div class="ttname"><a href="classrokae_1_1clr_1_1ForceControl.html#afff9460b27a0da8f76dde72ebda640e1">rokae::clr::ForceControl::setFriction</a></div><div class="ttdeci">void setFriction(array&lt; double &gt;^ fric, [Out] ErrorCode^% ec)</div><div class="ttdoc">设置各轴摩擦力补偿系数。fcStart()开始生效, fcStop后失效。</div></div>
+<div class="ttc" id="aclassrokae_1_1clr_1_1Frame_html"><div class="ttname"><a href="classrokae_1_1clr_1_1Frame.html">rokae::clr::Frame</a></div><div class="ttdoc">坐标系</div><div class="ttdef"><b>Definition:</b> <a href="data__types__cli_8hpp_source.html#l00279">data_types_cli.hpp:279</a></div></div>
+<div class="ttc" id="aclassrokae_1_1clr_1_1Load_html"><div class="ttname"><a href="classrokae_1_1clr_1_1Load.html">rokae::clr::Load</a></div><div class="ttdoc">负载信息</div><div class="ttdef"><b>Definition:</b> <a href="data__types__cli_8hpp_source.html#l00432">data_types_cli.hpp:432</a></div></div>
+<div class="ttc" id="adata__types__cli_8hpp_html"><div class="ttname"><a href="data__types__cli_8hpp.html">data_types_cli.hpp</a></div></div>
+<div class="ttc" id="adata__types__cli_8hpp_html_a3784c57527d41af24d4399cb8ca095d8"><div class="ttname"><a href="data__types__cli_8hpp.html#a3784c57527d41af24d4399cb8ca095d8">rokae::clr::FrameType</a></div><div class="ttdeci">FrameType</div><div class="ttdoc">笛卡尔空间坐标系类型</div><div class="ttdef"><b>Definition:</b> <a href="data__types__cli_8hpp_source.html#l00169">data_types_cli.hpp:169</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- HTML footer for doxygen 1.8.7-->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者 &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.9.4
+</small></address>
+</div>
+</body>
+</html>

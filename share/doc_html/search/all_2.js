@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['c_23_20接口封装说明_0',['C# 接口封装说明',['../index.html',1,'']]],
+  ['calcalliksolutions_1',['calcAllIkSolutions',['../classrokae_1_1clr_1_1BaseRobot.html#acfcffc6e4b461840002ffa321691b1d4',1,'rokae::clr::BaseRobot']]],
+  ['calcfk_2',['calcFk',['../classrokae_1_1clr_1_1BaseRobot.html#a2564403fb1dbdcbbc094efce2958252b',1,'rokae::clr::BaseRobot::calcFk(array&lt; double &gt;^ joints, [Out] ErrorCode^% ec)'],['../classrokae_1_1clr_1_1BaseRobot.html#aa12d11083ab8c1e8addacc87552c9b47',1,'rokae::clr::BaseRobot::calcFk(array&lt; double &gt;^ joints, Toolset^ toolset, [Out] ErrorCode^% ec)']]],
+  ['calcik_3',['calcIk',['../classrokae_1_1clr_1_1BaseRobot.html#aa09563b610fec1cd40bba6a80fcd8d45',1,'rokae::clr::BaseRobot::calcIk(CartesianPosition^ posture, [Out] ErrorCode^% ec)'],['../classrokae_1_1clr_1_1BaseRobot.html#afa5facc8b31c88809396e0f1912b3151',1,'rokae::clr::BaseRobot::calcIk(CartesianPosition^ posture, Toolset^ toolset, [Out] ErrorCode^% ec)']]],
+  ['calibrateforcesensor_4',['calibrateForceSensor',['../classrokae_1_1clr_1_1Cobot.html#a711030f2b97d33cdefd87ba5cded31fb',1,'rokae::clr::Cobot']]],
+  ['calibrateframe_5',['calibrateFrame',['../classrokae_1_1clr_1_1BaseRobot.html#ac0cd59272a89947d267fb90f6dce0441',1,'rokae::clr::BaseRobot']]],
+  ['cancelrecordpath_6',['cancelRecordPath',['../classrokae_1_1clr_1_1Cobot.html#aeceb5faf7ab88d95fd979407d80ae5d1',1,'rokae::clr::Cobot']]],
+  ['cart_5fpos_7',['cart_pos',['../structrokae_1_1clr_1_1StateList.html#a03393bd50e117baf53136cba76a3a9ec',1,'rokae::clr::StateList']]],
+  ['cartesianposition_8',['CartesianPosition',['../classrokae_1_1clr_1_1CartesianPosition.html',1,'rokae::clr']]],
+  ['cartesianspace_9',['cartesianSpace',['../structrokae_1_1clr_1_1DragOpt.html#a0b6b6cb570a87221c90d9d4f6fdbab1daf622d986d2cecff0d7d2972c433cdf60',1,'rokae::clr::DragOpt']]],
+  ['cartposture_10',['cartPosture',['../classrokae_1_1clr_1_1BaseRobot.html#a01929de923654328273a4626d3acea97',1,'rokae::clr::BaseRobot']]],
+  ['carttarget_11',['cartTarget',['../classrokae_1_1clr_1_1MoveCommand.html#abc53d1a7fd280da105793e3565e19621',1,'rokae::clr::MoveCommand']]],
+  ['carttargetoffset_12',['cartTargetOffset',['../classrokae_1_1clr_1_1MoveCommand.html#a40952c89f132d84d270040456d729c17',1,'rokae::clr::MoveCommand']]],
+  ['checkpath_13',['checkPath',['../classrokae_1_1clr_1_1BaseRobot.html#a79fe0d70f5863267a0c9f499b155c266',1,'rokae::clr::BaseRobot::checkPath(CartesianPosition^ start, array&lt; double &gt;^ start_joint, CartesianPosition^ target, [Out] ErrorCode^% ec)'],['../classrokae_1_1clr_1_1BaseRobot.html#ae78437e7a866b1de599ad6f26b9c9ee8',1,'rokae::clr::BaseRobot::checkPath(array&lt; double &gt;^ start_joint, array&lt; CartesianPosition^&gt;^ targets, array&lt; double &gt;^% target_joint_calculated, [Out] ErrorCode^% ec)'],['../classrokae_1_1clr_1_1BaseRobot.html#aa49b0e85b3ab6ca97c988d06e0b4fdc1',1,'rokae::clr::BaseRobot::checkPath(CartesianPosition^ start, array&lt; double &gt;^ start_joint, CartesianPosition^ aux, CartesianPosition^ target, [Out] ErrorCode^% ec)'],['../classrokae_1_1clr_1_1BaseRobot.html#a6ec11e3603f85993013d212c6c1fc29b',1,'rokae::clr::BaseRobot::checkPath(CartesianPosition^ start, array&lt; double &gt;^ start_joint, CartesianPosition^ aux1, CartesianPosition^ aux2, double angle, double rot_type, [Out] ErrorCode^% ec)']]],
+  ['clearservoalarm_14',['clearServoAlarm',['../classrokae_1_1clr_1_1BaseRobot.html#a9d93ee446ffcf63c9a392ab5fbe623fc',1,'rokae::clr::BaseRobot']]],
+  ['cobot_15',['Cobot',['../classrokae_1_1clr_1_1Cobot.html',1,'rokae::clr']]],
+  ['cog_16',['cog',['../classrokae_1_1clr_1_1Load.html#af9c2f186b00b9a6ff54a781868b3ff85',1,'rokae::clr::Load']]],
+  ['confdata_17',['confData',['../classrokae_1_1clr_1_1CartesianPosition.html#ac4894862c58f9f5d3281aab974501546',1,'rokae::clr::CartesianPosition']]],
+  ['configntp_18',['configNtp',['../classrokae_1_1clr_1_1BaseRobot.html#a17954555477026fd4dc42ef7c01eed1b',1,'rokae::clr::BaseRobot']]],
+  ['connecttorobot_19',['connectToRobot',['../classrokae_1_1clr_1_1BaseRobot.html#a8485dc9947375bd92e7fbe13c42678f7',1,'rokae::clr::BaseRobot::connectToRobot([Out] ErrorCode^% ec)'],['../classrokae_1_1clr_1_1BaseRobot.html#a0c6367e0740af5e1b2a620f804cd238a',1,'rokae::clr::BaseRobot::connectToRobot(String^ remoteIP)'],['../classrokae_1_1clr_1_1BaseRobot.html#a63cb3c4ed6ae15494a559b739bbf4827',1,'rokae::clr::BaseRobot::connectToRobot(String^ remoteIP, String^ localIP)']]],
+  ['content_20',['content',['../classrokae_1_1clr_1_1LogInfo.html#ad532940dd96a2add0291dbb9594c36e7',1,'rokae::clr::LogInfo']]],
+  ['coordinatetype_21',['CoordinateType',['../data__types__cli_8hpp.html#a55d8ddd11fb4a0e73cfd5acd1a201536',1,'rokae::clr']]],
+  ['custominfo_22',['customInfo',['../classrokae_1_1clr_1_1MoveCommand.html#a1a832c8239b318e3d823e48084110751',1,'rokae::clr::MoveCommand']]]
+];

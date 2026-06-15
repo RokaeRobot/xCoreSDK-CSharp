@@ -1,0 +1,169 @@
+<!-- HTML header for doxygen 1.8.7-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.4"/>
+<title>xCore-SDK: C# 接口封装说明</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href='https://fonts.googleapis.com/css?family=Roboto:400' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Roboto:500' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/SVG"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="container">
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="Rokae_logo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">xCore-SDK
+   &#160;<span id="projectnumber">0.7.1</span>
+   </div>
+   <div id="projectbrief">xCore SDK C# API</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.9.4 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'搜索','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div><div class="header">
+  <div class="headertitle"><div class="title">C# 接口封装说明 </div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p ><a class="anchor" id="md_README"></a> C::封装用的是C++/CLI，是用来代替C++托管扩展（Managed C++，下文使用MC++指代）的语言。</p>
+<h1><a class="anchor" id="autotoc_md1"></a>
+新增接口和数据结构</h1>
+<p >和C++类似，在.hpp文件中写函数声明，在.cpp中实现</p>
+<ul>
+<li>定义在 <code>BaseRobot</code>类,<code>Model</code>类下面的函数, 在 <a class="el" href="robot__cli_8hpp.html">robot_cli.hpp</a> <code>BaseRobot</code> 类下面新增函数声明，在robot_cli.cpp写函数实现</li>
+<li>定义在 <code>Robot_T</code>, <code>Model_T</code> (也就是区分轴数的模板类) 下面的，也在 <code>BaseRobot</code> 类下面新增函数声明，实现时注意判断实际构造的机型，分别用 <code>ir3</code> <code>ir4</code> <code>ir6</code> <code>cobot5</code> <code>cobot6</code> <code>cobot7</code> 调用C++函数</li>
+<li>定义在 <code>BaseCobot</code> 下面的，在 <a class="el" href="robot__cli_8hpp.html">robot_cli.hpp</a> <code>Cobot</code>类下面新增函数</li>
+<li>定义在 <code>Cobot</code> 类下面的, 也在<code>Cobot</code>类下面新增。同样地，注意判断实际构造的机型。</li>
+<li>少数和机型类别绑定的功能，比如setAvoidSingularity(), 只适用于六轴机型，那么在对应的类下面定义</li>
+<li>新增加的枚举类、数据结构，在data_types_cli.hpp 定义，写必要的构造函数</li>
+<li>力控指令类，在 force_control_cli新增</li>
+<li>如果有新增加的class, 可仿照 ForceControl</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md2"></a>
+函数实现</h1>
+<p >简单来讲，每个封装函数完成3件事情：</p><ol type="1">
+<li>转换传入的参数，从C::的数据类型转成C++的</li>
+<li>通过raw pointer调用C++函数</li>
+<li>转换传出的参数</li>
+</ol>
+<div class="fragment"><div class="line">int BaseRobot::checkPath(array&lt;double&gt;^ start_joint, array&lt;CartesianPosition^&gt;^ targets, array&lt;double&gt;^% target_joint_calculated, ErrorCode^% ec)</div>
+<div class="line">{</div>
+<div class="line">    error_code _ec;</div>
+<div class="line">    std::vector&lt;double&gt; _start_joint = convertArrayToVector(start_joint);</div>
+<div class="line">    std::vector&lt;double&gt; _target_joint_calculated;</div>
+<div class="line">    std::vector&lt;rokae::CartesianPosition&gt; _targets;</div>
+<div class="line">    for each (CartesianPosition^ target in targets)</div>
+<div class="line">    {</div>
+<div class="line">        _targets.emplace_back(convertCartesianPosition(target));</div>
+<div class="line">    }</div>
+<div class="line">    auto ret = robot-&gt;checkPath(_start_joint, _targets, _target_joint_calculated, _ec);</div>
+<div class="line">    convertErrorCode(_ec, ec);</div>
+<div class="line">    target_joint_calculated = convertVectorToArray(_target_joint_calculated);</div>
+<div class="line">    return ret;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p> 以checkPath函数为例，start_joint 和 targets是传入参数，分别转换成C++中的 <code>std::vector&lt;double&gt;</code> , <code>std::vector&lt;CartesianPosition&gt;</code></p>
+<p >然后调用原始C++函数。</p>
+<p >target_joint_calculated 和 ec是传出的参数，分别转换成array&lt;double&gt;^ 和自定义的 ErrorCode</p>
+<p >converter_cli.hpp中写了一些常用的转换函数</p>
+<h1><a class="anchor" id="autotoc_md3"></a>
+数据类型对应关系</h1>
+<h2><a class="anchor" id="autotoc_md4"></a>
+基础数据类型</h2>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">C++数据类型   </th><th class="markdownTableHeadNone">C++/CLI数据类型   </th><th class="markdownTableHeadNone">转换说明    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">int, double, float,bool   </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">不需要转换    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">uint8_t, unsigned char   </td><td class="markdownTableBodyNone">Byte   </td><td class="markdownTableBodyNone">不需要转换    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">int8_t, char   </td><td class="markdownTableBodyNone">SByte   </td><td class="markdownTableBodyNone">不需要转换    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">std::string   </td><td class="markdownTableBodyNone">System.String^   </td><td class="markdownTableBodyNone">见convertString()    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">std::vector&lt;T&gt;, std::array&lt;T&gt;   </td><td class="markdownTableBodyNone">array&lt;T&gt;^   </td><td class="markdownTableBodyNone">遍历数组，逐个元素转换   </td></tr>
+</table>
+<p >注: 早期部分vector转换成了List, 不再建议使用</p>
+<h2><a class="anchor" id="autotoc_md5"></a>
+自定义数据类型</h2>
+<p >基本上，自定义的数据类型都定义为引用类型(ref class)。参数类型后面带的 <code>^</code> 符号就代表这是一个引用类型。转换方式参考converter_cli.cpp</p>
+<h2><a class="anchor" id="autotoc_md6"></a>
+传入和传出参数</h2>
+<p >传入参数无需特殊声明。传出参数有两种标注方式：</p><ol type="1">
+<li>在参数类型后面加 <code>%</code>, 比如上方示例里的 <code>array&lt;double&gt;^% target_joint_calculated</code></li>
+<li>在参数类型前面加 <code>[Out]</code> 标志，同时加 <code>%</code>, 比如所有的错误码 [Out] ErrorCode^% ec。和上一种的区别是函数实现里要负责创建该参数的对象。比如，每个函数里都会执行这样一行</li>
+</ol>
+<div class="fragment"><div class="line">ec = gcnew ErrorCode(_ec.value(), gcnew System::String(_ec.message().data()));</div>
+</div><!-- fragment --><p ><code>gcnew</code> 就是用于分配内存并创建对象</p>
+<p >一般使用第一种方式标注就行</p>
+<h2><a class="anchor" id="autotoc_md7"></a>
+模板函数</h2>
+<p >C::中的泛函数和C++中的概念不太一样，所以模板函数要把支持的参数类型都声明定义一遍。参考 writeRegister</p>
+<h1><a class="anchor" id="autotoc_md8"></a>
+函数注释</h1>
+<p >每个函数都要在.hpp写函数注释，仿照已有的写就行 </p>
+</div></div><!-- PageDoc -->
+</div><!-- contents -->
+<!-- HTML footer for doxygen 1.8.7-->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者 &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.9.4
+</small></address>
+</div>
+</body>
+</html>

@@ -1,0 +1,450 @@
+<!-- HTML header for doxygen 1.8.7-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.4"/>
+<title>xCore-SDK: rokae::clr::MoveCommand类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href='https://fonts.googleapis.com/css?family=Roboto:400' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Roboto:500' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/SVG"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="container">
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="Rokae_logo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">xCore-SDK
+   &#160;<span id="projectnumber">0.7.1</span>
+   </div>
+   <div id="projectbrief">xCore SDK C# API</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.9.4 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'搜索','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><b>rokae</b></li><li class="navelem"><b>clr</b></li><li class="navelem"><a class="el" href="classrokae_1_1clr_1_1MoveCommand.html">MoveCommand</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Public 类型</a> &#124;
+<a href="#pub-attribs">Public 属性</a> &#124;
+<a href="classrokae_1_1clr_1_1MoveCommand-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">rokae::clr::MoveCommand类 参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>非实时运动指令  
+ <a href="classrokae_1_1clr_1_1MoveCommand.html#details">更多...</a></p>
+
+<p><code>#include &lt;<a class="el" href="data__types__cli_8hpp_source.html">data_types_cli.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public 类型</h2></td></tr>
+<tr class="memitem:ae63b12def98a724b9f831de631137763"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrokae_1_1clr_1_1MoveCommand.html#ae63b12def98a724b9f831de631137763">Type</a> { <br />
+&#160;&#160;<a class="el" href="classrokae_1_1clr_1_1MoveCommand.html#ae63b12def98a724b9f831de631137763a66011195d92ba4ae52a591c94347f2a3">MoveL</a>
+, <a class="el" href="classrokae_1_1clr_1_1MoveCommand.html#ae63b12def98a724b9f831de631137763a35b30c89b8da861773f6d3c83d225641">MoveJ</a>
+, <a class="el" href="classrokae_1_1clr_1_1MoveCommand.html#ae63b12def98a724b9f831de631137763a0ea7163cf68f6b0d634f3236b079275d">MoveAbsJ</a>
+, <a class="el" href="classrokae_1_1clr_1_1MoveCommand.html#ae63b12def98a724b9f831de631137763a5616698c149d5125740636e7d1f305f4">MoveC</a>
+, <br />
+&#160;&#160;<a class="el" href="classrokae_1_1clr_1_1MoveCommand.html#ae63b12def98a724b9f831de631137763aa2b23bf4a13158e84c2ec25499a1683e">MoveCF</a>
+, <a class="el" href="classrokae_1_1clr_1_1MoveCommand.html#ae63b12def98a724b9f831de631137763ae9107150bdfdc5041bf99d9024b4c80a">MoveSP</a>
+, <a class="el" href="classrokae_1_1clr_1_1MoveCommand.html#ae63b12def98a724b9f831de631137763a6815a3143acfeb43990144c562e2846d">MoveWait</a>
+<br />
+ }</td></tr>
+<tr class="memdesc:ae63b12def98a724b9f831de631137763"><td class="mdescLeft">&#160;</td><td class="mdescRight">指令类型  <a href="classrokae_1_1clr_1_1MoveCommand.html#ae63b12def98a724b9f831de631137763">更多...</a><br /></td></tr>
+<tr class="separator:ae63b12def98a724b9f831de631137763"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public 属性</h2></td></tr>
+<tr class="memitem:abc53d1a7fd280da105793e3565e19621"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classrokae_1_1clr_1_1CartesianPosition.html">CartesianPosition</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrokae_1_1clr_1_1MoveCommand.html#abc53d1a7fd280da105793e3565e19621">cartTarget</a></td></tr>
+<tr class="memdesc:abc53d1a7fd280da105793e3565e19621"><td class="mdescLeft">&#160;</td><td class="mdescRight">目标笛卡尔点位 <a href="classrokae_1_1clr_1_1MoveCommand.html#abc53d1a7fd280da105793e3565e19621">更多...</a><br /></td></tr>
+<tr class="separator:abc53d1a7fd280da105793e3565e19621"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae377fc8d5a40637061cda784d92cdeb7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classrokae_1_1clr_1_1JointPosition.html">JointPosition</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrokae_1_1clr_1_1MoveCommand.html#ae377fc8d5a40637061cda784d92cdeb7">jointTarget</a></td></tr>
+<tr class="memdesc:ae377fc8d5a40637061cda784d92cdeb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">目标关节点位 <a href="classrokae_1_1clr_1_1MoveCommand.html#ae377fc8d5a40637061cda784d92cdeb7">更多...</a><br /></td></tr>
+<tr class="separator:ae377fc8d5a40637061cda784d92cdeb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af82922b74ec1928965766ce49925ee55"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classrokae_1_1clr_1_1CartesianPosition.html">CartesianPosition</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrokae_1_1clr_1_1MoveCommand.html#af82922b74ec1928965766ce49925ee55">auxPoint</a></td></tr>
+<tr class="memdesc:af82922b74ec1928965766ce49925ee55"><td class="mdescLeft">&#160;</td><td class="mdescRight">辅助点 <a href="classrokae_1_1clr_1_1MoveCommand.html#af82922b74ec1928965766ce49925ee55">更多...</a><br /></td></tr>
+<tr class="separator:af82922b74ec1928965766ce49925ee55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40952c89f132d84d270040456d729c17"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classrokae_1_1clr_1_1CartesianPosition_1_1Offset.html">CartesianPosition::Offset</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrokae_1_1clr_1_1MoveCommand.html#a40952c89f132d84d270040456d729c17">cartTargetOffset</a></td></tr>
+<tr class="memdesc:a40952c89f132d84d270040456d729c17"><td class="mdescLeft">&#160;</td><td class="mdescRight">笛卡尔目标点偏移选项 <a href="classrokae_1_1clr_1_1MoveCommand.html#a40952c89f132d84d270040456d729c17">更多...</a><br /></td></tr>
+<tr class="separator:a40952c89f132d84d270040456d729c17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab39b44c729c7d18646aa402691f375ed"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classrokae_1_1clr_1_1CartesianPosition_1_1Offset.html">CartesianPosition::Offset</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrokae_1_1clr_1_1MoveCommand.html#ab39b44c729c7d18646aa402691f375ed">auxPointOffset</a></td></tr>
+<tr class="memdesc:ab39b44c729c7d18646aa402691f375ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">辅助点偏移选项 <a href="classrokae_1_1clr_1_1MoveCommand.html#ab39b44c729c7d18646aa402691f375ed">更多...</a><br /></td></tr>
+<tr class="separator:ab39b44c729c7d18646aa402691f375ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5660eb88147010c762f5ede59c94bfe"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrokae_1_1clr_1_1MoveCommand.html#ad5660eb88147010c762f5ede59c94bfe">speed</a></td></tr>
+<tr class="memdesc:ad5660eb88147010c762f5ede59c94bfe"><td class="mdescLeft">&#160;</td><td class="mdescRight">机器人末端最大线速度, 单位mm/s。见setDefaultSpeed <a href="classrokae_1_1clr_1_1MoveCommand.html#ad5660eb88147010c762f5ede59c94bfe">更多...</a><br /></td></tr>
+<tr class="separator:ad5660eb88147010c762f5ede59c94bfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76d405a04812c1a609176460d3e22b87"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrokae_1_1clr_1_1MoveCommand.html#a76d405a04812c1a609176460d3e22b87">jointSpeed</a></td></tr>
+<tr class="memdesc:a76d405a04812c1a609176460d3e22b87"><td class="mdescLeft">&#160;</td><td class="mdescRight">关节速度百分比，用于关节类型指令，范围[0, 1]。 大于等于0时生效；小于0时仍使用speed计算出的关节速度  <a href="classrokae_1_1clr_1_1MoveCommand.html#a76d405a04812c1a609176460d3e22b87">更多...</a><br /></td></tr>
+<tr class="separator:a76d405a04812c1a609176460d3e22b87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a7473a2549cdf7dada4e48a64fdccab"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrokae_1_1clr_1_1MoveCommand.html#a4a7473a2549cdf7dada4e48a64fdccab">rotSpeed</a></td></tr>
+<tr class="memdesc:a4a7473a2549cdf7dada4e48a64fdccab"><td class="mdescLeft">&#160;</td><td class="mdescRight">空间旋转速度，用于末端类型指令，单位rad/s。 大于等于0时生效；小于0时旋转速度默认为200°/s <a href="classrokae_1_1clr_1_1MoveCommand.html#a4a7473a2549cdf7dada4e48a64fdccab">更多...</a><br /></td></tr>
+<tr class="separator:a4a7473a2549cdf7dada4e48a64fdccab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa2acce3d065e5c2a309aee4a81856a8"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrokae_1_1clr_1_1MoveCommand.html#afa2acce3d065e5c2a309aee4a81856a8">zone</a></td></tr>
+<tr class="memdesc:afa2acce3d065e5c2a309aee4a81856a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">转弯区半径大小，单位mm。见setDefaultZone <a href="classrokae_1_1clr_1_1MoveCommand.html#afa2acce3d065e5c2a309aee4a81856a8">更多...</a><br /></td></tr>
+<tr class="separator:afa2acce3d065e5c2a309aee4a81856a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a832c8239b318e3d823e48084110751"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrokae_1_1clr_1_1MoveCommand.html#a1a832c8239b318e3d823e48084110751">customInfo</a></td></tr>
+<tr class="memdesc:a1a832c8239b318e3d823e48084110751"><td class="mdescLeft">&#160;</td><td class="mdescRight">自定义信息，可在运动信息反馈中返回出来 <a href="classrokae_1_1clr_1_1MoveCommand.html#a1a832c8239b318e3d823e48084110751">更多...</a><br /></td></tr>
+<tr class="separator:a1a832c8239b318e3d823e48084110751"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadc0d3a6920e813dea1387604273c0fa"><td class="memItemLeft" align="right" valign="top">List&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrokae_1_1clr_1_1MoveCommand.html#aadc0d3a6920e813dea1387604273c0fa">args</a></td></tr>
+<tr class="memdesc:aadc0d3a6920e813dea1387604273c0fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">运动指令其它参数 </p><ul>
+<li>
+<a class="el" href="classrokae_1_1clr_1_1MoveCommand.html#ae63b12def98a724b9f831de631137763aa2b23bf4a13158e84c2ec25499a1683e" title="全圆轨迹MoveCF, 目标点是cartTarget,经过辅助点auxPoint">Type::MoveCF</a>接受长度为2参数，依次为: 全圆执行角度[弧度]; 旋转姿态类型, 0不变姿态|1动轴旋转|2定轴旋转 </li>
+<li>
+<a class="el" href="classrokae_1_1clr_1_1MoveCommand.html#ae63b12def98a724b9f831de631137763ae9107150bdfdc5041bf99d9024b4c80a" title="螺旋线轨迹MoveSP, 目标点是cartTarget">Type::MoveSP</a>接受长度为4参数，依次为:初始半径[米]; 每旋转单位角度半径的变化[米/弧度]; 合计旋转角度[弧度]; 旋转方向, 1顺时针|0逆时针 </li>
+<li>
+<a class="el" href="classrokae_1_1clr_1_1MoveCommand.html#ae63b12def98a724b9f831de631137763a6815a3143acfeb43990144c562e2846d" title="运动停留指令">Type::MoveWait</a>接受长度为1参数，含义为: 停留时长[秒], 最小有效时长1ms </li>
+</ul>
+ <a href="classrokae_1_1clr_1_1MoveCommand.html#aadc0d3a6920e813dea1387604273c0fa">更多...</a><br /></td></tr>
+<tr class="separator:aadc0d3a6920e813dea1387604273c0fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p >非实时运动指令 </p>
+
+<p class="definition">在文件 <a class="el" href="data__types__cli_8hpp_source.html">data_types_cli.hpp</a> 第 <a class="el" href="data__types__cli_8hpp_source.html#l00362">362</a> 行定义.</p>
+</div><h2 class="groupheader">成员枚举类型说明</h2>
+<a id="ae63b12def98a724b9f831de631137763" name="ae63b12def98a724b9f831de631137763"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae63b12def98a724b9f831de631137763">&#9670;&nbsp;</a></span>Type</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="classrokae_1_1clr_1_1MoveCommand.html#ae63b12def98a724b9f831de631137763">rokae::clr::MoveCommand::Type</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>指令类型 </p>
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="ae63b12def98a724b9f831de631137763a66011195d92ba4ae52a591c94347f2a3" name="ae63b12def98a724b9f831de631137763a66011195d92ba4ae52a591c94347f2a3"></a>MoveL&#160;</td><td class="fielddoc"><p >末端直线轨迹，目标点是cartTarget</p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae63b12def98a724b9f831de631137763a35b30c89b8da861773f6d3c83d225641" name="ae63b12def98a724b9f831de631137763a35b30c89b8da861773f6d3c83d225641"></a>MoveJ&#160;</td><td class="fielddoc"><p >轴运动，目标点是cartTarget</p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae63b12def98a724b9f831de631137763a0ea7163cf68f6b0d634f3236b079275d" name="ae63b12def98a724b9f831de631137763a0ea7163cf68f6b0d634f3236b079275d"></a>MoveAbsJ&#160;</td><td class="fielddoc"><p >轴运动，目标点是jointTarget</p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae63b12def98a724b9f831de631137763a5616698c149d5125740636e7d1f305f4" name="ae63b12def98a724b9f831de631137763a5616698c149d5125740636e7d1f305f4"></a>MoveC&#160;</td><td class="fielddoc"><p >圆弧轨迹MoveC, 目标点是cartTarget,经过辅助点auxPoint</p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae63b12def98a724b9f831de631137763aa2b23bf4a13158e84c2ec25499a1683e" name="ae63b12def98a724b9f831de631137763aa2b23bf4a13158e84c2ec25499a1683e"></a>MoveCF&#160;</td><td class="fielddoc"><p >全圆轨迹MoveCF, 目标点是cartTarget,经过辅助点auxPoint</p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae63b12def98a724b9f831de631137763ae9107150bdfdc5041bf99d9024b4c80a" name="ae63b12def98a724b9f831de631137763ae9107150bdfdc5041bf99d9024b4c80a"></a>MoveSP&#160;</td><td class="fielddoc"><p >螺旋线轨迹MoveSP, 目标点是cartTarget</p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae63b12def98a724b9f831de631137763a6815a3143acfeb43990144c562e2846d" name="ae63b12def98a724b9f831de631137763a6815a3143acfeb43990144c562e2846d"></a>MoveWait&#160;</td><td class="fielddoc"><p >运动停留指令</p>
+</td></tr>
+</table>
+
+<p class="definition">在文件 <a class="el" href="data__types__cli_8hpp_source.html">data_types_cli.hpp</a> 第 <a class="el" href="data__types__cli_8hpp_source.html#l00367">367</a> 行定义.</p>
+
+</div>
+</div>
+<h2 class="groupheader">构造及析构函数说明</h2>
+<a id="a3b2c07e14ac05a3636f59829a5d95c64" name="a3b2c07e14ac05a3636f59829a5d95c64"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b2c07e14ac05a3636f59829a5d95c64">&#9670;&nbsp;</a></span>MoveCommand()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">rokae::clr::MoveCommand::MoveCommand </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="data__types__cli_8hpp_source.html">data_types_cli.hpp</a> 第 <a class="el" href="data__types__cli_8hpp_source.html#l00421">421</a> 行定义.</p>
+
+</div>
+</div>
+<h2 class="groupheader">类成员变量说明</h2>
+<a id="aadc0d3a6920e813dea1387604273c0fa" name="aadc0d3a6920e813dea1387604273c0fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aadc0d3a6920e813dea1387604273c0fa">&#9670;&nbsp;</a></span>args</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt;double&gt; rokae::clr::MoveCommand::args</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>运动指令其它参数 </p><ul>
+<li>
+<a class="el" href="classrokae_1_1clr_1_1MoveCommand.html#ae63b12def98a724b9f831de631137763aa2b23bf4a13158e84c2ec25499a1683e" title="全圆轨迹MoveCF, 目标点是cartTarget,经过辅助点auxPoint">Type::MoveCF</a>接受长度为2参数，依次为: 全圆执行角度[弧度]; 旋转姿态类型, 0不变姿态|1动轴旋转|2定轴旋转 </li>
+<li>
+<a class="el" href="classrokae_1_1clr_1_1MoveCommand.html#ae63b12def98a724b9f831de631137763ae9107150bdfdc5041bf99d9024b4c80a" title="螺旋线轨迹MoveSP, 目标点是cartTarget">Type::MoveSP</a>接受长度为4参数，依次为:初始半径[米]; 每旋转单位角度半径的变化[米/弧度]; 合计旋转角度[弧度]; 旋转方向, 1顺时针|0逆时针 </li>
+<li>
+<a class="el" href="classrokae_1_1clr_1_1MoveCommand.html#ae63b12def98a724b9f831de631137763a6815a3143acfeb43990144c562e2846d" title="运动停留指令">Type::MoveWait</a>接受长度为1参数，含义为: 停留时长[秒], 最小有效时长1ms </li>
+</ul>
+</p>
+
+<p class="definition">在文件 <a class="el" href="data__types__cli_8hpp_source.html">data_types_cli.hpp</a> 第 <a class="el" href="data__types__cli_8hpp_source.html#l00419">419</a> 行定义.</p>
+
+</div>
+</div>
+<a id="af82922b74ec1928965766ce49925ee55" name="af82922b74ec1928965766ce49925ee55"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af82922b74ec1928965766ce49925ee55">&#9670;&nbsp;</a></span>auxPoint</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classrokae_1_1clr_1_1CartesianPosition.html">CartesianPosition</a> rokae::clr::MoveCommand::auxPoint</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>辅助点</p>
+
+<p class="definition">在文件 <a class="el" href="data__types__cli_8hpp_source.html">data_types_cli.hpp</a> 第 <a class="el" href="data__types__cli_8hpp_source.html#l00390">390</a> 行定义.</p>
+
+</div>
+</div>
+<a id="ab39b44c729c7d18646aa402691f375ed" name="ab39b44c729c7d18646aa402691f375ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab39b44c729c7d18646aa402691f375ed">&#9670;&nbsp;</a></span>auxPointOffset</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classrokae_1_1clr_1_1CartesianPosition_1_1Offset.html">CartesianPosition::Offset</a> rokae::clr::MoveCommand::auxPointOffset</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>辅助点偏移选项</p>
+
+<p class="definition">在文件 <a class="el" href="data__types__cli_8hpp_source.html">data_types_cli.hpp</a> 第 <a class="el" href="data__types__cli_8hpp_source.html#l00394">394</a> 行定义.</p>
+
+</div>
+</div>
+<a id="abc53d1a7fd280da105793e3565e19621" name="abc53d1a7fd280da105793e3565e19621"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc53d1a7fd280da105793e3565e19621">&#9670;&nbsp;</a></span>cartTarget</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classrokae_1_1clr_1_1CartesianPosition.html">CartesianPosition</a> rokae::clr::MoveCommand::cartTarget</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>目标笛卡尔点位</p>
+
+<p class="definition">在文件 <a class="el" href="data__types__cli_8hpp_source.html">data_types_cli.hpp</a> 第 <a class="el" href="data__types__cli_8hpp_source.html#l00386">386</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a40952c89f132d84d270040456d729c17" name="a40952c89f132d84d270040456d729c17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40952c89f132d84d270040456d729c17">&#9670;&nbsp;</a></span>cartTargetOffset</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classrokae_1_1clr_1_1CartesianPosition_1_1Offset.html">CartesianPosition::Offset</a> rokae::clr::MoveCommand::cartTargetOffset</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>笛卡尔目标点偏移选项</p>
+
+<p class="definition">在文件 <a class="el" href="data__types__cli_8hpp_source.html">data_types_cli.hpp</a> 第 <a class="el" href="data__types__cli_8hpp_source.html#l00392">392</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a1a832c8239b318e3d823e48084110751" name="a1a832c8239b318e3d823e48084110751"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a832c8239b318e3d823e48084110751">&#9670;&nbsp;</a></span>customInfo</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">String rokae::clr::MoveCommand::customInfo</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>自定义信息，可在运动信息反馈中返回出来</p>
+
+<p class="definition">在文件 <a class="el" href="data__types__cli_8hpp_source.html">data_types_cli.hpp</a> 第 <a class="el" href="data__types__cli_8hpp_source.html#l00407">407</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a76d405a04812c1a609176460d3e22b87" name="a76d405a04812c1a609176460d3e22b87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76d405a04812c1a609176460d3e22b87">&#9670;&nbsp;</a></span>jointSpeed</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double rokae::clr::MoveCommand::jointSpeed</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>关节速度百分比，用于关节类型指令，范围[0, 1]。 大于等于0时生效；小于0时仍使用speed计算出的关节速度 </p>
+
+<p class="definition">在文件 <a class="el" href="data__types__cli_8hpp_source.html">data_types_cli.hpp</a> 第 <a class="el" href="data__types__cli_8hpp_source.html#l00400">400</a> 行定义.</p>
+
+</div>
+</div>
+<a id="ae377fc8d5a40637061cda784d92cdeb7" name="ae377fc8d5a40637061cda784d92cdeb7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae377fc8d5a40637061cda784d92cdeb7">&#9670;&nbsp;</a></span>jointTarget</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classrokae_1_1clr_1_1JointPosition.html">JointPosition</a> rokae::clr::MoveCommand::jointTarget</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>目标关节点位</p>
+
+<p class="definition">在文件 <a class="el" href="data__types__cli_8hpp_source.html">data_types_cli.hpp</a> 第 <a class="el" href="data__types__cli_8hpp_source.html#l00388">388</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a4a7473a2549cdf7dada4e48a64fdccab" name="a4a7473a2549cdf7dada4e48a64fdccab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a7473a2549cdf7dada4e48a64fdccab">&#9670;&nbsp;</a></span>rotSpeed</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double rokae::clr::MoveCommand::rotSpeed</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>空间旋转速度，用于末端类型指令，单位rad/s。 大于等于0时生效；小于0时旋转速度默认为200°/s</p>
+
+<p class="definition">在文件 <a class="el" href="data__types__cli_8hpp_source.html">data_types_cli.hpp</a> 第 <a class="el" href="data__types__cli_8hpp_source.html#l00403">403</a> 行定义.</p>
+
+</div>
+</div>
+<a id="ad5660eb88147010c762f5ede59c94bfe" name="ad5660eb88147010c762f5ede59c94bfe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5660eb88147010c762f5ede59c94bfe">&#9670;&nbsp;</a></span>speed</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double rokae::clr::MoveCommand::speed</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>机器人末端最大线速度, 单位mm/s。见setDefaultSpeed</p>
+
+<p class="definition">在文件 <a class="el" href="data__types__cli_8hpp_source.html">data_types_cli.hpp</a> 第 <a class="el" href="data__types__cli_8hpp_source.html#l00396">396</a> 行定义.</p>
+
+</div>
+</div>
+<a id="afa2acce3d065e5c2a309aee4a81856a8" name="afa2acce3d065e5c2a309aee4a81856a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa2acce3d065e5c2a309aee4a81856a8">&#9670;&nbsp;</a></span>zone</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double rokae::clr::MoveCommand::zone</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>转弯区半径大小，单位mm。见setDefaultZone</p>
+
+<p class="definition">在文件 <a class="el" href="data__types__cli_8hpp_source.html">data_types_cli.hpp</a> 第 <a class="el" href="data__types__cli_8hpp_source.html#l00405">405</a> 行定义.</p>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li><a class="el" href="data__types__cli_8hpp_source.html">data_types_cli.hpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- HTML footer for doxygen 1.8.7-->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者 &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.9.4
+</small></address>
+</div>
+</body>
+</html>

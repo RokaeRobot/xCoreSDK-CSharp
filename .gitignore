@@ -1,0 +1,12 @@
+.vs/
+**/bin/
+**/obj/
+*.user
+*.suo
+
+# Prebuilt SDK libraries — distributed via GitHub Releases (see xcore.lib/README.md)
+**/xcore.lib/*.dll
+**/xcore.lib/*.pdb
+
+scripts/
+dist/
