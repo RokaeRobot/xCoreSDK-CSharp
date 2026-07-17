@@ -2,6 +2,12 @@
 
 xCore SDK 编程接口库是珞石机器人提供给客户用于二次开发的软件产品（C# / CLR 封装）。
 
+## 在线文档
+
+其他内容与 API 说明请访问官网在线文档：
+
+**[https://docs.rokae.com/docs/SDK/csharp](https://docs.rokae.com/docs/SDK/csharp)**
+
 ## 兼容性
 
 ### 机器人控制器
@@ -48,7 +54,7 @@ xCoreSDK-CSharp/xcore.lib/
 * `MainForm` — 基础功能接口示例
 * `ApplicationForm` — 其它示例（含机器人状态数据读取）
 * `examples/` — 各接口调用示例
-* `share/doc_html/` — API HTML 文档
+* `share/doc_html/` — API HTML 文档（本地副本；推荐优先查阅 [在线文档](https://docs.rokae.com/docs/SDK/csharp)）
 
 ### 使用方法
 
