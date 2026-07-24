@@ -54,7 +54,7 @@ xCoreSDK-CSharp/xcore.lib/
 * `MainForm` — 基础功能接口示例
 * `ApplicationForm` — 其它示例（含机器人状态数据读取）
 * `examples/` — 各接口调用示例
-* `share/doc_html/` — API HTML 文档（本地副本；推荐优先查阅 [在线文档](https://docs.rokae.com/docs/SDK/csharp)）
+* `share/doc_html/` — API HTML 文档
 
 ### 使用方法
 
